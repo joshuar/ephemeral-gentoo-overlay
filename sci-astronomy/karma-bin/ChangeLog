@@ -1,0 +1,26 @@
+# ChangeLog for sci-astronomy/karma-bin
+# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  25 Sep 2007; Joshua Rich <joshua@mso.anu.edu.au> ChangeLog:
+  Fixed convert binary to avoid conflict with media-gfx/imagemagick and
+  	changed categories on desktop entries
+
+  26 Aug 2007; Joshua Rich <joshua@mso.anu.edu.au> ChangeLog:
+  Karma now installs into /usr like a normal application.  Fixed desktop
+  entry files as well.
+
+  19 Aug 2007; Joshua Rich <joshua@mso.anu.edu.au> ChangeLog:
+  Cleaned up ebuild again.  Much simpler now.
+
+  09 Jul 2007; Joshua Rich joshua@mso.anu.edu.au
+  Clean-up of ebuild.
+
+  21 Mar 2007; joshua joshua@mso.anu.edu.au
+  Complete rewrite of ebuild.
+  All installation and unpacking now done inside pkg_install.  This ebuild
+  does many things it probably shouldn't do, namely because the way
+  karma does things is very non-standard.  This ebuild basically
+  installs everything under /opt/karma except docs, which are
+  installed in the normal place.
+

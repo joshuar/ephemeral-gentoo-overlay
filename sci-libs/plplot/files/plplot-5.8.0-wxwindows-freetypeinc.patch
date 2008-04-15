@@ -1,0 +1,11 @@
+--- wxwidgets.cmake.orig	2008-03-25 22:33:00.000000000 +1100
++++ wxwidgets.cmake	2008-03-25 22:33:17.000000000 +1100
+@@ -48,7 +48,7 @@
+   if(WITH_FREETYPE)
+     set(
+     wxwidgets_COMPILE_FLAGS
+-    "${wxwidgets_COMPILE_FLAGS} -I${FREETYPE_INCLUDE_DIR}"
++    "${wxwidgets_COMPILE_FLAGS} ${FREETYPE_INCLUDE_DIR}"
+     )
+     set(
+     wxwidgets_LINK_FLAGS

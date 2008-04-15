@@ -1,0 +1,51 @@
+--- mkprodct.csh.orig	2007-04-07 09:55:06.000000000 +1000
++++ mkprodct.csh	2007-04-07 09:56:08.000000000 +1000
+@@ -136,6 +136,24 @@
+    
+ endif
+ 
++#
++#  Choose your linker.
++#
++if ( $?TKLINKER ) then
++
++   echo " "
++   echo "      Using linker: "
++   echo "      $TKLINKER"
++
++else
++
++   set TKLINKER  =  "ld"
++   echo " "
++   echo "      Setting default linker:"
++   echo $TKLINKER
++   
++endif
++
+ 
+ #
+ #  What compile options do we want to use? If they were 
+@@ -179,7 +197,7 @@
+ #   Determine a provisional LIBRARY name.
+ #
+    foreach item ( `pwd` )
+-      set LIBRARY = "../../lib/"$item:t
++      set LIBRARY = "../../lib/lib"$item:t
+    end
+ 
+ #
+@@ -216,6 +234,7 @@
+    echo "      Inserting objects in the library $LIBRARY ..."
+    ar  crv $LIBRARY.a *.o
+    ranlib  $LIBRARY.a
++   $TKLINKER -shared -o $LIBRARY.so --whole-archive $LIBRARY.a
+    \rm                *.o    
+    echo " "
+ 
+@@ -302,4 +321,4 @@
+ 
+ exit 0
+ 
+-   
+\ No newline at end of file
++   

@@ -1,0 +1,20 @@
+--- Makefile.in.orig	2007-11-29 19:55:01.000000000 +1100
++++ Makefile.in	2007-11-29 19:55:21.000000000 +1100
+@@ -75,7 +75,7 @@
+ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
+ 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+ CCLD = $(CC)
+-LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
++LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $? $(AM_LDFLAGS) $(LDFLAGS) -o $@
+ DIST_SOURCES = wndo-spy.c
+ ETAGS = etags
+ CTAGS = ctags
+@@ -234,7 +234,7 @@
+ 	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
+ wndo-spy$(EXEEXT): $(wndo_spy_OBJECTS) $(wndo_spy_DEPENDENCIES) 
+ 	@rm -f wndo-spy$(EXEEXT)
+-	$(LINK) $(wndo_spy_LDFLAGS) $(wndo_spy_OBJECTS) $(wndo_spy_LDADD) $(LIBS)
++	$(LINK) $(wndo_spy_LDFLAGS) $(wndo_spy_LDADD) $(LIBS)
+ 
+ mostlyclean-compile:
+ 	-rm -f *.$(OBJEXT)

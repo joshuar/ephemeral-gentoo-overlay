@@ -1,0 +1,11 @@
+--- Makefile.in	2006-06-10 04:14:40.000000000 +1000
++++ Makefile.in.new	2007-02-15 12:13:42.000000000 +1100
+@@ -106,7 +106,7 @@
+ 	test the distribution"
+ 	@echo "and 'make install' to install it."
+ 
+-install: install-libraries install-doc install-demos
++install: install-libraries
+ 
+ test:
+ 	LD_LIBRARY_PATH=$(ITCL_LIB_DIR):$(ITK_LIB_DIR):$(LD_LIBRARY_PATH); export LD_LIBRARY_PATH ; \

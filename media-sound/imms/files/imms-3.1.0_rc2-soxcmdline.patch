@@ -1,0 +1,11 @@
+--- soxprovider.h.old	2008-02-17 22:11:39.000000000 +1100
++++ soxprovider.h	2008-02-17 22:12:21.000000000 +1100
+@@ -18,7 +18,7 @@
+     if (extension == "mp3" || extension == "ogg")
+         command << "-t ." << extension << " ";
+     command << "\'" << epath << "\' ";
+-    command << "-t .raw -w -c 1 -p -r " << samplerate
++    command << "-t .raw -4 -c 1 -r " << samplerate
+         << (sign ? " -s" : " -u") << " -";
+     LOG(INFO) << "Executing: " << command.str() << endl;
+     return popen(command.str().c_str(), "r");

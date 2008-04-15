@@ -1,0 +1,11 @@
+# ChangeLog for dev-perl/astro
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  11 Feb 2008; Joshua Rich <joshua@mso.anu.edu.au> ChangeLog:
+  Initial ebuild.  Although this is trivial to install via g-cpan (and the
+  	ebuild itself is as simple as it gets), g-cpan and portage do not
+  	understand that this is a meta-package for three different Perl
+  	modules.  Thus I've made this an ebuild to avoid annoying warning
+  	messages when using g-cpan and in portage and portage-related tools.
+

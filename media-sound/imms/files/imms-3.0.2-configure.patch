@@ -1,0 +1,82 @@
+--- configure.ac.orig	2007-06-30 12:18:52.000000000 +1000
++++ configure.ac	2007-06-30 12:21:21.000000000 +1000
+@@ -77,7 +77,7 @@
+   static char rand_state[256];
+   initstate_r(0, rand_state, sizeof(rand_state), &rand_data);
+   exit(0);
+-}], initstate_r_works=yes,, ])
++}], [initstate_r_works=yes,, ])
+ 
+ if test "$initstate_r_works" != "yes"; then
+     AC_MSG_RESULT([no])
+@@ -270,38 +270,38 @@
+ saved_libs="$LIBS"
+ 
+ PLUGINS=""
+-AC_CHECK_PROG(with_xmms, xmms-config, "yes", "no")
+-if test "$xmms_config" != "no"; then
+-    CPPFLAGS=`xmms-config --cflags`
+-    AC_CHECK_HEADERS(glib.h,, [with_xmms=no]) # how to disable caching for this?
+-    AC_CHECK_HEADERS(gtk/gtk.h,, [with_xmms=no])
+-    AC_CHECK_HEADERS(xmms/plugin.h,, [with_xmms=no])
+-    AC_CHECK_HEADERS(xmms/xmmsctrl.h,, [with_xmms=no])
+-fi
+-
+-xmms_enable_playqueue=$enable_queuecontrol
+-if test "$with_xmms" = "no"; then
+-    AC_MSG_WARN([Not building XMMS plugin])
+-else 
+-    if test "$xmms_enable_playqueue" != "no"; then
+-        AC_MSG_CHECKING([for xmms_remote_playqueue_add in -lxmms])
+-        saved_libs="$LIBS"
+-        LIBS="$LIBS -lxmms"
+-        AC_TRY_LINK([#include <xmms/xmmsctrl.h>],
+-                    [xmms_remote_playqueue_add(0, 0)],
+-                    [AC_MSG_RESULT(yes)],
+-                    [xmms_enable_playqueue="no"
+-                         AC_MSG_RESULT(no)]);
+-        LIBS="$saved_libs"
+-    fi
+-    if test "$xmms_enable_playqueue" = "no"; then
+-        AC_APPEND(PLUGINS, libxmmsimms.so)
+-    else
+-        AC_DEFINE(XMMS_HAVE_QUEUE_CONTROL,,
+-                  [XMMS provides functions to control the play queue])
+-        AC_APPEND(PLUGINS, libxmmsimms2.so)
+-    fi
+-fi
++dnl AC_CHECK_PROG(with_xmms, xmms-config, "yes", "no")
++dnl if test "$xmms_config" != "no"; then
++dnl     CPPFLAGS=`xmms-config --cflags`
++dnl     AC_CHECK_HEADERS(glib.h,, [with_xmms=no]) # how to disable caching for this?
++dnl     AC_CHECK_HEADERS(gtk/gtk.h,, [with_xmms=no])
++dnl     AC_CHECK_HEADERS(xmms/plugin.h,, [with_xmms=no])
++dnl     AC_CHECK_HEADERS(xmms/xmmsctrl.h,, [with_xmms=no])
++dnl fi
++
++dnl xmms_enable_playqueue=$enable_queuecontrol
++dnl if test "$with_xmms" = "no"; then
++dnl     AC_MSG_WARN([Not building XMMS plugin])
++dnl else 
++dnl     if test "$xmms_enable_playqueue" != "no"; then
++dnl         AC_MSG_CHECKING([for xmms_remote_playqueue_add in -lxmms])
++dnl         saved_libs="$LIBS"
++dnl         LIBS="$LIBS -lxmms"
++dnl         AC_TRY_LINK([#include <xmms/xmmsctrl.h>],
++dnl                     [xmms_remote_playqueue_add(0, 0)],
++dnl                     [AC_MSG_RESULT(yes)],
++dnl                     [xmms_enable_playqueue="no"
++dnl                          AC_MSG_RESULT(no)]);
++dnl         LIBS="$saved_libs"
++dnl     fi
++dnl     if test "$xmms_enable_playqueue" = "no"; then
++dnl         AC_APPEND(PLUGINS, libxmmsimms.so)
++dnl     else
++dnl         AC_DEFINE(XMMS_HAVE_QUEUE_CONTROL,,
++dnl                   [XMMS provides functions to control the play queue])
++dnl         AC_APPEND(PLUGINS, libxmmsimms2.so)
++dnl     fi
++dnl fi
+ 
+ PKG_CHECK_MODULES(BMP, [bmp >= 0.9.7], [], [with_bmp=no])
+ 

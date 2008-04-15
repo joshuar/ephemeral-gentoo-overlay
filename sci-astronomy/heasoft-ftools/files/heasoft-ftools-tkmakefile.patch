@@ -1,0 +1,11 @@
+--- Makefile.in	2006-05-31 05:52:27.000000000 +1000
++++ Makefile.in.new	2007-02-15 12:00:25.000000000 +1100
+@@ -600,7 +600,7 @@
+ 	gdb ./wish --command=gdb.run
+ 	rm gdb.run
+ 
+-INSTALL_TARGETS = install-binaries install-libraries install-demos install-doc @EXTRA_INSTALL@
++INSTALL_TARGETS = install-binaries install-libraries @EXTRA_INSTALL@
+ 
+ install: $(INSTALL_TARGETS)
+ 

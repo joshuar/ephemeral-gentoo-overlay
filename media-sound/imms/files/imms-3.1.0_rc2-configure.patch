@@ -1,0 +1,65 @@
+--- configure.ac.original	2007-06-21 20:41:32.000000000 +1000
++++ configure.ac	2007-06-23 22:26:37.000000000 +1000
+@@ -124,8 +124,8 @@
+     fi
+ fi
+ 
+-PKG_CHECK_MODULES([GLIB], [glib-2.0 >= 2.0],
+-                  [], [AC_MSG_ERROR([Required packages missing.])])
++dnl PKG_CHECK_MODULES([GLIB], [glib-2.0 >= 2.0],
++dnl                   [], [AC_MSG_ERROR([Required packages missing.])])
+ 
+ saved_cppflags="$CPPFLAGS"
+ saved_libs="$LIBS"
+@@ -194,9 +194,9 @@
+         AC_CHECK_HEADERS(vorbis/codec.h vorbis/vorbisfile.h,,
+                          [with_vorbis=no])
+     fi
+-    if test "$with_vorbis" = "no"; then
+-        AC_MSG_WARN([Vorbis is missing.])
+-    else
++    if test "$with_vorbis" != "no"; then
++dnl         AC_MSG_WARN([Vorbis is missing.])
++dnl     else
+         AC_DEFINE(WITH_VORBIS,, [Native Vorbis tag support])
+     fi
+ fi
+@@ -253,9 +253,9 @@
+ fi
+ 
+ xmms_enable_playqueue=$enable_queuecontrol
+-if test "$with_xmms" = "no"; then
+-    AC_MSG_WARN([Not building XMMS plugin])
+-else 
++if test "$with_xmms" != "no"; then
++dnl     AC_MSG_WARN([Not building XMMS plugin])
++dnl else 
+     if test "$xmms_enable_playqueue" != "no"; then
+         AC_MSG_CHECKING([for xmms_remote_playqueue_add in -lxmms])
+         saved_libs="$LIBS"
+@@ -276,6 +276,7 @@
+     fi
+ fi
+ 
++if test "$with_bmp" != "no"; then
+ PKG_CHECK_MODULES(BMP, [bmp >= 0.9.7], [], [with_bmp=no])
+ 
+ LIBS=$BMP_LIBS
+@@ -304,7 +305,9 @@
+         AC_APPEND(PLUGINS, libbmpimms2.so)
+     fi
+ fi
++fi
+ 
++if test "$with_audacious" != "no"; then
+ PKG_CHECK_MODULES(Audacious, [audacious >= 0.2.0], [], [with_audacious=no])
+ 
+ LIBS=$Audacious_LIBS
+@@ -333,6 +336,7 @@
+         AC_APPEND(PLUGINS, libaudaciousimms2.so)
+     fi
+ fi
++fi
+ 
+ if test "$enable_analyzer" != "no"; then
+     AC_APPEND(OPTIONAL, analyzer)

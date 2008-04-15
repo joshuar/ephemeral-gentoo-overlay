@@ -1,0 +1,43 @@
+# ChangeLog for media-sound/imms
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  06 Apr 2008; Joshua Rich <joshua@mso.anu.edu.au> ChangeLog:
+  Missing call the python_version in src_install when installing quodlibet
+  plugin.
+
+  03 Apr 2008; Joshua Rich <joshua.rich@gmail.com> ChangeLog:
+  Wrapped python part of postinst and postrm functions in conditional USE
+  	flag code as the commands are only relevant if the USE flag
+  	quodlibet is set.
+
+  03 Apr 2008; Joshua Rich <joshua@mso.anu.edu.au> ChangeLog:
+  Fixed problem with having the analyzer and remote USE flags unset.  This
+  	would cause configure to be unable to find glib, fix was to
+  	explicitly call PKG_PROG_PKG_CONFIG in configure.ac.  Also added
+  	new use flag 'quodlibet' to enable fetching and installing of the
+  	quodlibet imms plugin.
+
+  12 Mar 2008; Joshua Rich <joshua@mso.anu.edu.au> ChangeLog:
+  Cleaned up formatting inside ebuild.  Most install task now report error
+  	message on failure.
+
+  08 Mar 2008; Joshua Rich <joshua@mso.anu.edu.au> ChangeLog:
+  Version bump to 3.1.0-rc4. Ebuild was also cleaned up a bit.
+
+  17 Feb 2008; Joshua Rich <joshua@mso.anu.edu.au> ChangeLog:
+  Added patch for imms-3.1.0_rc2-r3 that allows the use of sox version 14.0
+  	or greater.
+
+  30 Nov 2007; Joshua Rich <joshua@mso.anu.edu.au> ChangeLog:
+  Removed filtering of LDFLAGS, not needed.
+
+  29 Nov 2007; Joshua Rich <joshua@mso.anu.edu.au> ChangeLog:
+  Added patch to rules.mk file to fix problem with binary data included as
+  	an object file in a library using objcopy.  Needed to specify an
+  	architecture (using the -B option to objcopy) to overcome
+  	'architecture unknown' errors on compile.
+
+  22 Jun 2007; Joshua Rich <joshua@mso.anu.edu.au> ChangeLog:
+  Initial Import
+

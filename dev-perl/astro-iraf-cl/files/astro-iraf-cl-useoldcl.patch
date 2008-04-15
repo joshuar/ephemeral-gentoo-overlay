@@ -1,0 +1,11 @@
+--- CL.pm.orig	2007-09-09 14:26:08.000000000 +1000
++++ CL.pm	2007-09-09 14:26:35.000000000 +1000
+@@ -124,7 +124,7 @@
+ 
+   chdir $self->{'iraf_start'} ||croak "Could not cd to $self->{'iraf_start'}";
+ 
+-  my $t = Expect->spawn('cl') || croak "Cannot spawn CL: $!";
++  my $t = Expect->spawn('cl -o') || croak "Cannot spawn CL: $!";
+ 
+   $t->expect(30,'-re',$self->{'cl_prompt'});
+   croak "Did not get CL prompt after starting up" if $t->error;

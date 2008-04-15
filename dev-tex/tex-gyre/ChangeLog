@@ -1,0 +1,13 @@
+# ChangeLog for dev-tex/tex-gyre
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  31 Mar 2008; Joshua Rich <joshua.rich@gmail.com> ChangeLog:
+  Iteration to integrate tex-gyre fonts with texlive properly.
+
+  11 Mar 2008; Joshua Rich <joshua@mso.anu.edu.au> ChangeLog:
+  Fixed installation of all docs.  Removed a double-slash in download URL.
+
+  10 Mar 2008; Joshua Rich <joshua.rich@gmail.com> ChangeLog:
+  Initial ebuild.
+

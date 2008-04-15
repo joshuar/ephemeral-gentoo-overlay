@@ -1,0 +1,37 @@
+--- __init__.py.old	2008-02-09 17:36:20.000000000 +1100
++++ __init__.py	2008-02-09 17:35:53.000000000 +1100
+@@ -18,9 +18,8 @@
+ from distutils.command.install import install as distutils_install
+ 
+ from gdist.gobject import build_gobject_ext, GObjectExtension
+-from gdist.shortcuts import build_shortcuts, install_shortcuts
+-from gdist.man import install_man
+-from gdist.po import build_mo, install_mo
++from gdist.shortcuts import build_shortcuts
++from gdist.po import build_mo
+ 
+ class build(distutils_build):
+     """Override the default build with new subcommands."""
+@@ -36,11 +35,7 @@
+ class install(distutils_install):
+     """Override the default install with new subcommands."""
+ 
+-    sub_commands = distutils_install.sub_commands + [
+-        ("install_shortcuts", lambda self: self.distribution.has_shortcuts()), 
+-        ("install_man", lambda self: self.distribution.has_man_pages()),
+-        ("install_mo", lambda self: self.distribution.has_po()),
+-       ]
++    sub_commands = distutils_install.sub_commands 
+ 
+ class GDistribution(Distribution):
+     """A Distribution with support for GTK+-related options
+@@ -76,9 +71,6 @@
+         self.cmdclass.setdefault("build_gobject_ext", build_gobject_ext)
+         self.cmdclass.setdefault("build_mo", build_mo)
+         self.cmdclass.setdefault("build_shortcuts", build_shortcuts)
+-        self.cmdclass.setdefault("install_shortcuts", install_shortcuts)
+-        self.cmdclass.setdefault("install_man", install_man)
+-        self.cmdclass.setdefault("install_mo", install_mo)
+         self.cmdclass.setdefault("build", build)
+         self.cmdclass.setdefault("install", install)
+ 

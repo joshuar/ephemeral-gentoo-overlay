@@ -1,0 +1,39 @@
+--- Makefile.old	2007-11-18 16:13:37.000000000 +1100
++++ Makefile	2007-11-18 16:14:38.000000000 +1100
+@@ -1,6 +1,6 @@
+ # $Id: Makefile,v 1.4 2005/10/05 10:07:40 jodrell Exp $
+ NAME=podbrowser
+-PREFIX=/usr/local
++PREFIX=/usr
+ BINDIR=$(PREFIX)/bin
+ DATADIR=$(PREFIX)/share
+ ICONDIR=$(DATADIR)/icons/hicolor/48x48/apps
+@@ -15,17 +15,17 @@
+ 	pod2man $(NAME).pl | gzip -c > build/$(NAME).1.gz
+ 
+ install:
+-	mkdir -p	$(BINDIR) \
+-			$(DATADIR)/$(NAME) \
+-			$(DATADIR)/applications \
+-			$(ICONDIR) \
+-			$(MANDIR)
+-	install -m 0644 $(NAME).glade		$(DATADIR)/$(NAME)/
+-	install -m 0644 $(NAME).png		$(ICONDIR)/
+-	install -m 0644 $(NAME).desktop		$(DATADIR)/applications/
+-	install -m 0644 build/$(NAME).1.gz	$(MANDIR)/
+-	install -m 0755 build/$(NAME)		$(BINDIR)/$(NAME)
+-	install -m 0755 html2ps-$(NAME)		$(BINDIR)/html2ps-$(NAME)
++	mkdir -p	${DESTDIR}/$(BINDIR) \
++			${DESTDIR}/$(DATADIR)/$(NAME) \
++			${DESTDIR}/$(DATADIR)/applications \
++			${DESTDIR}/$(ICONDIR) \
++			${DESTDIR}/$(MANDIR)
++	install -m 0644 $(NAME).glade		${DESTDIR}/$(DATADIR)/$(NAME)/
++	install -m 0644 $(NAME).png		${DESTDIR}/$(ICONDIR)/
++	install -m 0644 $(NAME).desktop		${DESTDIR}/$(DATADIR)/applications/
++	install -m 0644 build/$(NAME).1.gz	${DESTDIR}/$(MANDIR)/
++	install -m 0755 build/$(NAME)		${DESTDIR}/$(BINDIR)/$(NAME)
++	install -m 0755 html2ps-$(NAME)		${DESTDIR}/$(BINDIR)/html2ps-$(NAME)
+ 
+ po: $(NAME).pl $(NAME).glade
+ 	xgettext -kgettext -lperl $(NAME).pl

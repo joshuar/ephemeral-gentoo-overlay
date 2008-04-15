@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<layman>
+  <overlay
+     type = "tar"
+     src  = "https://www.mso.anu.edu.au/~joshua/gentoo/portage/overlay.tar.bz2"
+     name = "joshuarich-gentoo-overlay"
+     status = "unofficial"
+     contact = "joshua@mso.anu.edu.au">
+
+    <link>
+      http://www.mso.anu.edu.au/~joshua
+    </link>
+
+    <description>
+      Some custom ebuilds and various programs (mostly astronomy related) that would
+      never make it into the official tree.
+    </description>
+  </overlay>
+</layman>

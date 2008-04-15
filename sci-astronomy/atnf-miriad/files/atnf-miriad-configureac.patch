@@ -1,0 +1,11 @@
+--- configure.ac.old	2008-02-05 22:19:21.000000000 +1100
++++ configure.ac	2008-02-05 22:19:39.000000000 +1100
+@@ -267,7 +267,7 @@
+ AC_CHECK_LIB([png],     [png_error], [PGPLOTLIB="-lpng $PGPLOTLIB"],
+              [], [$PGPLOTLIB $XTRALIBS])
+ AC_LANG(Fortran 77)
+-AC_CHECK_LIB([pgplot],  [pgbeg],     [PGPLOTLIB="-lpgplot $PGPLOTLIB"],
++AC_CHECK_LIB([pgplot],  [pgbeg_],     [PGPLOTLIB="-lpgplot $PGPLOTLIB"],
+              [PGPLOTLIB=], [$PGPLOTLIB $X11LIB $XTRALIBS])
+ 
+ if test "x$PGPLOTLIB" = x ; then

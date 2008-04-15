@@ -1,0 +1,8 @@
+--- BUILD_DIR.orig/hd_register.sh	2006-07-20 05:16:46.000000000 +1000
++++ BUILD_DIR/hd_register.sh	2007-02-13 14:05:40.000000000 +1100
+@@ -55,4 +55,4 @@
+    cat f77test.out >> $$.email
+ fi
+ 
+-/usr/lib/sendmail -t < $$.email 2> /dev/null
++#/usr/lib/sendmail -t < $$.email 2> /dev/null

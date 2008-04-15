@@ -1,0 +1,11 @@
+--- rules.mk.orig	2007-11-29 21:23:00.000000000 +1100
++++ rules.mk	2007-11-29 21:23:26.000000000 +1100
+@@ -19,7 +19,7 @@
+ 	    -shared -Wl,-z,defs,-soname,$@ -o $@
+ 
+ %-data.o: %
+-	objcopy -I binary -O default --rename-section .data=.rodata,alloc,load,readonly,data,contents $< $@
++	objcopy -I binary -O default -B i386 --rename-section .data=.rodata,alloc,load,readonly,data,contents $< $@
+ 
+ # macros that expand to the object files in the given directories
+ objects=$(sort $(notdir $(foreach type,c cc,$(call objects_$(type),$1))))
