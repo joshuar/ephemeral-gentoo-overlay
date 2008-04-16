@@ -1,19 +1,19 @@
 <?xml version="1.0" ?>
 <layman>
   <overlay
-     type = "tar"
-     src  = "https://www.mso.anu.edu.au/~joshua/gentoo/portage/overlay.tar.bz2"
-     name = "joshuarich-gentoo-overlay"
+     type = "git"
+     src  = "git://github.com/joshuar/ephemeral-gentoo-overlay.git"
+     name = "ephemeral"
      status = "unofficial"
-     contact = "joshua@mso.anu.edu.au">
+     contact = "joshua.rich@gmail.com">
 
     <link>
       http://www.mso.anu.edu.au/~joshua
     </link>
 
     <description>
-      Some custom ebuilds and various programs (mostly astronomy related) that would
-      never make it into the official tree.
+      Some custom ebuilds and various programs (several astronomical
+      programs) that would never make it into the official tree.
     </description>
   </overlay>
 </layman>
