@@ -1,0 +1,34 @@
+So for some time now I have been using Gentoo Linux, and trying to be
+a good Gentoo user, I’ve created some unofficial, possibly buggy, but generally
+usable ‘ebuilds‘ for various astronomy software and other software packages
+I use.  They can be found in this overlay.
+
+You can use this overlay with layman (app-portage/layman). To add the
+overlay, edit the file /etc/layman/layman.cfg and add the following
+url:
+
+http://github.com/joshuar/ephemeral-gentoo-overlay/tree/master/overlay.xml
+
+..to the “overlays:” section. Then re-sync all overlays (layman -S) and
+add this overlay (layman -a ephemeral). Hopefully that worked
+ok. 
+
+Bugs and problems can be sent to my email listed in my profile on
+GitHub.  I'm generally responsive, I usually answer within a week.
+
+Notes:
+
+- I only own x86 hardware, so I’ve only `keyworded ‘ these ebuilds for
+  x86 machines. That means if you are using some other hardware
+  platform (ppc, x86_64, sparc), portage will complain when trying to
+  use these ebuilds. If you’d still like to use the packages, then
+  just contact me and I’ll adjust the ebuilds, but I make even less
+  guarantees of stability/safety than using these ebuilds on x86
+  hardware. 
+
+- Some packages will be `masked’ as I may not have tested them much
+  (or may feel they aren’t stable). But they are generally usable. You
+  should read the guide on the Gentoo User Wiki on dealing with masked
+  packages. Basically, you’ll need to add them to your
+  /etc/portage/package.use file. 
+
