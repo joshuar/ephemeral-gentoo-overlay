@@ -1,0 +1,11 @@
+--- Makefile.in.orig	2008-04-24 18:43:42.000000000 +1000
++++ Makefile.in	2008-04-24 18:44:18.000000000 +1000
+@@ -591,7 +591,7 @@
+ dltest.marker:
+ 	cd dltest ; $(MAKE)
+ 
+-INSTALL_TARGETS = install-binaries install-libraries install-doc @EXTRA_INSTALL@
++INSTALL_TARGETS = install-binaries install-libraries @EXTRA_INSTALL@
+ 
+ install: $(INSTALL_TARGETS)
+ 
