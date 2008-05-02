@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 May 2008; Joshua Rich <joshua@mso.anu.edu.au> ChangeLog:
+  Fixed path to quodlibet plugin.
+
   06 Apr 2008; Joshua Rich <joshua@mso.anu.edu.au> ChangeLog:
   Missing call the python_version in src_install when installing quodlibet
   plugin.
