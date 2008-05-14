@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 May 2008; Joshua Rich <joshua@mso.anu.edu.au> ChangeLog:
+  Version bump, usual changes to list of update archives and digests of base
+  	files.  People using this ebuild  should remove all miriad-* and
+  	mirupd-* files before upgrading.
+
   30 Mar 2008; Joshua Rich <joshua.rich@gmail.com> ChangeLog:
   Version bump, updated SRC_URI. Other cosmetic modifications to ebuild.
 
