@@ -19,5 +19,5 @@ RESTRICT="nomirror"
 
 src_install() {
 	distutils_src_install
-	dosym /usr/bin/yagtd.gtd /usr/bin/yagtd
+	dosym /usr/bin/yagtd.py /usr/bin/yagtd
 }

@@ -1,2 +1,0 @@
-# working, but install done manually
-=media-sound/quodlibet-9999
