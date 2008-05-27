@@ -1,7 +1,11 @@
+== INTRODUCTION
+
 So for some time now I have been using Gentoo Linux, and trying to be
 a good Gentoo user, I’ve created some unofficial, possibly buggy, but generally
 usable ‘ebuilds‘ for various astronomy software and other software packages
 I use.  They can be found in this overlay.
+
+== USING THIS OVERLAY
 
 You can use this overlay with layman (app-portage/layman). To add the
 overlay, edit the file /etc/layman/layman.cfg and add the following
@@ -13,10 +17,12 @@ http://github.com/joshuar/ephemeral-gentoo-overlay/tree/master%2Foverlay.xml?raw
 add this overlay (layman -a ephemeral). Hopefully that worked
 ok. 
 
+== FEEDBACK
+
 Bugs and problems can be sent to my email listed in my profile on
 GitHub.  I'm generally responsive, I usually answer within a week.
 
-Notes:
+== NOTES ABOUT THIS OVERLAY
 
 - I only own x86 hardware, so I’ve only `keyworded ‘ these ebuilds for
   x86 machines. That means if you are using some other hardware
@@ -32,3 +38,7 @@ Notes:
   packages. Basically, you’ll need to add them to your
   /etc/portage/package.use file. 
 
+== WHAT PACKAGES/PROGRAMS ARE AVAILABLE?
+
+See the PACKAGES-DESCRIPTIONS file in the (hopefully) same place as
+this file.
