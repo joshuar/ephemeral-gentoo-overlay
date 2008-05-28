@@ -13,7 +13,7 @@ SRC_URI="http://www.duke.edu/~dgraham/wxRemind/${MY_P}.tgz"
 
 LICENSE="GPL"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="x86"
 IUSE=""
 
 RDEPEND="x11-misc/remind
