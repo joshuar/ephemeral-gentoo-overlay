@@ -35,9 +35,9 @@ src_install() {
 
 pkg_postinst() {
 		python_version
-		python_mod_compile "/usr/$(get_libdir)/python${PYVER}/site-packages/quodlibet/plugins/songsmenu/${MY_PN}.py"
+		python_mod_compile "/usr/$(get_libdir)/python${PYVER}/site-packages/quodlibet/plugins/events/${MY_PN}.py"
 }
 
 pkg_postrm() {
-		python_mod_cleanup "/usr/$(get_libdir)/python*/site-packages/quodlibet/plugins/songsmenu"
+		python_mod_cleanup "/usr/$(get_libdir)/python*/site-packages/quodlibet/plugins/events"
 }
