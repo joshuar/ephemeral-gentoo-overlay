@@ -1,0 +1,52 @@
+The ebuild for this plugin includes the following patches:
+
+[PATCH] add support for protocol version 1.2 to qlscrobbler
+From: Franz Pletz <fpletz@xxxxxxxxxxxxxxx>
+Date: Wed, 23 Jan 2008 13:58:42 +0100
+Message-ID: <20080123125842.GA2730@xxxxxxxxxxxxxxxxxxx>
+
+Hello,
+
+this patch adds support for version 1.2 of the last.fm notification
+protocol to qlscrobbler, including support for now playing
+notifications. Moreover, some issues with the code like == checks with
+booleans were fixed.
+
+Cheers,
+    Franz
+
+-- 
+ .''`.   Franz Pletz <fpletz@xxxxxxxxxxxxxxx> - http://franz-pletz.org/
+: :' :   
+`. `'    Always listen to experts. They'll tell you what can't be
+  `-     done, and why. Then do it.         -- Robert A. Heinlein
+
+References:
+http://lists.sacredchao.net/quodlibet/msg01876.html
+http://lists.sacredchao.net/quodlibet/msg01878.html
+
+Re: [PATCH] add support for protocol version 1.2 to qlscrobbler
+From: "Nicholas J. Michalek" <djphazer@xxxxxxxxx>
+Date: Mon, 2 Jun 2008 06:17:49 -0400
+Message-ID: <afe581950806020317q2c86535esd19c3bae99da7e4f@xxxxxxxxxxxxxx>
+
+Hey folks,
+
+So, I was getting tired of wondering why sometimes songs just wouldn't
+get submitted with the qlscrobbler plugin, so I dived into the code
+and fixed things:
+- A song would not get submitted if it was paused/unpaused at all.
+- Seeking in a track now behaves properly; it makes no difference as
+long as it has been playing for length / 2.
+- Added some things to make logging more informative and other little things...
+
+This is on top of the previously posted protocol v1.2 patch. Attached
+is a cumulative patch against svn r4178. I've tested things pretty
+thoroughly, and I think I've squashed all the bugs. Please try it out
+and give feedback if necessary!
+
+
+-Nick
+
+Reference:
+http://lists.sacredchao.net/quodlibet/msg02060.html

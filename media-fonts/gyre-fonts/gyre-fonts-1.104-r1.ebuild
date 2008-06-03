@@ -12,7 +12,7 @@ SRC_URI="${HOMEPAGE}/whole/${MY_P}otf.zip"
 LICENSE="GUST-FONT-LICENSE"
 
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="x86"
 IUSE="X"
 
 RDEPEND="!dev-tex/tex-gyre"

@@ -63,9 +63,6 @@ app-misc/josh-gentoo-scripts:
 app-misc/gourmet:
 	Simple but powerful recipe-managing application.
 	url: http://grecipe-manager.sourceforge.net/
-app-misc/qtscrobbler:
-	Updates a last.fm profile using information from a supported portable music player.
-	url: http://qtscrob.sourceforge.net/
 app-misc/wxremind:
 	Graphical front/back-end for the remind program.
 	url: http://www.duke.edu/~dgraham/wxRemind/
@@ -111,6 +108,12 @@ media-sound/imms:
 media-sound/quodlibet:
 	Quod Libet is a GTK+-based audio player written in Python.
 	url: http://www.sacredchao.net/quodlibet/
+media-sound/qtscrobbler:
+	Updates a last.fm profile using information from a supported portable music player.
+	url: http://qtscrob.sourceforge.net/
+media-plugins/quodlibet-qlscrobbler:
+	Audioscrobbler client for Quod Libet
+	url: http://www.sacredchao.net/quodlibet/file/trunk/plugins/events/${MY_PN}.py
 media-plugins/quodlibet-albumart:
 	Quod Libet plugin that downloads album covers from Amazon.com
 	url: http://www.sacredchao.net/quodlibet/attachment/wiki/Plugins/albumart.3.py

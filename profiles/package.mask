@@ -1,0 +1,1 @@
+>=media-sound/qtscrobbler-9999
