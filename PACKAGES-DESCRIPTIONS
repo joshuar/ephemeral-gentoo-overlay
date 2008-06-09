@@ -12,6 +12,9 @@ xfce-extra/thunar-shares:
 x11-misc/wndo:
 	A small suite of complementary tools for adding behavioral extensions to Gnome, Xfce, Fluxbox and other window managers.
 	url: http://wijjo.com/project/?c=wndo
+x11-misc/gourmet:
+	Simple but powerful recipe-managing application.
+	url: http://grecipe-manager.sourceforge.net/
 x11-misc/wxremind:
 	Graphical front/back-end for the remind program.
 	url: http://www.duke.edu/~dgraham/wxRemind/
@@ -51,6 +54,9 @@ sci-astronomy/atnf-miriad:
 sci-astronomy/spice-toolkit:
 	An information system to assist scientists in planning and interpreting scientific observations from space-borne instruments.
 	url: http://naif.jpl.nasa.gov/naif/toolkit.html
+app-misc/task:
+	A todo list GTD implementation, based on ideas from http://todotxt.org.
+	url: http://www.beckingham.net/task.html
 app-misc/yagtd:
 	Console text todo list manager incorporating major features from Allen's 'Getting Things Done' philosophy and Stephen Covey's 'Seven Habits of Highly Effective People'.
 	url: https://gna.org/projects/yagtd/
@@ -60,9 +66,6 @@ app-misc/todotxt:
 app-misc/josh-gentoo-scripts:
 	A collection of random scripts that assist in the maintenance of a Gentoo Linux system
 	url: http://www.mso.anu.edu.au/~joshua
-app-misc/gourmet:
-	Simple but powerful recipe-managing application.
-	url: http://grecipe-manager.sourceforge.net/
 app-text/ejourn:
 	A diary or journal application that supports multiple diaries/journals and encryption.
 	url: http://www.public.iastate.edu/~chris129/code/ejourn/
