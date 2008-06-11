@@ -1,1 +1,3 @@
 >=media-sound/qtscrobbler-9999
+games-roguelike/lostlabyrinth
+

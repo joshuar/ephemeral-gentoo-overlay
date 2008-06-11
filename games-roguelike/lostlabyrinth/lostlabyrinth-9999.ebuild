@@ -29,8 +29,10 @@ src_compile() {
 	# -O2 optimisation level leads to excessive memory
 	# usage when compiling main program, assuming -O3
 	# does worse
-	replace-flags -O2 -O1
-	replace-flags -O3 -O1
+	# --as-needed linker flag causes problems
+	# which I need to work out
+	replace-flags -O3 -O2
+	filter-ldflags -Wl,--as-needed
 	cd elice
 	# five substitutions:
 	# - add CFLAGS, CXXFLAGS and LDFLAGS to Makefile
