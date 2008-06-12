@@ -9,9 +9,9 @@ dev-tex/tex-gyre:
 xfce-extra/thunar-shares:
 	Thunar plugin to share files using Samba.
 	url: http://code.google.com/p/thunar-shares/
-x11-misc/wndo:
-	A small suite of complementary tools for adding behavioral extensions to Gnome, Xfce, Fluxbox and other window managers.
-	url: http://wijjo.com/project/?c=wndo
+x11-misc/globalvillage:
+	Application designed to place a front-end, or graphical user interface onto the CLI interface of Xplanet.
+	url: http://globalvillage.sourceforge.net/
 x11-misc/gourmet:
 	Simple but powerful recipe-managing application.
 	url: http://grecipe-manager.sourceforge.net/
@@ -69,12 +69,6 @@ app-misc/josh-gentoo-scripts:
 app-text/ejourn:
 	A diary or journal application that supports multiple diaries/journals and encryption.
 	url: http://www.public.iastate.edu/~chris129/code/ejourn/
-app-accessibility/hts-hmm-voices:
-	Six HTS voices for Festival from the HMM-based Speech Synthesis System (HTS)
-	url: http://hts.sp.nitech.ac.jp/
-media-gfx/gimp-gap:
-	Gimp Animation Package
-	url: http://www.gimp.org/
 games-roguelike/lostlabyrinth:
 	A roguelike roleplaying game with zelda-like graphics and very high replayability
 	url: http://www.lostlabyrinth.com
@@ -93,9 +87,6 @@ dev-perl/astro-iraf-cl:
 dev-perl/astro-fits-cfitsio:
 	Perl interface to the IRAF CL interactive session. 
 	url: http://search.cpan.org/~pratzlaff/Astro-FITS-CFITSIO-1.05/CFITSIO.pm
-dev-python/cmdo:
-	A tool that makes it easier to build other tools. It selectively exposes Python modules and functions as a complete command line interface.
-	url: http://wijjo.com/project/?c=cmdo
 dev-python/pyaws:
 	Python wrapper for the Amazon Web Service.
 	url: http://pyaws.sourceforge.net/
