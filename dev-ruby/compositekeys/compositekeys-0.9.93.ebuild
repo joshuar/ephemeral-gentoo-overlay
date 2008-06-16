@@ -18,7 +18,4 @@ IUSE=""
 
 RESTRICT="nomirror"
 
-DEPEND=">=dev-ruby/activerecord-2.1.0"
-
-
 
