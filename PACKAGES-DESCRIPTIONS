@@ -8,10 +8,7 @@ dev-tex/tex-gyre:
 	url: http://www.gust.org.pl/projects/e-foundry/tex-gyre
 xfce-extra/thunar-shares:
 	Thunar plugin to share files using Samba.
-	url: http://code.google.com/p/thunar-shares/
-x11-misc/globalvillage:
-	Application designed to place a front-end, or graphical user interface onto the CLI interface of Xplanet.
-	url: http://globalvillage.sourceforge.net/
+	url: http://thunar-shares.daniel.com.uy/
 x11-misc/gourmet:
 	Simple but powerful recipe-managing application.
 	url: http://grecipe-manager.sourceforge.net/
@@ -87,6 +84,12 @@ dev-perl/astro-iraf-cl:
 dev-perl/astro-fits-cfitsio:
 	Perl interface to the IRAF CL interactive session. 
 	url: http://search.cpan.org/~pratzlaff/Astro-FITS-CFITSIO-1.05/CFITSIO.pm
+dev-ruby/compositekeys:
+	Extension to ActiveRecords to support composite primary keys.
+	url: http://compositekeys.rubyforge.org/
+dev-ruby/rgplot:
+	Module providing useful methods for interfacing with a Gnuplot process.
+	url: http://rubyforge.org/projects/rgplot/
 dev-python/pyaws:
 	Python wrapper for the Amazon Web Service.
 	url: http://pyaws.sourceforge.net/
