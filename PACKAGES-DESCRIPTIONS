@@ -75,6 +75,9 @@ games-roguelike/nazghul:
 dev-perl/astro:
 	Assorted astronomical routines for Perl.
 	url: http://search.cpan.org/~cphil/Astro-0.69/
+dev-perl/term-prompt:
+	Prompt a user
+	url: http://search.cpan.org/search?query=Term-Prompt&mode=dist
 dev-perl/rcs-agent:
 	An RCS archive manipulation method library
 	url: http://search.cpan.org/search?query=Rcs-Agent&mode=dist

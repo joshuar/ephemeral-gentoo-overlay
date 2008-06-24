@@ -15,7 +15,8 @@ PACKAGES AND DESCRIPTIONS:
 
 HEADER
 
-my $overlay = "/usr/local/ephemeral-gentoo-overlay";
+# this is fragile...
+my $overlay = "../ephemeral-gentoo-overlay";
 
 my $cref = &getcategories($overlay);
 foreach my $category (@$cref) {
