@@ -21,12 +21,6 @@ sci-libs/rpfits:
 app-emacs/emacs-template:
 	Supplies an initial buffer content via a template: a file with normal text and expansion forms. 
 	url: http://emacs-template.sourceforge.net/
-x11-themes/ghost-xcursors:
-	A high quality set of Xfree 4.3.0 animated mouse cursors
-	url: http://xfce-look.org/content/show.php?content=13090
-x11-themes/basenation-xcursors:
-	A high quality set of Xfree 4.3.0 animated mouse cursors
-	url: http://xfce-look.org/content/show.php?content=18832
 x11-themes/comix-xcursors:
 	The original Comix Cursors.
 	url: http://www.xfce-look.org/content/show.php/ComixCursors?content=32627
@@ -60,9 +54,6 @@ app-misc/yagtd:
 app-misc/todotxt:
 	Powerful shell script that adds to, edits, sorts and searches a todo list text file from the command line.
 	url: http://todotxt.com/library/todo.sh/
-app-misc/josh-gentoo-scripts:
-	A collection of random scripts that assist in the maintenance of a Gentoo Linux system
-	url: http://www.mso.anu.edu.au/~joshua
 app-text/ejourn:
 	A diary or journal application that supports multiple diaries/journals and encryption.
 	url: http://www.public.iastate.edu/~chris129/code/ejourn/
