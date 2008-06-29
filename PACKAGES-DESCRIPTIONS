@@ -54,9 +54,6 @@ app-misc/yagtd:
 app-misc/todotxt:
 	Powerful shell script that adds to, edits, sorts and searches a todo list text file from the command line.
 	url: http://todotxt.com/library/todo.sh/
-app-text/ejourn:
-	A diary or journal application that supports multiple diaries/journals and encryption.
-	url: http://www.public.iastate.edu/~chris129/code/ejourn/
 games-roguelike/lostlabyrinth:
 	A roguelike roleplaying game with zelda-like graphics and very high replayability
 	url: http://www.lostlabyrinth.com

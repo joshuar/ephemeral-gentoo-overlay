@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 Jun 2008; Joshua Rich <joshua@mso.anu.edu.au> ChangeLog:
+  Duplicate docs are now not installed.  Lisp files for emacs are now
+  	optionally installed through 'emacs' USE flag.  Extra html
+  	documentation also optionally installed through 'doc' USE flag.
+
   26 May 2008; Joshua Rich <joshua@mso.anu.edu.au> ChangeLog:
   Initial ebuild.
 

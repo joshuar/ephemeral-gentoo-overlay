@@ -1,0 +1,21 @@
+--- setup.py.orig	2008-06-29 14:52:29.000000000 +1000
++++ setup.py	2008-06-29 14:53:04.000000000 +1000
+@@ -27,12 +27,12 @@
+       platforms='Theorically all platforms.',
+       package_dir = {'': 'src'},
+       packages = [''],
+-      data_files = [('share/doc/yagtd', ['AUTHORS', 'COPYING', 'LICENCE',
+-                                         'README', 'LISEZMOI', 'INSTALL',
+-                                         'NEWS', 'ChangeLog']),
+-                    ('share/doc/yagtd/rest', ['doc/yagtd.rest', 'doc/yagtd.png',
+-                                              'doc/yagtd.html', 'doc/default.css']),
+-                    ('share/doc/yagtd/tools', ['tools/yagtd-mode.el'])],
++#       data_files = [('share/doc/yagtd', ['AUTHORS', 'COPYING', 'LICENCE',
++#                                          'README', 'LISEZMOI', 'INSTALL',
++#                                          'NEWS', 'ChangeLog']),
++#                     ('share/doc/yagtd/rest', ['doc/yagtd.rest', 'doc/yagtd.png',
++#                                               'doc/yagtd.html', 'doc/default.css']),
++#                     ('share/doc/yagtd/tools', ['tools/yagtd-mode.el'])],
+       scripts=['src/yagtd.py'],
+       classifiers = ['Development Status :: 4 - Beta',
+                      'Intended Audience :: End Users/Desktop',
