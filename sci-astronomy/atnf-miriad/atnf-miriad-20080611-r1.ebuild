@@ -40,21 +40,20 @@ S="${WORKDIR}/miriad"
 FORTRAN="gfortran"
 
 src_unpack() {
-	fortran_src_unpack "${A}"
-
-	# use shared rpfits library if available
+	unpack miriad-{code,common}.tar.gz
 	cd "${S}"
+	for updatefile in ${DISTDIR}/mirupd-*; do
+		uf=$(basename $updatefile)
+		unpack "${uf}"
+	done
+
+	# fortran_src_unpack addition
+	patch_fortran
+	# use shared rpfits library if available
 	epatch "${FILESDIR}/atnf-miriad-rpfits-shared-lib.patch"
-	# Patch array sizes
-# 	cd "${S}/inc"
-# 	epatch "${FILESDIR}/${PN}-arraysizes.patch"
-	# Apply patch kludges to spec tools
-	cd "${S}/spec/xpanel"
-	epatch "${FILESDIR}/${PN}-xpanel-makefile.patch"
-	cd "${S}/spec/xmtv"
-	epatch "${FILESDIR}/${PN}-xmtv-makefile.patch"
-	cd "${S}/spec/sxmtv"
-	epatch "${FILESDIR}/${PN}-sxmtv-makefile.patch"
+	# only compile xpanel and xmtv spec tools
+	sed -i 's|allsys :: sysdirs $(ALLSYSD)|allsys :: xmtv xpanel|' \
+		"${S}/spec/GNUmakefile"
 
 	cd "${S}"
 	eautoreconf
@@ -62,23 +61,28 @@ src_unpack() {
 
 src_compile() {
 	# configure fails to find pgplot lib with this LDFLAG
-	filter-ldflags '-Wl,--as-needed'
+	filter-ldflags -Wl,--as-needed --as-needed
 	# From INSTALL.html
-	# This is not currently handled by configure but instead by
+	# LFS not currently handled by configure but instead by
 	# hard-coded C-preprocessor definitions in some of the specialized
 	# GNUmakedefs.
 	# If your operating system has LFS then you can add this manually
 	# to your local GNUmakedefs.
 	append-lfs-flags
 	# be risky...
-	replace-flags "-O*" "-O3"
+	replace-flags -O* -O3
+	append-flags -fPIC -funroll-loops
+	export FFLAGS="${FFLAGS} -O3 -fPIC -funroll-loops"
 
 	cd "${S}"
 	econf || die "econf failed"
 	emake MIR=${S} \
-		COPT="${CFLAGS} -fPIC -funroll-loops"  \
-		FCOPT="${FFLAGS} -O3 -fPIC -funroll-loops" \
-		CPPOPT="${CPPFLAGS}" -j1 \
+		MAKEMODE="system" \
+		ALLSYSD="tools inc linpack subs prog spec" \
+		COPT="${CFLAGS}"  \
+		FCOPT="${FFLAGS}" \
+		CPPOPT="${CPPFLAGS}" \
+		LDOPT="${LDFLAGS}" -j1 \
 		|| die "emake failed"
 }
 
@@ -96,13 +100,5 @@ src_install() {
 	insinto /usr/miriad/inc
 	doins inc/*.{h,inc}
 	dodoc VERSION DISCLAIMER progguide.ps userguide.ps
-	insinto "/usr/share/doc/${PF}/specdoc"
-	doins specdoc/*
-	if use doc; then
-		insinto "/usr/share/doc/${PF}"
-		doins -r html/*
-	fi
 	doenvd ${FILESDIR}/99miriad
-# 	# record the date for keeping track of the last update
-# 	echo `date '+%Y%m%d'` >> "${D}/${UPDATEFILE}"
 }

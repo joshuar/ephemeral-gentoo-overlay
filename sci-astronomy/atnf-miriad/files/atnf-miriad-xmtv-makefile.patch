@@ -5,7 +5,7 @@
  	-@ echo ""
  	-@ $(RM) $@
 -	   $(CC) $(CFLAGS) -o $@ $(XMTVSRCS) $(X11LIBS) $(XTRALIBS)
-+	   $(CC) $(COPT) $(XMTVSRCS) $(X11LIBS) $(XTRALIBS) -o $@
++	   $(CC) $(COPT) $(XMTVSRCS) $(LDOPT) $(X11LIBS) $(XTRALIBS) -o $@
  	-@ $(RM) *.o
  	-@ chmod 775 $@
  

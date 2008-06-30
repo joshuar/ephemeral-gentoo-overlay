@@ -5,7 +5,7 @@
    $(MIRBIND)/xpanel.exe : $(CODEDIR)/xpanel.c
  	-@ $(RM) $@
 -	   $(CC) $(CFLAGS) -o $@ $< $(X11LIBS) $(XTRALIBS)
-+	   $(CC) $(COPT) $< $(X11LIBS) $(XTRALIBS) -o $@
++	   $(CC) $(COPT) $< $(LDOPT) $(X11LIBS) $(XTRALIBS) -o $@
  	-@ chmod 775 $@
  
    $(MIRBIND)/xpanel : $(CODEDIR)/xpanel.csh
