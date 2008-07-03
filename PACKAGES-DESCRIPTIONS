@@ -75,6 +75,9 @@ dev-perl/astro-iraf-cl:
 dev-perl/astro-fits-cfitsio:
 	Perl interface to the IRAF CL interactive session. 
 	url: http://search.cpan.org/~pratzlaff/Astro-FITS-CFITSIO-1.05/CFITSIO.pm
+dev-ruby/rfits:
+	Ruby library for parsing the Flexible Image Transport System (FITS) files widely used in astronomy.
+	url: http://rubyforge.org/projects/${PN}/
 dev-ruby/compositekeys:
 	Extension to ActiveRecords to support composite primary keys.
 	url: http://compositekeys.rubyforge.org/
