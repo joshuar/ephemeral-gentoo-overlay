@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  04 Jul 2008; Joshua Rich <joshua@mso.anu.edu.au> ChangeLog:
+  Version bump.  Removed really old versions.
+
   07 Jun 2008; Joshua Rich <joshua@mso.anu.edu.au> ChangeLog:
   Version bump and added a docs archive which installs some documentation.
 

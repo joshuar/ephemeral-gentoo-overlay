@@ -28,7 +28,12 @@ RESTRICT="nomirror"
 pkg_setup() {
 	REMALERTFILES="version.py wxremindrc.py wxremalert.py"
 	REMDATAFILES="version.py wxremindrc.py wxremdata.py"
-	REMINDFILES=" version.py version.py wxremindrc.py wxremind.py wxremdata.py wxremalert.py wxRemAbout.py wxRemDays.py wxRemEdit.py wxRemHelp.py wxRemHints.py"
+	REMINDFILES="version.py version.py wxremindrc.py wxremind.py wxremdata.py wxremalert.py wxRemAbout.py wxRemDays.py wxRemEdit.py wxRemHelp.py wxRemHints.py"
+}
+
+src_unpack() {
+	unpack ${A}
+	tar jxf ${FILESDIR}/${P}-docs.tar.bz2 || die "unpack docs failed."
 }
 
 src_compile() {
@@ -48,5 +53,6 @@ src_compile() {
 src_install() {
 	cd "${S}"
 	dobin wxremalert wxremdata wxremind
+	dodoc README.pdf WXREMINDRC-EXAMPLE CHANGES
 	make_desktop_entry wxremind wxRemind appointment.png 'Office;Calendar'
 }
