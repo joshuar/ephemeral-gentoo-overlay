@@ -1,0 +1,15 @@
+--- setup.py.orig	2008-07-06 13:42:11.000000000 +1000
++++ setup.py	2008-07-06 13:43:23.000000000 +1000
+@@ -123,11 +123,7 @@
+              ['gourmet.desktop']
+              ),]
+         base = os.path.join(base,'gourmet')
+-    files.extend([(os.path.join(base), images + ['FAQ'] +[os.path.join('data','recipe.dtd'),
+-                                                          os.path.join('data','ABBREV.txt'),
+-                                                          os.path.join('data','WEIGHT.txt'),
+-                                                          os.path.join('data','FOOD_DES.txt'),                                                          
+-                                                          ]),])
++    files.extend([(os.path.join(base), images + ['FAQ']),])
+     for f in i18n:
+         pth,fn=os.path.split(f)
+         pthfiles = pth.split(os.path.sep)
