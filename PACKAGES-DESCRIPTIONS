@@ -75,15 +75,30 @@ dev-perl/astro-iraf-cl:
 dev-perl/astro-fits-cfitsio:
 	Perl interface to the IRAF CL interactive session. 
 	url: http://search.cpan.org/~pratzlaff/Astro-FITS-CFITSIO-1.05/CFITSIO.pm
+dev-ruby/columnize:
+	Sorts an array in column order.
+	url: http://rubyforge.org/projects/rocky-hacks/
 dev-ruby/rfits:
 	Ruby library for parsing the Flexible Image Transport System (FITS) files widely used in astronomy.
 	url: http://rubyforge.org/projects/${PN}/
+dev-ruby/ruby-debug-ide:
+	Wrapper over ruby-debug-base using add-hoc XML/pure-text protocol for communication with clients (usually debugger frontend like IDE or editors).
+	url: http://debug-commons.rubyforge.org/#ruby-debug-ide
 dev-ruby/compositekeys:
 	Extension to ActiveRecords to support composite primary keys.
 	url: http://compositekeys.rubyforge.org/
+dev-ruby/ruby-debug-base:
+	Fast Ruby debugger
+	url: http://rubyforge.org/projects/ruby-debug/
+dev-ruby/ruby-debug:
+	CLI interface to ruby-debug
+	url: http://rubyforge.org/projects/ruby-debug/
 dev-ruby/rgplot:
 	Module providing useful methods for interfacing with a Gnuplot process.
 	url: http://rubyforge.org/projects/rgplot/
+dev-ruby/linecache:
+	Caches (Ruby source) files as might be used in a debugger or a tool that works with sets of Ruby source files.
+	url: http://rubyforge.org/projects/rocky-hacks/
 dev-python/pyaws:
 	Python wrapper for the Amazon Web Service.
 	url: http://pyaws.sourceforge.net/
