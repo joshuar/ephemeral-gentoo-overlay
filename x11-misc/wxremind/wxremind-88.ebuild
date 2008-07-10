@@ -28,7 +28,8 @@ RESTRICT="nomirror"
 pkg_setup() {
 	REMALERTFILES="version.py wxremindrc.py wxremalert.py"
 	REMDATAFILES="version.py wxremindrc.py wxremdata.py"
-	REMINDFILES="version.py version.py wxremindrc.py wxremind.py wxremdata.py wxremalert.py wxRemAbout.py wxRemDays.py wxRemEdit.py wxRemHelp.py wxRemHints.py"
+	REMINDFILES="version.py version.py wxremindrc.py wxremind.py wxremdata.py wxremalert.py wxRemAbout.py wxRemDays.py wxRemEdit.py wxRemHelp.py"
+	REMHINTSFILES="version.py wxRemHints.py"
 }
 
 src_unpack() {
@@ -41,19 +42,22 @@ src_compile() {
 	cd "${S}"
 	echo "version = ${PV}" > version.py
 
-	zip wxremalert.zip ${REMALERTFILES} || die "zip remalert failed"
-	cat wxremalert.head wxremalert.zip > wxremalert || die "cat remalert failed"
+	zip wxremalert.zip ${REMALERTFILES} || die "zip wxremalert failed"
+	cat wxremalert.head wxremalert.zip > wxremalert || die "cat wxremalert failed"
 
 	zip wxremdata.zip ${REMDATAFILES} || die "zip remdata failed"
-	cat wxremdata.head wxremdata.zip > wxremdata || die "cat remdata failed"
+	cat wxremdata.head wxremdata.zip > wxremdata || die "cat wxremdata failed"
 
-	zip wxremind.zip ${REMINDFILES} || die "zip remind failed"
-	cat wxremind.head wxremind.zip > wxremind || die "cat remind failed"
+	zip wxremind.zip ${REMINDFILES} || die "zip wxremind failed"
+	cat wxremind.head wxremind.zip > wxremind || die "cat wxremind failed"
+
+	zip wxremhints.zip ${REMHINTSFILES} || die "zip wxremhints failed"
+	cat wxremind.head wxremind.zip > wxremhints || die "cat wxremhints failed"
 }
 
 src_install() {
 	cd "${S}"
-	dobin wxremalert wxremdata wxremind
+	dobin wxremalert wxremdata wxremind wxremhints
 	dodoc docs/*
 	make_desktop_entry wxremind wxRemind appointment.png 'Office;Calendar'
 }
