@@ -36,16 +36,24 @@ src_install() {
 	dodir ${USERSHARES_DIR}
 	fowners root:${USERSHARES_GROUP} ${USERSHARES_DIR}
 	fperms 01770 ${USERSHARES_DIR}
-	insinto /etc/samba
-	doins "${FILESDIR}/smb.conf"
 }
 
 pkg_postinst() {
 	echo
-	einfo "For each user account which will use ${PN}, add"
-	einfo "it to the samba group:"
-	echo
-	einfo "    usermod -a -G ${USERSHARES_GROUP} username"
+	elog "You will need to edit your samba configuration"
+	elog "and add or change it to have the following lines:"
+	elog ""
+	elog "[global]"
+	elog "        security = share"
+	elog "        usershare path = /var/lib/samba/usershare"
+	elog "        usershare max shares = 100"
+	elog "        usershare allow guests = yes"
+	elog "        usershare owner only = yes"
+	elog ""
+	elog "For each user account which will use ${PN}, add"
+	elog "it to the samba group:"
+	elog ""
+	elog "    usermod -a -G ${USERSHARES_GROUP} username"
 	echo
 	xfce44_pkg_postinst
 }
