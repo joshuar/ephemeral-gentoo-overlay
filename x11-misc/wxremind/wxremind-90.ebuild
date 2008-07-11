@@ -29,7 +29,7 @@ pkg_setup() {
 	REMALERTFILES="version.py wxremindrc.py wxremalert.py"
 	REMDATAFILES="version.py wxremindrc.py wxremdata.py"
 	REMINDFILES="version.py version.py wxremindrc.py wxremind.py wxremdata.py wxremalert.py wxRemAbout.py wxRemDays.py wxRemEdit.py wxRemHelp.py"
-	REMHINTSFILES="version.py wxRemHints.py"
+	REMHINTSFILES="version.py wxremindrc.py wxRemHints.py"
 }
 
 src_unpack() {
