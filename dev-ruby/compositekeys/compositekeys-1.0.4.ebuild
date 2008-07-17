@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~x86"
 IUSE=""
 
-DEPEND="<=dev-ruby/rails-2"
+DEPEND=">=dev-ruby/rails-2.1"
 
 RESTRICT="nomirror"
 
