@@ -54,6 +54,9 @@ app-misc/yagtd:
 app-misc/todotxt:
 	Powerful shell script that adds to, edits, sorts and searches a todo list text file from the command line.
 	url: http://todotxt.com/library/todo.sh/
+media-libs/libtremor:
+	Integer-only implementation of the vorbis decoder
+	url: http://xiph.org/vorbis
 games-roguelike/lostlabyrinth:
 	A roguelike roleplaying game with zelda-like graphics and very high replayability
 	url: http://www.lostlabyrinth.com
@@ -111,6 +114,9 @@ media-sound/imms:
 media-sound/quodlibet:
 	Quod Libet is a GTK+-based audio player written in Python.
 	url: http://www.sacredchao.net/quodlibet/
+media-sound/sbagen:
+	Binaural tones generator.
+	url: http://uazu.net/sbagen
 media-sound/qtscrobbler:
 	Updates a last.fm profile using information from a supported portable music player.
 	url: http://qtscrob.sourceforge.net/
