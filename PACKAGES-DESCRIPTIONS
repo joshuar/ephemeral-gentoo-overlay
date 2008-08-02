@@ -24,21 +24,12 @@ app-emacs/emacs-template:
 x11-themes/comix-xcursors:
 	The original Comix Cursors.
 	url: http://www.xfce-look.org/content/show.php/ComixCursors?content=32627
-sci-astronomy/fv:
-	Interactive FITS File Editor.
-	url: http://heasarc.gsfc.nasa.gov/docs/software/ftools/fv/
 sci-astronomy/karma-bin:
 	Toolkit for interprocess communications, authentication, encryption, graphics display, user interface and manipulating the Karma network data structure
 	url: http://www.atnf.csiro.au/computing/software/karma/
 sci-astronomy/scisoft-bin:
 	Scisoft is a project within ESO to provide a collection of astronomical software utilities in a uniform way at all four ESO sites and to make them available to the outside world.
 	url: http://www.eso.org/sci/data-processing/software/scisoft$(get_major_version)/
-sci-astronomy/iraf-bin:
-	Image Reduction and Analysis Facility, a general purpose software system for the reduction and analysis of astronomical data.
-	url: http://iraf.net/
-sci-astronomy/heasoft-ftools:
-	Generic HEASOFT tools for manipulating FITS files.
-	url: http://heasarc.gsfc.nasa.gov/lheasoft/ftools/
 sci-astronomy/atnf-miriad:
 	Radio interferometry data reduction package
 	url: http://www.atnf.csiro.au/computing/software/miriad/
@@ -117,12 +108,12 @@ media-sound/quodlibet:
 media-sound/sbagen:
 	Binaural tones generator.
 	url: http://uazu.net/sbagen
-media-sound/qtscrobbler:
-	Updates a last.fm profile using information from a supported portable music player.
-	url: http://qtscrob.sourceforge.net/
 media-plugins/quodlibet-qlscrobbler:
 	Audioscrobbler client for Quod Libet
 	url: http://www.sacredchao.net/quodlibet/file/trunk/plugins/events/${MY_PN}.py
 media-plugins/quodlibet-albumart:
 	Quod Libet plugin that downloads album covers from Amazon.com
 	url: http://www.sacredchao.net/quodlibet/attachment/wiki/Plugins/albumart.3.py
+net-analyzer/adeona:
+	System for tracking the location of your lost or stolen laptop.
+	url: http://adeona.cs.washington.edu/
