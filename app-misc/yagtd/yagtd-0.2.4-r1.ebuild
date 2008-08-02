@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~x86"
 IUSE="doc emacs"
 
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 
 pkg_setup() {
 	if use emacs; then

@@ -9,7 +9,7 @@ HOMEPAGE="http://grecipe-manager.sourceforge.net/"
 SRC_URI="mirror://sourceforge/grecipe-manager/${P}.tar.gz"
 
 LICENSE="GPL-2"
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 SLOT="0"
 KEYWORDS="~x86"
 IUSE="rtf gnome-print"

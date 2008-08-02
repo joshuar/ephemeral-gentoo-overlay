@@ -10,10 +10,10 @@ SRC_URI="http://todotxt.googlecode.com/files/todotxt-bundle-1.0.zip"
 
 LICENSE="GPL"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="x86"
 IUSE=""
 
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 
 src_unpack() {
 	unpack "${A}"

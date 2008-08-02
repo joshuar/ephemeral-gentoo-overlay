@@ -12,7 +12,7 @@ SRC_URI="http://gems.rubyforge.org/gems/${P}.gem"
 LICENSE="ruby-debug"
 KEYWORDS="~x86"
 
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 
 DEPEND="=dev-ruby/ruby-debug-base-0.10.1
 		=dev-ruby/columnize-0.1

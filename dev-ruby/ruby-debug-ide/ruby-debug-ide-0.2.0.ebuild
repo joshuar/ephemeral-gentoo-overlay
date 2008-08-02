@@ -11,7 +11,7 @@ SRC_URI="mirror://rubyforge/debug-commons/${P}.gem"
 LICENSE="MIT"
 KEYWORDS="~x86"
 
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 
 DEPEND=">=dev-ruby/ruby-debug-base-0.10.1"
 

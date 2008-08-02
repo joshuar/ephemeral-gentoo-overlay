@@ -17,7 +17,7 @@ IUSE="X"
 
 RDEPEND="!dev-tex/tex-gyre"
 
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 
 S="${WORKDIR}"
 FONT_S="${S}"

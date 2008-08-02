@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~x86"
 IUSE=""
 
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 
 RDEPEND=">=xfce-base/thunar-${THUNAR_MASTER_VERSION}
 		 net-fs/samba"

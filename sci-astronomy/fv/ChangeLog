@@ -1,8 +1,0 @@
-# ChangeLog for sci-astronomy/fv
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
-
-  24 Apr 2008; Joshua Rich <joshua@mso.anu.edu.au> ChangeLog:
-  An initial attempt at an ebuild for fv, installs and works, but needs some
-  	cleaning up.
-

@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS="~x86"
 IUSE="analyzer audacious bmpx quodlibet remote vorbis"
 
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 
 DEPEND=">=dev-db/sqlite-3
 >=dev-libs/glib-2

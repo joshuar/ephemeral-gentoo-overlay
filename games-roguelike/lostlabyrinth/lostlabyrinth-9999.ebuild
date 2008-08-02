@@ -7,7 +7,7 @@ DESCRIPTION="A roguelike roleplaying game with zelda-like graphics and very high
 HOMEPAGE="http://www.lostlabyrinth.com"
 ESVN_REPO_URI="https://lostlaby.svn.sourceforge.net/svnroot/lostlaby"
 
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86"

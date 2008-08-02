@@ -26,7 +26,7 @@ ${UPDATES_URI}/mirupd-20080611-8.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86"
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 IUSE="doc"
 
 DEPEND="sci-libs/rpfits

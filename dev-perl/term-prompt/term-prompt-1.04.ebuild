@@ -12,7 +12,7 @@ SRC_URI="mirror://cpan/authors/id/P/PE/PERSICOM/Term-Prompt-1.04.tar.gz"
 
 IUSE=""
 
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 
 SLOT="0"
 LICENSE="|| ( Artistic GPL-2 )"

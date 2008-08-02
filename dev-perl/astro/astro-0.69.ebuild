@@ -10,7 +10,7 @@ MY_PN="Astro"
 SRC_URI="mirror://cpan/authors/id/C/CP/CPHIL/${MY_PN}-${PV}.tar.gz"
 
 LICENSE="GPL-2"
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 SLOT="0"
 KEYWORDS="~x86"
 IUSE=""

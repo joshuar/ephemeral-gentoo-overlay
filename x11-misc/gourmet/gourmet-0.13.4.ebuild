@@ -11,7 +11,7 @@ MY_P="${PN}-${PV}-${MY_PR}"
 SRC_URI="mirror://sourceforge/grecipe-manager/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 SLOT="0"
 KEYWORDS="x86"
 IUSE="rtf gnome-print"

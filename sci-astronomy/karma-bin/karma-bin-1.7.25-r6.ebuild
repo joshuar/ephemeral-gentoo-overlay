@@ -14,9 +14,9 @@ ${URI_PREFIX}/${MY_PN}/current/i386_Linux_libc6.3-v${PV}.tar.gz"
 
 LICENSE="GPL"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="x86"
 IUSE="doc minimal examples"
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 
 S="${WORKDIR}/${MY_PN}"
 

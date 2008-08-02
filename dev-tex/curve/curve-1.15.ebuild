@@ -13,9 +13,9 @@ LICENSE="LPPL-1.2"
 
 IUSE=""
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~sparc ~x86"
+KEYWORDS="~amd64 ~ppc ~sparc x86"
 
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 
 src_install() {
 

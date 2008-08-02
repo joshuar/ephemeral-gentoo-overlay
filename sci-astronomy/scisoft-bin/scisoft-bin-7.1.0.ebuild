@@ -10,7 +10,7 @@ MY_PN="scisoft"
 SRC_URI="ftp://ftp.eso.org/${MY_PN}/${MY_PN}$(get_major_version)/linux/fedora6/tar/${MY_PN}-${PV}.tar.gz"
 
 LICENSE="as-is"
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 SLOT="0"
 KEYWORDS="~x86"
 IUSE=""

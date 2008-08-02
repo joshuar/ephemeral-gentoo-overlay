@@ -11,5 +11,5 @@ SRC_URI="mirror://rubyforge/rocky-hacks/${P}.gem"
 LICENSE="GPL-2"
 KEYWORDS="~x86"
 
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 

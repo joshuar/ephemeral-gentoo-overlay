@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~x86"
 IUSE=""
 
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 
 S="${WORKDIR}/${MY_PN}-${PV}"
 

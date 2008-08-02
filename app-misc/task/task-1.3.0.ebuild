@@ -11,7 +11,7 @@ SLOT="0"
 KEYWORDS="~x86"
 IUSE=""
 
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 
 DEPEND="sys-libs/ncurses"
 RDEPEND="${DEPEND}"

@@ -1,0 +1,27 @@
+Adeona version 0.2.1 as of July 14, 2008
+Copyright (c) 2007-2008 University of Washington,
+Gabriel Maganis, Thomas Ristenpart, Tadayoshi Kohno, and Arvind Krishnamurthy
+
+TERMS AND CONDITIONS FOR USE
+
+This program is offered "AS IS". Any use of this program is entirely
+at the user's own risk. Any output from this program is intended for
+informational, research and evaluation purposes only.
+
+For licensing information, please contact: license@u.washington.edu
+
+All bug reports and technical questions can be sent to:
+adeona@cs.washington.edu
+
+TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License Version 2.0,
+1991, as published by the Free Software Foundation Inc., 59 Temple
+Place, Suite 330, Boston, MA 02111-1307 USA
+(http://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY, NONINFRINGEMENT, or FITNESS FOR A PARTICULAR
+PURPOSE. See the GNU General Public License for more details.

@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS="~x86"
 IUSE="doc"
 
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 
 DEPEND="media-libs/libmad
 		media-libs/libtremor"

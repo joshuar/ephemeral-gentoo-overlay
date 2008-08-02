@@ -10,7 +10,7 @@ MY_PN="Astro-IRAF-CL"
 SRC_URI="mirror://cpan/authors/id/S/SJ/SJQUINNEY/${MY_PN}-${PV}.tar.gz"
 
 LICENSE="GPL-2"
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 SLOT="0"
 KEYWORDS="~x86"
 IUSE=""

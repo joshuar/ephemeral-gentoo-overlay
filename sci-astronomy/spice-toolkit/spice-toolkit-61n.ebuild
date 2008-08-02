@@ -10,7 +10,7 @@ MY_PN="cspice"
 SRC_URI="ftp://naif.jpl.nasa.gov/pub/naif/toolkit//C/PC_Linux_C/packages/${MY_PN}.tar.Z"
 
 LICENSE="as-is"
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 SLOT="0"
 KEYWORDS="~x86"
 IUSE="doc"

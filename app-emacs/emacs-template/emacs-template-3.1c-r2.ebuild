@@ -13,7 +13,7 @@ LICENSE="as-is"
 SLOT="0"
 KEYWORDS="x86"
 IUSE=""
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 DEPEND="virtual/emacs"
 
 S="${WORKDIR}"/template

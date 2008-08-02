@@ -18,6 +18,6 @@ IUSE=""
 
 DEPEND=">=dev-ruby/rails-2.1"
 
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 
 

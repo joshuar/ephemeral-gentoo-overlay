@@ -23,7 +23,7 @@ x11-themes/gnome-icon-theme"
 DEPEND="app-arch/zip
 ${RDEPEND}"
 
-RESTRICT="nomirror"
+RESTRICT="primaryuri"
 
 pkg_setup() {
 	REMALERTFILES="version.py wxremindrc.py wxremalert.py"
