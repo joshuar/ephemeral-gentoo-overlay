@@ -17,6 +17,7 @@ DEPEND="dev-python/gnome-python
 		dev-python/pysqlite
 		dev-python/imaging
 		dev-python/reportlab
+		dev-python/sqlalchemy
 		gnome-base/libglade
 		dev-db/metakit
 		rtf? (dev-python/pyrtf)

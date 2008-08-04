@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit toolchain-funcs
+inherit eutils toolchain-funcs
 
 DESCRIPTION="System for tracking the location of your lost or stolen laptop."
 HOMEPAGE="http://adeona.cs.washington.edu/"
@@ -30,10 +30,11 @@ pkg_nofetch() {
 
 src_unpack() {
 	unpack "${A}"
+	epatch ${FILESDIR}/${P}-paths.patch
 	cd "${S}"
 	sed -i \
 		-e "s|GCC := .*|GCC := $(tc-getCC)|" \
-		-e "s|CFLAGS :=.*|CFLAGS := ${CFLAGS}|" \
+		-e "s|CFLAGS :=.*|CFLAGS := -D_ADEONA_BUILD_RELEASE_ ${CFLAGS}|" \
 		-e "s|LIBS :=.*|LIBS := -lm $(pkg-config --libs openssl) ${LDFLAGS}|" \
 		Makefile
 }
@@ -71,7 +72,7 @@ pkg_config() {
 		einfo "pick a password for Adeona. It does not need to be "
 		einfo "the same as your login password."
 		cd "${statedir}"
-		/usr/sbin/adeona-init.exe -r /etc/adeona -l /var/log/adeona/
+		/usr/sbin/adeona-init.exe -r /var/lib/adeona/resources -l /var/log/adeona/
 	fi
 	if [ $? == 0 ]; then
 		einfo "Adeona successfully initialised.  You should now"
@@ -88,7 +89,7 @@ pkg_config() {
 		einfo "you gave a password. If you are having trouble, "
 		einfo "try deleting the contents of ${statedir} and manually"
 		einfo "run:"
-		einfo "/usr/sbin/adeona-init.exe -r /etc/adeona -l /var/log/adeona/"
+		einfo "/usr/sbin/adeona-init.exe -r /var/lib/adeona/resources -l /var/log/adeona/"
 	fi
 }
 
