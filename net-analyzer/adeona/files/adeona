@@ -5,7 +5,7 @@ start() {
       --pidfile /var/run/adeona.pid --make-pidfile \
       --exec /usr/sbin/adeona-client.exe -- \
       -s /var/lib/adeona/adeona-clientstate.cst \
-      -r /etc/adeona -l /var/log/adeona
+      -r /var/lib/adeona -l /var/log/adeona/
   eend $?
 }
 
