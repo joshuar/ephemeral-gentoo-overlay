@@ -6,10 +6,10 @@ MY_PV="0.3.0rc1"
 MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="Perl script to convert FLAC files to MP3 format."
-HOMEPAGE="http://freshmeat.net/redir/flac2mp3/60211/url_homepage/trac"
+HOMEPAGE="http://projects.robinbowes.com/flac2mp3/trac"
 SRC_URI="http://projects.robinbowes.com/download/flac2mp3/${MY_P}.tar.gz"
 
-LICENSE=""
+LICENSE="as-is"
 SLOT="0"
 KEYWORDS="~x86"
 IUSE=""

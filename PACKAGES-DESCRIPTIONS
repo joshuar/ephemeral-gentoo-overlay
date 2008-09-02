@@ -21,6 +21,9 @@ sci-libs/rpfits:
 app-emacs/emacs-template:
 	Supplies an initial buffer content via a template: a file with normal text and expansion forms. 
 	url: http://emacs-template.sourceforge.net/
+x11-themes/ultimate-gnome-icon-theme:
+	A distro independant icon theme that doesn't contain any copyright violating icons.
+	url: http://code.google.com/p/ultimate-gnome/
 x11-themes/comix-xcursors:
 	The original Comix Cursors.
 	url: http://www.xfce-look.org/content/show.php/ComixCursors?content=32627
@@ -105,6 +108,9 @@ media-sound/imms:
 media-sound/quodlibet:
 	Quod Libet is a GTK+-based audio player written in Python.
 	url: http://www.sacredchao.net/quodlibet/
+media-sound/flac2mp3:
+	Perl script to convert FLAC files to MP3 format.
+	url: http://projects.robinbowes.com/flac2mp3/trac
 media-sound/sbagen:
 	Binaural tones generator.
 	url: http://uazu.net/sbagen
