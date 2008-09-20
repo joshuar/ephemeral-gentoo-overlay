@@ -3,9 +3,6 @@ PACKAGES AND DESCRIPTIONS:
 dev-tex/curve:
 	LaTeX style for a CV (curriculum vitae) with flavour option
 	url: http://www.ctan.org/tex-archive/macros/latex/contrib/curve/
-dev-tex/tex-gyre:
-	TeX Fonts extending freely available URW fonts.
-	url: http://www.gust.org.pl/projects/e-foundry/tex-gyre
 xfce-extra/thunar-shares:
 	Thunar plugin to share files using Samba.
 	url: http://thunar-shares.daniel.com.uy/
@@ -96,12 +93,18 @@ dev-ruby/rgplot:
 dev-ruby/linecache:
 	Caches (Ruby source) files as might be used in a debugger or a tool that works with sets of Ruby source files.
 	url: http://rubyforge.org/projects/rocky-hacks/
+dev-util/elice:
+	PureBasic to C++ translator/compiler.
+	url: http://clueonic.org/elice/archive/
 dev-python/pyaws:
 	Python wrapper for the Amazon Web Service.
 	url: http://pyaws.sourceforge.net/
-media-fonts/gyre-fonts:
-	Fonts extending freely available URW fonts (non-TeX versions).
-	url: http://www.gust.org.pl/projects/e-foundry/tex-gyre/
+media-fonts/tex-gyre:
+	Fonts extending freely available URW fonts.
+	url: http://www.gust.org.pl/projects/e-foundry/tex-gyre
+media-fonts/fell-types:
+	A unique collection of old fonts.
+	url: http://iginomarini.com/fell/
 media-sound/imms:
 	An adaptive playlist framework that tracks your listening patterns and dynamically adapts to your taste.
 	url: http://www.luminal.org/wiki/index.php/IMMS/IMMS
