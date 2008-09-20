@@ -12,7 +12,7 @@ DESCRIPTION="A unique collection of old fonts."
 HOMEPAGE="http://iginomarini.com/fell/"
 SRC_URI="${BASE_URI}/${MY_PV}/${MY_PN}plain27.zip"
 
-LICENSE="FELL-FONTS"
+LICENSE="fell-types"
 SLOT="0"
 KEYWORDS="~x86"
 IUSE=""
