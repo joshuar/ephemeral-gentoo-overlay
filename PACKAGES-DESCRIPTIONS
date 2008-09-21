@@ -110,13 +110,16 @@ media-sound/imms:
 	url: http://www.luminal.org/wiki/index.php/IMMS/IMMS
 media-sound/quodlibet:
 	Quod Libet is a GTK+-based audio player written in Python.
-	url: http://www.sacredchao.net/quodlibet/
+	url: http://code.google.com/p/quodlibet/
 media-sound/flac2mp3:
 	Perl script to convert FLAC files to MP3 format.
 	url: http://projects.robinbowes.com/flac2mp3/trac
 media-sound/sbagen:
 	Binaural tones generator.
 	url: http://uazu.net/sbagen
+media-plugins/thisfred-quodlibet-plugins:
+	A few plugins for Quodlibet.
+	url: http://code.google.com/p/thisfred-quodlibet-plugins/
 media-plugins/quodlibet-qlscrobbler:
 	Audioscrobbler client for Quod Libet
 	url: http://www.sacredchao.net/quodlibet/file/trunk/plugins/events/${MY_PN}.py
