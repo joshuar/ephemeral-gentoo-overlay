@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion distutils
+inherit subversion python distutils
 
 ESVN_REPO_URI="http://svn.sacredchao.net/svn/quodlibet/trunk/quodlibet"
 
@@ -97,32 +97,21 @@ src_unpack() {
 	fi
 }
 
-
-# src_unpack() {
-# 	subversion_src_unpack
-# 	cd "${S}/${PN}"
-# 	# no gst-plugins-gconf, attempt to guess the proper pipeline value. Bug #133043, #146728.
-# 	if ! use gnome; then
-# 		local sinktype="alsasink"
-
-# 		use esd  && sinktype="esdsink"
-# 		use oss  && sinktype="osssink"
-# 		use alsa && sinktype="alsasink"
-
-# 		elog "Setting the default pipeline to ${sinktype}"
-
-# 		sed -i -e "s,^          \"gst_pipeline\": \"\",          \"gst_pipeline\": \"${sinktype}\"," config.py
-# 	fi
-# 	# fix broken install functions
-# 	cd "${S}/gdist"
-# 	epatch "${FILESDIR}/${P}-skip-autoinstall-desktop-man-locale-files.patch"
-# }
-
 src_install() {
-	${python} setup.py install --prefix="${D}/usr" --no-compile "$@" || die
+
+	${python} setup.py install \
+		--prefix="${D}/usr" \
+		--no-compile "$@" || die
 
 	DDOCS="CHANGELOG KNOWN_BUGS MAINTAINERS PKG-INFO CONTRIBUTORS TODO NEWS"
 	DDOCS="${DDOCS} Change* MANIFEST* README* AUTHORS"
+
+	python_version
+	for ext in png svg; do
+		for prog in quodlibet exfalso; do
+			dosym /usr/$(get_libdir)/python${PYVER}/site-packages/${PN}/images/${prog}.${ext} /usr/share/pixmaps/${prog}.${ext}
+		done
+	done
 
 	for doc in ${DDOCS}; do
 		[ -s "$doc" ] && dodoc $doc

@@ -4,13 +4,13 @@
 
 inherit perl-module
 
-DESCRIPTION="Low-Level Interface to bzip2 compression library."
-HOMEPAGE="http://search.cpan.org/search?query=Compress-Raw-Bzip2&mode=dist"
-SRC_URI="mirror://cpan/authors/id/P/PM/PMQS/Compress-Raw-Bzip2-${PV}.tar.gz"
+S=${WORKDIR}/Attribute-Handlers-${PV}
+
+DESCRIPTION="Simpler definition of attribute handlers."
+HOMEPAGE="http://search.cpan.org/search?query=Attribute-Handlers&mode=dist"
+SRC_URI="mirror://cpan/authors/id/A/AB/ABERGMAN/Attribute-Handlers-${PV}.tar.gz"
 
 IUSE=""
-
-S=${WORKDIR}/Compress-Raw-Bzip2-${PV}
 
 SLOT="0"
 LICENSE="|| ( Artistic GPL-2 )"
