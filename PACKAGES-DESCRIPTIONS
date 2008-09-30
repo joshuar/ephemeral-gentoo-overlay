@@ -45,6 +45,9 @@ app-misc/yagtd:
 app-misc/todotxt:
 	Powerful shell script that adds to, edits, sorts and searches a todo list text file from the command line.
 	url: http://todotxt.com/library/todo.sh/
+media-gfx/inkscape:
+	A SVG based generic vector-drawing program
+	url: http://www.inkscape.org/
 media-libs/libtremor:
 	Integer-only implementation of the vorbis decoder
 	url: http://xiph.org/vorbis
@@ -54,12 +57,24 @@ games-roguelike/lostlabyrinth:
 games-roguelike/nazghul:
 	A rogue-like, top-down, 2d, turn-based computer role-playing game.
 	url: http://myweb.cableone.net/gmcnutt/nazghul.html
+dev-perl/attribute-handlers:
+	Simpler definition of attribute handlers.
+	url: http://search.cpan.org/search?query=Attribute-Handlers&mode=dist
 dev-perl/astro:
 	Assorted astronomical routines for Perl.
 	url: http://search.cpan.org/~cphil/Astro-0.69/
+dev-perl/perl6-export-attrs:
+	Implements a Perl 5 native version of what the Perl 6 symbol export mechanism will look like.
+	url: http://search.cpan.org/search?query=Perl6-Export-Attrs&mode=dist
+dev-perl/compress-raw-bzip2:
+	Low-Level Interface to bzip2 compression library.
+	url: http://search.cpan.org/search?query=Compress-Raw-Bzip2&mode=dist
 dev-perl/term-prompt:
 	Prompt a user
 	url: http://search.cpan.org/search?query=Term-Prompt&mode=dist
+dev-perl/io-compress-bzip2:
+	Write bzip2 files/buffers.
+	url: http://search.cpan.org/search?query=IO-Compress-Bzip2&mode=dist
 dev-perl/rcs-agent:
 	An RCS archive manipulation method library
 	url: http://search.cpan.org/search?query=Rcs-Agent&mode=dist
@@ -93,9 +108,6 @@ dev-ruby/rgplot:
 dev-ruby/linecache:
 	Caches (Ruby source) files as might be used in a debugger or a tool that works with sets of Ruby source files.
 	url: http://rubyforge.org/projects/rocky-hacks/
-dev-util/elice:
-	PureBasic to C++ translator/compiler.
-	url: http://clueonic.org/elice/archive/
 dev-python/pyaws:
 	Python wrapper for the Amazon Web Service.
 	url: http://pyaws.sourceforge.net/
