@@ -20,3 +20,12 @@ IUSE=""
 RESTRICT="primaryuri"
 
 FONT_SUFFIX="ttf"
+
+pkg_postinst() {
+	font_pkg_postinst
+	echo
+	elog "Please read /usr/portage/licenses/${LICENSE} for notes"
+	elog "on using ${PN} in your works."
+	echo
+}
+
