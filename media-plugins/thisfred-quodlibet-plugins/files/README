@@ -16,14 +16,6 @@ great id3 editing interface (Ex Falso, also usable as a stand alone
 application,) this makes adding and editing tags to songs, artists and
 albums on last.fm much easier.
 
-3. autoqueue.py
-
-This gets similar tracks to the ones you play from last.fm and puts
-them in the queue. It is smart enough not to play the same
-artists/songs for a configurable time, and has some other options. It
-works pretty well in creating a consistent yet not wholly predictable
-listening experience if you have a large and diverse library.
-
 My underlying reasons for developing these (aside from having fun
 hacking) are:
 
