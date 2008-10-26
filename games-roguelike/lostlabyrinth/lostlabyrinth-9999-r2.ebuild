@@ -3,7 +3,7 @@
 
 inherit eutils games subversion flag-o-matic
 
-DESCRIPTION="A roguelike roleplaying game with zelda-like graphics and very high replayability"
+DESCRIPTION="A roguelike roleplaying game with zelda-like graphics and very high replayability."
 HOMEPAGE="http://www.lostlabyrinth.com"
 ESVN_REPO_URI="https://lostlaby.svn.sourceforge.net/svnroot/lostlaby"
 
@@ -19,6 +19,7 @@ DEPEND="dev-ruby/racc
 		>=media-libs/sdl-gfx-1.2
 		dev-libs/DirectFB"
 RDEPEND="${DEPEND}"
+
 
 pkg_setup() {
 	statedir="${GAMES_STATEDIR}/${PN}"
@@ -42,10 +43,9 @@ src_compile() {
 	# - don't assume compiler is called g++
 	sed -i  \
 		-e "s:CFLAGS=.*:CFLAGS=${CFLAGS}\nCXXFLAGS=${CXXFLAGS}\nLDFLAGS=${LDFLAGS}:" \
-		-e 's:g++ $(CFLAGS):g++ $(CXXFLAGS):' \
+		-e 's:elice $(CFLAGS):elice $(CXXFLAGS) $(LDFLAGS):' \
 		-e 's:-I/usr/include/SDL -lSDL:`pkg-config --cflags --libs sdl`:' \
 		-e 's:-lSDL_gfx:-lSDL_gfx $(LDFLAGS):' \
-		-e "s:g++:$(tc-getCXX):" \
 		Makefile || die "sed failed."
 	# build failed on a machine dual-core machine with -j3
 	# so use -j1 for builds to be safe.
@@ -84,15 +84,6 @@ src_install() {
 		settings.txt || die "set language failed."
 	doins highscores.dat settings.txt \
 		|| die "failed installing state files."
-
-
-	# create links and saved game files
-	for filename in {highscores.dat,settings.txt,savenames.sav,laby{1,2,3,4,5,6,7,8,9,10}.sav};
-	do
-		touch "${D}/${statedir}/${filename}" || die
-		dosym "${statedir}/${filename}" "${gamedir}/${filename}" || die
-		fperms 660 "${statedir}/${filename}" || die
-	done
 
 	# install icon, make desktop entry, link binary into bindir
 	newicon laby.xpm ${PN}.xpm
