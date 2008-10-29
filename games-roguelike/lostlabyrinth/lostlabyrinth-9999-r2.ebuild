@@ -37,8 +37,10 @@ src_compile() {
 	cd elice
 	# five substitutions:
 	# - add CFLAGS, CXXFLAGS and LDFLAGS to Makefile
-	# - use CXXFLAGS and LDFLAGS when compiling/linking
+	# - use CXXFLAGS when compiling with g++
 	# - use pkg-config for finding SDL lib flags
+	# - add LDFLAGS to link command line
+	# - don't assume compiler is called g++
 	sed -i  \
 		-e "s:CFLAGS=.*:CFLAGS=${CFLAGS}\nCXXFLAGS=${CXXFLAGS}\nLDFLAGS=${LDFLAGS}:" \
 		-e 's:elice $(CFLAGS):elice $(CXXFLAGS) $(LDFLAGS):' \
