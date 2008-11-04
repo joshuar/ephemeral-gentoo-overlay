@@ -2,18 +2,18 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion python distutils
-
-ESVN_REPO_URI="http://svn.sacredchao.net/svn/quodlibet/trunk/quodlibet"
+inherit distutils python subversion
 
 DESCRIPTION="Quod Libet is a GTK+-based audio player written in Python."
 HOMEPAGE="http://code.google.com/p/quodlibet/"
+ESVN_REPO_URI="http://svn.sacredchao.net/svn/quodlibet/trunk/quodlibet"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86"
 
-IUSE="aac alsa dbus esd ffmpeg flac gnome gstreamer hal ipod mad musepack oss trayicon tta vorbis xine"
+IUSE="aac alsa dbus esd ffmpeg flac gnome gstreamer hal ipod mad \
+musepack oss trayicon tta vorbis xine"
 
 COMMON_DEPEND=">=dev-python/pygtk-2.12"
 
@@ -99,9 +99,8 @@ src_unpack() {
 
 src_install() {
 
-	${python} setup.py install \
-		--prefix="${D}/usr" \
-		--no-compile "$@" || die
+	${python} setup.py install --prefix="${D}/usr" --no-compile "$@" \
+		|| die "python setup.py install failed."
 
 	DDOCS="CHANGELOG KNOWN_BUGS MAINTAINERS PKG-INFO CONTRIBUTORS TODO NEWS"
 	DDOCS="${DDOCS} Change* MANIFEST* README* AUTHORS"
