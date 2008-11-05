@@ -21,9 +21,15 @@ app-emacs/emacs-template:
 x11-themes/ultimate-gnome-icon-theme:
 	A distro independant icon theme that doesn't contain any copyright violating icons.
 	url: http://code.google.com/p/ultimate-gnome/
+x11-themes/art.gnome.org-icon-themes-gpl:
+	Collection of icon themes from art.gnome.org with GPL licenses.
+	url: http://art.gnome.org/themes/icon/
 x11-themes/comix-xcursors:
 	The original Comix Cursors.
 	url: http://www.xfce-look.org/content/show.php/ComixCursors?content=32627
+x11-themes/art.gnome.org-icon-themes-ccas:
+	Collection of icon themes from art.gnome.org with CCPL-Attribution-ShareAlike licenses.
+	url: http://art.gnome.org/themes/icon/
 sci-astronomy/karma-bin:
 	Toolkit for interprocess communications, authentication, encryption, graphics display, user interface and manipulating the Karma network data structure
 	url: http://www.atnf.csiro.au/computing/software/karma/
@@ -52,11 +58,17 @@ media-libs/libtremor:
 	Integer-only implementation of the vorbis decoder
 	url: http://xiph.org/vorbis
 games-roguelike/lostlabyrinth:
-	A roguelike roleplaying game with zelda-like graphics and very high replayability
+	A roguelike roleplaying game with zelda-like graphics and very high replayability.
 	url: http://www.lostlabyrinth.com
 games-roguelike/nazghul:
 	A rogue-like, top-down, 2d, turn-based computer role-playing game.
 	url: http://myweb.cableone.net/gmcnutt/nazghul.html
+net-fs/jungledisk:
+	Networked storage/backup using Amazon's S3 service.
+	url: http://www.jungledisk.com
+games-board/xshisen:
+	Puzzle game using 144 mahjong pieces, objective is to remove all the pieces on the board.
+	url: http://www.techfirm.co.jp/~masaoki/xshisen.html
 dev-perl/attribute-handlers:
 	Simpler definition of attribute handlers.
 	url: http://search.cpan.org/search?query=Attribute-Handlers&mode=dist
