@@ -4,18 +4,13 @@
 
 inherit perl-module
 
-S=${WORKDIR}/Rcs-Agent-1.03
-
 DESCRIPTION="An RCS archive manipulation method library"
 HOMEPAGE="http://search.cpan.org/search?query=Rcs-Agent&mode=dist"
-SRC_URI="mirror://cpan/authors/id/N/NI/NICKH/Rcs-Agent-1.03.tar.gz"
-
-
-IUSE=""
+SRC_URI="mirror://cpan/authors/id/N/NI/NICKH/${P}.tar.gz"
 
 SLOT="0"
 LICENSE="|| ( Artistic GPL-2 )"
-KEYWORDS="alpha amd64 arm hppa ia64 m68k mips ppc ppc64 ppc-macos s390 sh sparc sparc-fbsd x86 x86-fbsd"
+KEYWORDS="~x86"
+IUSE=""
 
-DEPEND="dev-perl/String-ShellQuote
-	dev-lang/perl"
+DEPEND="dev-perl/String-ShellQuote"
