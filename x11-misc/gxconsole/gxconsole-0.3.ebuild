@@ -24,13 +24,13 @@ S="${WORKDIR}/${PN}"
 
 src_install() {
 	 emake install DESTDIR="${D}" || die "Install failed"
-	 dodoc AUTHORS ChangeLog NEWS README
+	 dodoc AUTHORS ChangeLog FAQ NEWS README
 }
 
 
 pkg_postinst() {
 	echo
-	elog "/dev/console needs to exist for gconsole to work."
+	elog "/dev/console needs to exist for gxconsole to work."
 	elog ""
 	elog "You can create it with the following commands:"
 	elog ""

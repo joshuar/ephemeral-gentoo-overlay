@@ -11,7 +11,7 @@ SRC_URI="http://projects.robinbowes.com/download/flac2mp3/${MY_P}.tar.gz"
 
 LICENSE="as-is"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="x86"
 IUSE=""
 
 RDEPEND="dev-perl/Audio-FLAC-Header
