@@ -30,7 +30,17 @@ pkg_postinst() {
 	for dir in editing events playorder songsmenu; do
 		python_mod_compile ${PLUGIN_BASEDIR}/${dir}/*.py
 	done
-
+	echo
+	elog "You will need to install some extra packages for some of"
+	elog "the plugins to work:"
+	elog ""
+	elog "automask: dev-python/gnome-vfs-python"
+	elog "nautilus: dev-python/libbonobo-python"
+	elog "replaygain: media-libs/gst-plugins-bad"
+	elog ""
+	elog "You do not need to install these if you do not wish to"
+	elog "use those plugins."
+	echo
 }
 
 pkg_postrm() {

@@ -19,18 +19,17 @@ ok.
 
 == FEEDBACK
 
-Bugs and problems can be sent to my email listed in my profile on
-GitHub.  I'm generally responsive, I usually answer within a week.
+I love feedback, but I get none.  So if you use this overlay, why not
+send me a quick email with some comments.  Maybe just say hi.  Got a problem with an ebuild
+from this overlay, tell me, otherwise I might not know about
+it. Cheers!
+
+== CONTRIBUTING
+
+Want to help with the packages in this overlay?  Want to add updated
+or fixed ebuilds?  Send me an email, I'll gladly allow contributers.
 
 == NOTES ABOUT THIS OVERLAY
-
-- I only own x86 hardware, so I’ve only `keyworded ‘ these ebuilds for
-  x86 machines. That means if you are using some other hardware
-  platform (ppc, x86_64, sparc), portage will complain when trying to
-  use these ebuilds. If you’d still like to use the packages, then
-  just contact me and I’ll adjust the ebuilds, but I make even less
-  guarantees of stability/safety than using these ebuilds on x86
-  hardware. 
 
 - Some packages will be `masked’ as I may not have tested them much
   (or may feel they aren’t stable). But they are generally usable. You
