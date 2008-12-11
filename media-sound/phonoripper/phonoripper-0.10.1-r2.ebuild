@@ -38,5 +38,6 @@ src_install() {
 	dosym /usr/share/${PN}-${PV}/${PN}.py /usr/bin/${PN}
 	dosym /usr/share/${PN}-${PV}/icons/${PN}.png /usr/share/pixmaps/${PN}.png
 	make_desktop_entry /usr/bin/${PN} Phonoripper \
-		/usr/share/pixmaps/${PN}.png 'Multimedia;Applications'
+		/usr/share/pixmaps/${PN}.png \
+		'Application;AudioVideo;Audio;AudioVideoEditing;'
 }
