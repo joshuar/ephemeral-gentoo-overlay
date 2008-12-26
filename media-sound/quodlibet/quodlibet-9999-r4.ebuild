@@ -78,7 +78,8 @@ src_unpack() {
 	elif use gstreamer; then
 		elog "Gstreamer backend selected."
 	else
-		sed -i -e "s,^          \"backend\": \"gstbe\",          \"backend\": \"xinebe\"," quodlibet/config.py && \
+		sed -i -e "s,^          \"backend\": \"gstbe\",          \"backend\": \"xinebe\"," quodlibet/config.py \
+			|| die "setting xine backend failed."
 			elog "Xine backend selected."
 	fi
 	elog "You can change the backend by editing the ~/.${PN}/config file."
@@ -92,8 +93,8 @@ src_unpack() {
 		use alsa && sinktype="alsasink"
 
 		elog "Setting the default pipeline to ${sinktype}"
-
-		sed -i -e "s,^          \"pipeline\": \"\",          \"pipeline\": \"${sinktype}\"," quodlibet/config.py
+		sed -i -e "s,^          \"pipeline\": \"\",          \"pipeline\": \"${sinktype}\"," quodlibet/config.py \
+			|| die "setting default pipeline failed."
 	fi
 }
 
@@ -108,7 +109,9 @@ src_install() {
 	python_version
 	for ext in png svg; do
 		for prog in quodlibet exfalso; do
-			dosym /usr/$(get_libdir)/python${PYVER}/site-packages/${PN}/images/${prog}.${ext} /usr/share/pixmaps/${prog}.${ext}
+			dosym /usr/$(get_libdir)/python${PYVER}/site-packages/${PN}/images/${prog}.${ext} \
+				/usr/share/pixmaps/${prog}.${ext} \
+				|| die "copying image file ${prog}.${ext} failed."
 		done
 	done
 

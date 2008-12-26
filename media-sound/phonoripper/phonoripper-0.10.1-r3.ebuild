@@ -5,7 +5,7 @@
 EAPI=0
 NEED_PYTHON="2.3"
 
-inherit python
+inherit eutils python
 
 DESCRIPTION="Easy to use, all-in-one GUI tool for creating audio CDs from analog sources like vinyl records."
 HOMEPAGE="http://klappnase.bubble.org/phonoripper/index.html"
@@ -26,9 +26,23 @@ DEPEND=">=dev-lang/tcl-8.4
 		normalize? ( media-sound/normalize )"
 
 src_install() {
+	# fix some issues in the install script
 	sed -i -e "s:^phonoversion.*:phonoversion = '${PV}':" \
 		-e "s:/usr/local:${D}usr:g" \
 		-e "s:/usr/share/pixmaps:${D}usr/share/pixmaps:" \
-		install
-	${python} ./install
+		install \
+		|| die "sed install script failed."
+	${python} ./install || die "python install failed."
+	# remove the link in /usr/bin created by the install script
+	# and do the link manually
+	rm -f ${D}usr/bin/phonoripper \
+		|| die "failed to remove broken executable link."
+	dosym /usr/share/${PN}-${PV}/${PN}.py /usr/bin/${PN} \
+		|| die "failed to create executable link."
+	dosym /usr/share/${PN}-${PV}/icons/${PN}.png \
+		/usr/share/pixmaps/${PN}.png \
+		|| die "failed to link application icon."
+	make_desktop_entry /usr/bin/${PN} Phonoripper \
+		/usr/share/pixmaps/${PN}.png \
+		'Application;AudioVideo;Audio;AudioVideoEditing;'
 }

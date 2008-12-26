@@ -21,17 +21,18 @@ RDEPEND="${DEPEND}"
 
 src_compile() {
 	append-flags "-DT_LINUX"$(pkg-config --cflags mad)
-	$(tc-getCC) ${CFLAGS} sbagen.c ${LDFLAGS} $(pkg-config --libs mad) -lvorbisidec -lpthread -lm -o sbagen \
+	$(tc-getCC) ${CFLAGS} sbagen.c ${LDFLAGS} $(pkg-config --libs mad) \
+		-lvorbisidec -lpthread -lm -o sbagen \
 		|| die "compile sbagen failed."
 }
 
 src_install() {
-	dobin sbagen
-	dodoc {ChangeLog,focus*,holosync,README,SBAGEN,theory*,TODO,wave}.txt
+	dobin sbagen || die "install binary failed."
 	insinto /usr/share/sounds/${PN}
 	doins *.ogg
 	docinto scripts
 	dodoc scripts/*
+	dodoc {ChangeLog,focus*,holosync,README,SBAGEN,theory*,TODO,wave}.txt
 	docinto examples
 	cp -pPR examples/* ${D}/usr/share/doc/${P}/examples
 }

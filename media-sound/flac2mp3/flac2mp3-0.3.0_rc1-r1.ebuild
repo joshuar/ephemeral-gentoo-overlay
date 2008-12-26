@@ -24,11 +24,8 @@ RESTRICT="nomirror"
 
 S="${WORKDIR}/${MY_P}"
 
-src_compile() {
-	return 0
-}
-
 src_install() {
-	newbin flac2mp3.pl flac2mp3
+	newbin flac2mp3.pl flac2mp3 \
+		|| die "install executable failed."
 	dodoc *.txt
 }
