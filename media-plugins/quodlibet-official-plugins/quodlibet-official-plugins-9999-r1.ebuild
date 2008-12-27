@@ -11,7 +11,7 @@ ESVN_REPO_URI="http://svn.sacredchao.net/svn/quodlibet/trunk/plugins"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE="automask cddb musicbrainz nautilus replaygain"
+#IUSE="automask cddb musicbrainz nautilus replaygain"
 
 RDEPEND=">=media-sound/quodlibet-2.0"
 		 # automask? ( dev-python/gnome-vfs-python )
