@@ -12,8 +12,8 @@
     </link>
 
     <description>
-      Some custom ebuilds and various programs (several astronomical
-      programs) that would never make it into the official tree.
+      A Gentoo overlay with a few multimedia, games, ruby,
+      astronomical applications and a few live ebuilds.
     </description>
   </overlay>
 </layman>
