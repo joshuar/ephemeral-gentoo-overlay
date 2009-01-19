@@ -5,12 +5,12 @@
 inherit eutils
 
 MY_PN="Rainlendar"
-MY_PV="2.4.b67"
+MY_PV="2.4.b70"
 MY_P="${MY_PN}-${MY_PV}"
 DESCRIPTION="Feature rich calendar application that is easy to use and doesn't take much space on your desktop."
 HOMEPAGE="http://www.rainlendar.net"
-SRC_URI="x86? ( http://www.rainlendar.net/download/${MY_P}-i386.tar.bz2 )
-		 amd64? ( http://www.rainlendar.net/download/${MY_P}-amd64.tar.bz2 )"
+SRC_URI="x86? ( http://www.rainlendar.net/download/${MY_P}-i386.tar.bz2 )"
+#		 amd64? ( http://www.rainlendar.net/download/${MY_P}-amd64.tar.bz2 )"
 
 LICENSE="as-is"
 SLOT="0"
