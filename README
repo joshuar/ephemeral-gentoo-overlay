@@ -1,9 +1,9 @@
 == INTRODUCTION
 
 So for some time now I have been using Gentoo Linux, and trying to be
-a good Gentoo user, I’ve created some unofficial, possibly buggy, but generally
-usable ‘ebuilds‘ for various astronomy software and other software packages
-I use.  They can be found in this overlay.
+a good Gentoo user, I’ve created some unofficial, possibly buggy, but
+generally usable ‘ebuilds‘ for various astronomy software and other
+software packages I use.  They can be found in this overlay.
 
 == USING THIS OVERLAY
 
@@ -13,31 +13,17 @@ url:
 
 http://github.com/joshuar/ephemeral-gentoo-overlay/tree/master%2Foverlay.xml?raw=true
 
-..to the “overlays:” section. Then re-sync all overlays (layman -S) and
-add this overlay (layman -a ephemeral). Hopefully that worked
-ok. 
+..to the “overlays:” section. Then re-sync all overlays (layman -S)
+and add this overlay (layman -a ephemeral). Hopefully that worked ok.
 
 == FEEDBACK
 
 I love feedback, but I get none.  So if you use this overlay, why not
-send me a quick email with some comments.  Maybe just say hi.  Got a problem with an ebuild
-from this overlay, tell me, otherwise I might not know about
-it. Cheers!
+send me a quick email with some comments.  Maybe just say hi.  Got a
+problem with an ebuild from this overlay, tell me, otherwise I might
+not know about it. Cheers!
 
 == CONTRIBUTING
 
 Want to help with the packages in this overlay?  Want to add updated
 or fixed ebuilds?  Send me an email, I'll gladly allow contributers.
-
-== NOTES ABOUT THIS OVERLAY
-
-- Some packages will be `masked’ as I may not have tested them much
-  (or may feel they aren’t stable). But they are generally usable. You
-  should read the guide on the Gentoo User Wiki on dealing with masked
-  packages. Basically, you’ll need to add them to your
-  /etc/portage/package.use file. 
-
-== WHAT PACKAGES/PROGRAMS ARE AVAILABLE?
-
-See the PACKAGES-DESCRIPTIONS file in the (hopefully) same place as
-this file.
