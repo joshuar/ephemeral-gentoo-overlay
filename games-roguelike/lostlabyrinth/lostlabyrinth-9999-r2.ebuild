@@ -5,9 +5,8 @@ inherit eutils games subversion flag-o-matic
 
 DESCRIPTION="A roguelike roleplaying game with zelda-like graphics and very high replayability."
 HOMEPAGE="http://www.lostlabyrinth.com"
-ESVN_REPO_URI="https://lostlaby.svn.sourceforge.net/svnroot/lostlaby"
+ESVN_REPO_URI="http://svn.sourceforge.net/svnroot/lostlaby/"
 
-RESTRICT="primaryuri"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86"
