@@ -10,7 +10,7 @@ SRC_URI="mirror://cpan/authors/id/D/DC/DCONWAY/${P}.tar.gz"
 
 SLOT="0"
 LICENSE="|| ( Artistic GPL-2 )"
-KEYWORDS="x86"
+KEYWORDS="x86 amd64 ppc"
 IUSE=""
 
 DEPEND="dev-perl/Attribute-Handlers"

@@ -10,9 +10,7 @@ SRC_URI="mirror://cpan/authors/id/P/PE/PERSICOM/${P}.tar.gz"
 
 SLOT="0"
 LICENSE="|| ( Artistic GPL-2 )"
-KEYWORDS="~x86"
+KEYWORDS="x86 amd64 ppc"
 IUSE=""
-
-RESTRICT="primaryuri"
 
 DEPEND=">=dev-perl/TermReadKey-2.30"

@@ -4,8 +4,9 @@
 
 inherit eutils bash-completion
 
-MY_PN=todo.txt-cli
-MY_P=${MY_PN}-${PV}
+MY_PN=todotxt-cli
+MY_PV=latest
+MY_P=${MY_PN}-${MY_PV}
 
 DESCRIPTION="Powerful shell script that adds to, edits, sorts and searches a todo list text file from the command line."
 HOMEPAGE="http://todotxt.com/library/todo.sh/"
@@ -14,7 +15,7 @@ SRC_URI="http://todotxt.com/library/todo.sh/${MY_P}.zip
 
 LICENSE="GPL"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="bash-completion"
 
 S="${WORKDIR}"
