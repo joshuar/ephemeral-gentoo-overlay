@@ -25,7 +25,7 @@ ${BASE_URI}/1002/ICON-BlankOn.tar.gz"
 
 LICENSE="GPL"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~ppc ~sparc ~alpha ~mips ~hppa ~amd64 ~ia64"
 IUSE=""
 
 RESTRICT="binchecks strip primaryuri"

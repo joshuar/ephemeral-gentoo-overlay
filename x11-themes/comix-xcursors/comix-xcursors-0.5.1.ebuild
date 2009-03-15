@@ -10,7 +10,7 @@ SRC_URI="http://www.limitland.de/${MY_PN}-${PV}.tar.bz2"
 
 LICENSE="GPL"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS="x86 ppc sparc alpha mips hppa amd64 ia64"
 IUSE=""
 RESTRICT="nomirror binchecks strip"
 

@@ -13,7 +13,7 @@ SRC_URI="http://ultimate-gnome.googlecode.com/files/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="x86 ppc sparc alpha mips hppa amd64 ia64"
 IUSE=""
 
 RESTRICT="binchecks strip primaryuri"

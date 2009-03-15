@@ -19,7 +19,7 @@ ${BASE_URI}/1051/ICON-Iris.tar.bz2"
 
 LICENSE="CCPL-Attribution-ShareAlike-3.0"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~ppc ~sparc ~alpha ~mips ~hppa ~amd64 ~ia64"
 IUSE=""
 
 RESTRICT="binchecks strip primaryuri"
