@@ -14,7 +14,7 @@ SRC_URI="${BASE_URI}/${MY_PV}/${MY_PN}plain27.zip"
 
 LICENSE="fell-types"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 RESTRICT="primaryuri"
