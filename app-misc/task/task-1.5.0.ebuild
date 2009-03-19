@@ -2,21 +2,28 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI="2"
+
 DESCRIPTION="A todo list GTD implementation, based on ideas from http://todotxt.org."
 HOMEPAGE="http://www.beckingham.net/task.html"
 SRC_URI="http://www.beckingham.net/${P}.tar.gz"
 
 LICENSE="GPL"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
-
-RESTRICT="primaryuri"
 
 DEPEND="sys-libs/ncurses"
 RDEPEND="${DEPEND}"
 
+DOCS="AUTHORS ChangeLog DEVELOPERS NEWS README"
+
+src_prepare() {
+	# don't automatically add debug stuff
+	sed -i 's:-ggdb3::' src/Makefile.*
+}
+
 src_install() {
 	emake DESTDIR="${D}" install || die "install failed"
-	dodoc AUTHORS ChangeLog DEVELOPERS NEWS README TUTORIAL
+	dodoc ${DOCS}
 }

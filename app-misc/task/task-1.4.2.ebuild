@@ -8,7 +8,7 @@ SRC_URI="http://www.beckingham.net/${P}.tar.gz"
 
 LICENSE="GPL"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RESTRICT="primaryuri"
