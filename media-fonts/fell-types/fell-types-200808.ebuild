@@ -6,13 +6,13 @@ EAPI="2"
 
 inherit font
 
-BASE_URI="http://iginomarini.com/fell/wp-content/uploads"
-MY_PV="2008/08"
-MY_PN="imfell"
+MY_PV="27"
+MY_PN="imfellplain"
+MY_P="${MY_PN}${MY_PV}"
 
 DESCRIPTION="A unique collection of old fonts."
 HOMEPAGE="http://iginomarini.com/fell/"
-SRC_URI="${BASE_URI}/${MY_PV}/${MY_PN}plain27.zip"
+SRC_URI="http://iginomarini.com/fell/wp-content/uploads/${MY_P}.zip"
 
 LICENSE="fell-types"
 SLOT="0"
