@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI="2"
+
 inherit font
 
 BASE_URI="http://iginomarini.com/fell/wp-content/uploads"
@@ -16,8 +18,6 @@ LICENSE="fell-types"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
-
-RESTRICT="primaryuri"
 
 FONT_SUFFIX="ttf"
 
