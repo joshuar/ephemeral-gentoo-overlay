@@ -9,7 +9,7 @@ ESVN_REPO_URI="http://svn.sourceforge.net/svnroot/lostlaby/"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS=""
 
 DEPEND="dev-ruby/racc
 		>=media-libs/sdl-ttf-2.0

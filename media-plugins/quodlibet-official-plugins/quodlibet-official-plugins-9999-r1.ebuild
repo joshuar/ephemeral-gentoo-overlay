@@ -10,7 +10,7 @@ ESVN_REPO_URI="http://svn.sacredchao.net/svn/quodlibet/trunk/plugins"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS=""
 #IUSE="automask cddb musicbrainz nautilus replaygain"
 
 RDEPEND=">=media-sound/quodlibet-2.0"

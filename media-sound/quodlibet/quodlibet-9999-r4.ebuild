@@ -10,7 +10,7 @@ ESVN_REPO_URI="http://svn.sacredchao.net/svn/quodlibet/trunk/quodlibet"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 
 IUSE="aac alsa dbus esd ffmpeg flac gnome gstreamer hal ipod mad \
 mmkeys musepack oss trayicon tta vorbis xine"

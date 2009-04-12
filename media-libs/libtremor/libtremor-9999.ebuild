@@ -11,7 +11,7 @@ ESVN_BOOTSTRAP="eautoreconf"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS=""
 IUSE="doc"
 
 RDEPEND=">=media-libs/libogg-1"
