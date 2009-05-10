@@ -10,7 +10,7 @@ SRC_URI="http://uazu.net/${PN}/${P}.tgz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="doc"
 
 RESTRICT="primaryuri"
