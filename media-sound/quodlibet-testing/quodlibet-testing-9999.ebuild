@@ -12,8 +12,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 
-IUSE="aac alsa dbus esd ffmpeg flac gnome gstreamer hal ipod mad \
-mmkeys musepack oss trayicon tta vorbis xine"
+IUSE="aac alsa dbus esd ffmpeg flac gnome gstreamer hal ipod mad  musepack oss tta vorbis xine"
 
 COMMON_DEPEND=">=dev-python/pygtk-2.12"
 
@@ -49,8 +48,6 @@ RDEPEND="${COMMON_DEPEND}
 
 DEPEND="${COMMON_DEPEND}
 	dev-util/intltool"
-
-PDEPEND="trayicon? ( media-plugins/quodlibet-trayicon )"
 
 S=${WORKDIR}/${PN}/quodlibet
 
