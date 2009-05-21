@@ -7,6 +7,8 @@ inherit distutils python mercurial
 DESCRIPTION="Quod Libet is a GTK+-based audio player written in Python. This is the community driven development version."
 HOMEPAGE="http://bitbucket.org/srobertson/quodlibet-testing/wiki/Home"
 EHG_REPO_URI="http://bitbucket.org/srobertson/${PN}/"
+EHG_REVISION="tip"
+EHG_PROJECT="${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"
