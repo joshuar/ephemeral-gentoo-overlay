@@ -19,10 +19,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="lame wavpack musepack alac ogg bonjour flac avahi aac"
 
-SRC_URI="http://www.slimdevices.com/downloads/${SRC_DIR}/${MY_P}.tgz
-	mirror://gentoo/SqueezeCenter-AutoXS-Header-0.03.tar.gz
-	mirror://gentoo/SqueezeCenter-Class-XSAccessor-Array-0.05.tar.gz
-	mirror://gentoo/SqueezeCenter-POE-XS-Queue-Array-0.002.tar.gz"
+SRC_URI="http://www.slimdevices.com/downloads/${SRC_DIR}/${MY_P}.tgz"
 
 # Note: virtual/perl-Module-Build necessary because of SC bug#5882
 # (http://bugs.slimdevices.com/show_bug.cgi?id=5882).
@@ -99,9 +96,8 @@ S="${WORKDIR}/${MY_P}"
 # in the installation. This removes duplication of CPAN modules. (See Gentoo
 # bug #251494).
 CPANKEEP="
-
 	JSON/XS/VersionOneAndTwo.pm
-
+	Class/XSAccessor/Array.pm
 	Text/Unidecode/
 	Text/Unidecode.pm
 	Tie/Cache/LRU/
