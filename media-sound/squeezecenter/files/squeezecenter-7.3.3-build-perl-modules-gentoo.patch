@@ -1,0 +1,73 @@
+--- Bin/build-perl-modules.pl.old	2009-05-24 19:39:13.230008183 +1000
++++ Bin/build-perl-modules.pl	2009-05-24 19:42:27.059134189 +1000
+@@ -21,25 +21,12 @@
+ 
+ # NOTE: If you change this in a future version of SC, create a new
+ # versioned directory under vendor/src for all files for that version
+-my $SOURCE = 'http://svn.slimdevices.com/repos/slim/vendor/src/7.3';
+ my $dlext  = $Config{'dlext'};
+ 
+ # The list of all the packages needed.
+ my %packages = (
+ 	'Class::XSAccessor::Array' => 'Class-XSAccessor-Array-0.05.tar.gz',
+-	'Compress::Zlib'           => 'Compress-Zlib-1.41.tar.gz',
+-	'DBI'                      => 'DBI-1.604.tar.gz',
+-	'DBD::mysql'               => 'DBD-mysql-3.0002.tar.gz',
+-	'Digest::SHA1'             => 'Digest-SHA1-2.11.tar.gz',
+-	'Encode::Detect'           => 'Encode-Detect-1.00.tar.gz',
+-	'JSON::XS'                 => 'JSON-XS-1.5.tar.gz',
+-	'HTML::Parser'             => 'HTML-Parser-3.48.tar.gz',
+ 	'POE::XS::Queue::Array'    => 'POE-XS-Queue-Array-0.002.tar.gz',
+-	'Template'                 => 'Template-Toolkit-2.15.tar.gz',
+-	'Time::HiRes'              => 'Time-HiRes-1.86.tar.gz',
+-	'XML::Parser::Expat'       => 'XML-Parser-2.34.tar.gz',
+-	'YAML::Syck'               => 'YAML-Syck-0.64.tar.gz',
+-	'GD'                       => 'GD-2.35.tar.gz',
+ );
+ 
+ # Don't need Class::C3::XS if you're running 5.10
+@@ -197,37 +184,17 @@
+ 		}
+ 	}
+ 
++	# Utilise AutoXS::Header as we need that to support the following builds.
++	chdir($pwd) or die "Couldn't change to $pwd : $!";
++	# Include this when performing the following builds.
++	$ENV{'PERL5LIB'} = cwd() . "/AutoXS-Header-0.03/lib";
++        
+ 	for my $package (@packages) {
+ 
+ 		chdir($pwd) or die "Couldn't change to $pwd : $!";
+ 
+-		print "\nDownloading $package to: $pwd\n";
+-
+-		# Remove any previous version.
+-		unlink $package;
+-
+-		if ($downloadUsing eq 'lwp') {
+-
+-			LWP::Simple::getstore("$SOURCE/$package?view=auto", $package);
+-
+-		} elsif ($downloadUsing =~ /curl$/) {
+-
+-			`$downloadUsing --silent -o $package $SOURCE/$package?view=auto`;
+-
+-		} else {
+-
+-			`$downloadUsing -q -O $package $SOURCE/$package?view=auto`;
+-		}
+-
+-		unless (-r $package) {
+-			print "Something looks wrong - I couldn't read $pwd/$package, which I just downloaded.\n";
+-		}
+-
+-		print "Uncompressing..\n";
+-		`gzip -d < $package | tar xvf -`;
+-
+-		unlink $package;
+-
++                print "\nBuilding $package\n";
++                
+ 		# Just the directory name.
+ 		my ($packageDir) = ($package =~ /(\S+?)\.tar\.gz/);
+ 
