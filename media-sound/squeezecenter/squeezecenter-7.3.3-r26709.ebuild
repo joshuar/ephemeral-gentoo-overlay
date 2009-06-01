@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=2
+
 inherit eutils
 
 MAJOR_VER="${PV:0:3}"
@@ -28,7 +30,7 @@ DEPEND="
 	dev-perl/File-Which
 	virtual/perl-Module-Build
 	virtual/logger
-	virtual/mysql
+	dev-db/mysql[perl]
 	avahi? ( net-dns/avahi )
 	"
 # Note: dev-perl/GD necessary because of SC bug#6143
@@ -40,62 +42,44 @@ RDEPEND="
 	avahi? ( net-dns/avahi )
 	>=dev-lang/perl-5.8.8
 	>=dev-perl/GD-2.35
-	>=virtual/perl-Compress-Zlib-2.015
-	>=dev-perl/YAML-Syck-1.05
-	>=dev-perl/DBD-mysql-4.00.5
-	>=dev-perl/DBI-1.607
 	>=dev-perl/Digest-SHA1-2.11
 	>=dev-perl/Encode-Detect-1.01
-	>=dev-perl/HTML-Parser-3.56
+	>=dev-perl/libwww-perl-5.805
 	>=dev-perl/JSON-XS-2.2.3.1
 	>=dev-perl/Template-Toolkit-2.19
-	>=virtual/perl-Time-HiRes-1.97.15
-	>=dev-perl/XML-Parser-2.36
+	>=dev-perl/POE-1.006
+	>=dev-perl/XML-Simple-2.18
 	>=dev-perl/Cache-Cache-1.04
-	>=dev-perl/Class-Data-Inheritable-0.08
-	>=dev-perl/Class-Inspector-1.23
+	>=dev-perl/Class-Virtual-0.06
+	>=dev-perl/DBIx-Class-0.07001
 	>=dev-perl/File-Next-1.02
-	>=virtual/perl-File-Temp-0.20
-	>=dev-perl/File-Which-0.05
+	>=dev-perl/PAR-0.970
 	>=perl-core/i18n-langtags-0.35
 	>=dev-perl/IO-String-1.08
 	>=dev-perl/Log-Log4perl-1.13
-	>=dev-perl/libwww-perl-5.805
 	>=perl-core/CGI-3.29
 	>=dev-perl/TimeDate-1.16
 	>=dev-perl/Math-VecStat-0.08
 	>=dev-perl/Net-DNS-0.63
-	>=dev-perl/Net-IP-1.25
 	>=dev-perl/Path-Class-0.16
-	>=dev-perl/SQL-Abstract-1.22
-	>=dev-perl/SQL-Abstract-Limit-0.12
-	>=dev-perl/URI-1.35
-	>=dev-perl/XML-Simple-2.18
 	>=perl-core/version-0.76
-	>=dev-perl/Carp-Clan-5.9
 	>=dev-perl/Readonly-1.03
-	>=dev-perl/Carp-Assert-0.20
-	>=dev-perl/Class-Virtual-0.06
-	>=dev-perl/File-Slurp-9999.13
 	>=dev-perl/Exporter-Lite-0.02
 	>=dev-perl/Tie-IxHash-1.21
-	>=dev-perl/PAR-0.970
-	>=dev-perl/PAR-Dist-0.20
 	>=dev-perl/URI-Find-0.16
-	>=dev-perl/Class-Accessor-0.31
-	>=dev-perl/Class-Accessor-Chained-0.01
 	>=dev-perl/Data-Dump-1.06
-	>=dev-perl/Data-Page-2.00
-	>=dev-perl/DBIx-Class-0.07001
-	>=dev-perl/Class-C3-0.14
 	>=dev-perl/Class-Data-Accessor-0.03
 	>=dev-perl/Algorithm-C3-0.05
-	>=dev-perl/POE-0.29
 	>=dev-perl/Class-XSAccessor-Array-0.05
 	>=dev-perl/POE-XS-Queue-Array-0.002
+	>=dev-perl/Data-URIEncode-0.11
+	>=dev-perl/DBIx-Migration-0.05
+	>=dev-perl/File-BOM-0.14
+	>=dev-perl/Class-Accessor-0.33
+	>=dev-perl/Net-UPnP-1.41
+	>=dev-perl/Proc-Background-1.08
 
 	>=virtual/perl-Module-Pluggable-3.6
-	>=dev-perl/Archive-Zip-1.23
 	lame? ( media-sound/lame )
 	alac? ( media-sound/alac_decoder )
 	wavpack? ( media-sound/wavpack )
@@ -117,19 +101,7 @@ S="${WORKDIR}/${MY_P}"
 CPANKEEP="
 
 	JSON/XS/VersionOneAndTwo.pm
-	Class/Accessor/Fast.pm
-	Class/Accessor/Faster.pm
-	Class/Accessor/Chained/Fast.pm
 
-	Data/URIEncode.pm
-	DBIx/Migration.pm
-
-	File/BOM.pm
-	Net/UPnP/
-	Net/UPnP.pm
-	POE/Queue/Array.pm
-	Proc/Background/
-	Proc/Background.pm
 	Text/Unidecode/
 	Text/Unidecode.pm
 	Tie/Cache/LRU/
@@ -138,11 +110,6 @@ CPANKEEP="
 	Tie/RegexpHash.pm
 	enum.pm
 	"
-
-# CPANBUILD="AutoXS-Header-0.03
-# Class-XSAccessor-Array-0.05
-# POE-XS-Queue-Array-0.002"
-
 PREFS="/var/lib/squeezecenter/prefs/squeezecenter.prefs"
 LIVE_PREFS="/var/lib/squeezecenter/prefs/server.prefs"
 DOCDIR="/usr/share/doc/squeezecenter-${PV}"
@@ -184,29 +151,6 @@ src_unpack() {
 	epatch "${FILESDIR}/${P}-json-xs-gentoo.patch"
 }
 
-# src_compile() {
-# 	einfo "Building required Perl modules (some warnings are normal here) ..."
-
-# 	# Utilise AutoXS::Header as we need that to support the following builds.
-# 	export PERL5LIB="${WORKDIR}/AutoXS-Header-0.03/lib";
-
-# 	for module in ${CPANBUILD}; do
-# 		echo
-# 		einfo "${module}:"
-# 		echo
-# 		cd "${WORKDIR}/${module}"
-# 		perl Makefile.PL \
-# 			PREFIX=/usr \
-# 			INSTALLDIRS=vendor \
-# 			INSTALLMAN3DIR='none' \
-# 			DESTDIR="${WORKDIR}/CPANBUILD" \
-# 			|| die "Unable to configure ${module}"
-# 		emake \
-# 			OTHERLDFLAGS="${LDFLAGS}" \
-# 			|| die "Unable to build ${module}"
-# 	done
-# }
-
 src_install() {
 
 	# The main Perl executables
@@ -225,22 +169,6 @@ src_install() {
 	# The server Perl modules
 	dodir "/usr/lib/${package}/vendor_perl/${version}"
 	cp -r Slim "${D}/usr/lib/${package}/vendor_perl/${version}" || die "Unable to install server Perl modules"
-
-	# # Compiled CPAN module go under lib as they are arch-specific
-	# for module in ${CPANBUILD}; do
-	# 	cd "${WORKDIR}/${module}"
-	# 	emake install pure_install \
-	# 		|| die "Unable to install ${module}"
-	# done
-	# find "${WORKDIR}/CPANBUILD" -type f -a \( -name .packlist \
-	# 	-o \( -name '*.bs' -a -empty \) \) -delete
-	# find "${WORKDIR}/CPANBUILD" -depth -mindepth 1 -type d -empty -delete
-
-	# dodir "/usr/lib/squeezecenter/CPAN/arch"
-	# cp -r "${WORKDIR}/CPANBUILD/usr/lib/perl5/vendor_perl/"* \
-	# 	"${D}/usr/lib/squeezecenter/CPAN" \
-	# 	|| die "Unable to install compiled CPAN modules"
-	# cd "${S}"
 
 	# Preseve some of the SqueezeCenter-packaged CPAN modules that Gentoo
 	# doesn't provide ebuilds for.
