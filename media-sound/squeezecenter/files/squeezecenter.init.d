@@ -12,6 +12,7 @@ prefsdir=${varlibdir}/prefs
 cachedir=${varlibdir}/cache
 prefsfile=${prefsdir}/squeezecenter.prefs
 scuser=squeezecenter
+scgroup=${scuser}
 scname=squeezecenter-server
 
 depend() {
@@ -27,7 +28,8 @@ start() {
 		--start --exec /usr/bin/perl /usr/sbin/${scname} \
 		--pidfile ${pidfile} \
 		--startas /usr/sbin/${scname} \
-		--chuid ${scuser} \
+		--user ${scuser} \
+		--group ${scgroup} \
 		-- \
 		--quiet --daemon \
 		--pidfile=${pidfile} \
