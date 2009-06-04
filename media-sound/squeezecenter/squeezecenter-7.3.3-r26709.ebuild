@@ -75,7 +75,7 @@ RDEPEND="
 	dev-perl/Class-Accessor
 	dev-perl/Net-UPnP
 	dev-perl/Proc-Background
-	dev-perl/Tie-Cache-LRU
+	dev-perl/Tie-Cache-LRU-Expires
 	dev-perl/Tie-LLHash
 	dev-perl/Tie-RegexpHash
 	dev-perl/Text-Unidecode
@@ -161,13 +161,6 @@ src_install() {
 	# The server Perl modules
 	dodir "/usr/lib/${package}/vendor_perl/${version}"
 	cp -r Slim "${D}/usr/lib/${package}/vendor_perl/${version}" || die "Unable to install server Perl modules"
-
-	# # Preseve some of the SqueezeCenter-packaged CPAN modules that Gentoo
-	# # doesn't provide ebuilds for.
-	# for ITEM in ${CPANKEEP}; do
-	# 	dodir "/usr/lib/squeezecenter/CPAN/$(dirname ${ITEM})"
-	# 	cp -pPr "CPAN/${ITEM}" "${D}/usr/lib/squeezecenter/CPAN/${ITEM}" || die "Unable to preserve CPAN item ${ITEM}"
-	# done
 
 	# Various directories of architecture-independent static files
 	dodir "${SHAREDIR}"
