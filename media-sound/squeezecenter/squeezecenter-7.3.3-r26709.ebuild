@@ -38,43 +38,48 @@ RDEPEND="
 	virtual/mysql
 	avahi? ( net-dns/avahi )
 	>=dev-lang/perl-5.8.8
-	>=dev-perl/GD-2.35
-	>=dev-perl/Digest-SHA1-2.11
-	>=dev-perl/Encode-Detect-1.01
-	>=dev-perl/libwww-perl-5.805
-	>=dev-perl/JSON-XS-2.2.3.1
-	>=dev-perl/Template-Toolkit-2.19
-	>=dev-perl/POE-1.006
-	>=dev-perl/XML-Simple-2.18
-	>=dev-perl/Cache-Cache-1.04
-	>=dev-perl/Class-Virtual-0.06
-	>=dev-perl/DBIx-Class-0.07001
-	>=dev-perl/File-Next-1.02
-	>=dev-perl/PAR-0.970
-	>=perl-core/i18n-langtags-0.35
-	>=dev-perl/IO-String-1.08
-	>=dev-perl/Log-Log4perl-1.13
-	>=perl-core/CGI-3.29
-	>=dev-perl/TimeDate-1.16
-	>=dev-perl/Math-VecStat-0.08
-	>=dev-perl/Net-DNS-0.63
-	>=dev-perl/Path-Class-0.16
-	>=perl-core/version-0.76
-	>=dev-perl/Readonly-1.03
-	>=dev-perl/Exporter-Lite-0.02
-	>=dev-perl/Tie-IxHash-1.21
-	>=dev-perl/URI-Find-0.16
-	>=dev-perl/Data-Dump-1.06
-	>=dev-perl/Class-Data-Accessor-0.03
-	>=dev-perl/Algorithm-C3-0.05
-	>=dev-perl/Class-XSAccessor-Array-0.05
-	>=dev-perl/POE-XS-Queue-Array-0.002
-	>=dev-perl/Data-URIEncode-0.11
-	>=dev-perl/DBIx-Migration-0.05
-	>=dev-perl/File-BOM-0.14
-	>=dev-perl/Class-Accessor-0.33
-	>=dev-perl/Net-UPnP-1.41
-	>=dev-perl/Proc-Background-1.08
+	dev-perl/GD
+	dev-perl/Digest-SHA1
+	dev-perl/Encode-Detect
+	dev-perl/libwww-perl
+	dev-perl/JSON-XS
+	dev-perl/Template-Toolkit
+	dev-perl/POE
+	dev-perl/XML-Simple
+	dev-perl/Cache-Cache
+	dev-perl/Class-Virtual
+	dev-perl/DBIx-Class
+	dev-perl/File-Next
+	dev-perl/PAR
+	perl-core/i18n-langtags
+	dev-perl/IO-String
+	dev-perl/Log-Log4perl
+	perl-core/CGI
+	dev-perl/TimeDate
+	dev-perl/Math-VecStat
+	dev-perl/Net-DNS
+	dev-perl/Path-Class
+	perl-core/version
+	dev-perl/Readonly
+	dev-perl/Exporter-Lite
+	dev-perl/Tie-IxHash
+	dev-perl/URI-Find
+	dev-perl/Data-Dump
+	dev-perl/Class-Data-Accessor
+	dev-perl/Algorithm-C3
+	dev-perl/Class-XSAccessor-Array
+	dev-perl/POE-XS-Queue-Array
+	dev-perl/Data-URIEncode
+	dev-perl/DBIx-Migration
+	dev-perl/File-BOM
+	dev-perl/Class-Accessor
+	dev-perl/Net-UPnP
+	dev-perl/Proc-Background
+	dev-perl/Tie-Cache-LRU
+	dev-perl/Tie-LLHash
+	dev-perl/Tie-RegexpHash
+	dev-perl/Text-Unidecode
+	dev-perl/JSON-XS-VersionOneAndTwo
 
 	>=virtual/perl-Module-Pluggable-3.6
 	lame? ( media-sound/lame )
@@ -92,20 +97,6 @@ RDEPEND="
 
 S="${WORKDIR}/${MY_P}"
 
-# Selected contents of SqueezeCenter's local CPAN collection that we include
-# in the installation. This removes duplication of CPAN modules. (See Gentoo
-# bug #251494).
-CPANKEEP="
-	JSON/XS/VersionOneAndTwo.pm
-	Class/XSAccessor/Array.pm
-	Text/Unidecode/
-	Text/Unidecode.pm
-	Tie/Cache/LRU/
-	Tie/Cache/LRU.pm
-	Tie/LLHash.pm
-	Tie/RegexpHash.pm
-	enum.pm
-	"
 PREFS="/var/lib/squeezecenter/prefs/squeezecenter.prefs"
 LIVE_PREFS="/var/lib/squeezecenter/prefs/server.prefs"
 DOCDIR="/usr/share/doc/squeezecenter-${PV}"
@@ -145,6 +136,11 @@ src_unpack() {
 	# epatch "${FILESDIR}/${P}-build-perl-modules-gentoo.patch"
 	# epatch "${FILESDIR}/${P}-aac-transcode-gentoo.patch"
 	epatch "${FILESDIR}/${P}-json-xs-gentoo.patch"
+
+	einfo "Performing miscellaneous in-line patches ..."
+	sed -i -e 's|Class::XSAccessor::Array::_generate_accessor|Class::XSAccessor::Array::_generate_method|' \
+		Slim/Utils/Accessor.pm \
+		|| die "sed Slim/Utils/Accessor.pm failed."
 }
 
 src_install() {
@@ -166,12 +162,12 @@ src_install() {
 	dodir "/usr/lib/${package}/vendor_perl/${version}"
 	cp -r Slim "${D}/usr/lib/${package}/vendor_perl/${version}" || die "Unable to install server Perl modules"
 
-	# Preseve some of the SqueezeCenter-packaged CPAN modules that Gentoo
-	# doesn't provide ebuilds for.
-	for ITEM in ${CPANKEEP}; do
-		dodir "/usr/lib/squeezecenter/CPAN/$(dirname ${ITEM})"
-		cp -pPr "CPAN/${ITEM}" "${D}/usr/lib/squeezecenter/CPAN/${ITEM}" || die "Unable to preserve CPAN item ${ITEM}"
-	done
+	# # Preseve some of the SqueezeCenter-packaged CPAN modules that Gentoo
+	# # doesn't provide ebuilds for.
+	# for ITEM in ${CPANKEEP}; do
+	# 	dodir "/usr/lib/squeezecenter/CPAN/$(dirname ${ITEM})"
+	# 	cp -pPr "CPAN/${ITEM}" "${D}/usr/lib/squeezecenter/CPAN/${ITEM}" || die "Unable to preserve CPAN item ${ITEM}"
+	# done
 
 	# Various directories of architecture-independent static files
 	dodir "${SHAREDIR}"

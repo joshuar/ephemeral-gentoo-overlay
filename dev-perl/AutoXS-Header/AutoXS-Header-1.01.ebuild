@@ -1,18 +1,17 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 MODULE_AUTHOR=SMUELLER
 inherit perl-module
 
-DESCRIPTION="Generate fast XS accessors without runtime compilation"
+DESCRIPTION="Container for the AutoXS header files"
 
 LICENSE="|| ( Artistic GPL-2 )"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~x86"
 IUSE=""
 
-DEPEND=">=dev-perl/AutoXS-Header-1.01
-	dev-lang/perl"
+DEPEND="dev-lang/perl"
 
 SRC_TEST=do

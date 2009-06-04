@@ -28,8 +28,6 @@ start() {
 		--start --exec /usr/bin/perl /usr/sbin/${scname} \
 		--pidfile ${pidfile} \
 		--startas /usr/sbin/${scname} \
-		--user ${scuser} \
-		--group ${scgroup} \
 		-- \
 		--quiet --daemon \
 		--pidfile=${pidfile} \

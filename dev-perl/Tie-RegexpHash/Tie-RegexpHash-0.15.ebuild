@@ -2,17 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-MODULE_AUTHOR=SMUELLER
+MODULE_AUTHOR=RCH
 inherit perl-module
 
-DESCRIPTION="Generate fast XS accessors without runtime compilation"
+DESCRIPTION="Use regular expressions as hash keys"
 
 LICENSE="|| ( Artistic GPL-2 )"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
-
-DEPEND=">=dev-perl/AutoXS-Header-1.01
-	dev-lang/perl"
 
 SRC_TEST=do
