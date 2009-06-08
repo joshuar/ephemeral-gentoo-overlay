@@ -13,7 +13,7 @@ LICENSE="XDOTOOL"
 
 SLOT="0"
 KEYWORDS=""
-IUSE="X"
+IUSE="examples"
 
 DEPEND="x11-libs/libXtst
 		x11-libs/libX11"
@@ -21,19 +21,23 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	cd ${S}
-	sed -i -e "s:CFLAGS=.*:CFLAGS=${CFLAGS}:" \
-		-e "s:LIBS=.*:LIBS=$(pkg-config --libs x11 xtst):" \
-		-e "s:INC=.*:INC=$(pkg-config --cflags x11 xtst):" \
-		-e "s:LDFLAGS+=.*:LDFLAGS+=\$(LIBS) ${LDFLAGS}:" \
+	sed -i -e "s:^CFLAGS=.*:CFLAGS=${CFLAGS}:" \
+		-e "s:^LIBS=.*:LIBS=$(pkg-config --libs x11 xtst):" \
+		-e "s:^INC=.*:INC=$(pkg-config --cflags x11 xtst):" \
 		-e "s:\$(CC):$(tc-getCC):" \
+		-e "s:\$(LDFLAGS):\$(LIBS) \$(LDFLAGS):" \
+		-e "s:\$(CFLAGS):\$(INC) \$(CFLAGS):" \
 		Makefile \
 		|| die "sed Makefile failed."
 }
 
-
-# src_compile() {
-# 	cd ${S}
-# 	ls
-# 	emake CC=$(tc-getCC) CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}" \
-# 		|| die "emake failed."
-# }
+src_install() {
+	exeinto /usr/bin
+	doexe ${PN}
+	doman ${PN}.1
+	dodoc CHANGELIST README
+	if use examples; then
+		insinto /usr/doc/${P}/examples
+		doins examples/*
+	fi
+}
