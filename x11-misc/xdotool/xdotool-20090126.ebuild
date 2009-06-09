@@ -12,7 +12,7 @@ SRC_URI="http://semicomplete.googlecode.com/files/${P}.tar.gz"
 LICENSE="XDOTOOL"
 
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~x86 ~amd64"
 IUSE="examples"
 
 DEPEND="x11-libs/libXtst
