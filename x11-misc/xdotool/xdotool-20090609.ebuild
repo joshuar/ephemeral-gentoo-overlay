@@ -21,11 +21,12 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	cd ${S}
-	sed -i -e "s:^CFLAGS=.*:CFLAGS=${CFLAGS}:" \
+	sed -i -e "s:^CFLAGS=.*:CFLAGS=-std=c99 ${CFLAGS}:" \
 		-e "s:^LIBS=.*:LIBS=$(pkg-config --libs x11 xtst):" \
 		-e "s:^INC=.*:INC=$(pkg-config --cflags x11 xtst):" \
 		-e "s:\$(CC):$(tc-getCC):" \
-		-e "s:\$(LDFLAGS):\$(LIBS) \$(LDFLAGS):" \
+		-e "s:\$(LDFLAGS): \$(LIBS) \$(LDFLAGS):" \
+		-e 's:LDFLAGS+=$(LIBS)::' \
 		-e "s:\$(CFLAGS):\$(INC) \$(CFLAGS):" \
 		Makefile \
 		|| die "sed Makefile failed."
