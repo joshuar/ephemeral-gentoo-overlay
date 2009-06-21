@@ -1,0 +1,22 @@
+dev-perl/POE dev-lang/perl
+dev-perl/POE dev-lang/perl
+0
+mirror://cpan/authors/id/T/TO/TONYC//POE-XS-Queue-Array-0.006.tar.gz
+
+http://search.cpan.org/dist/POE-XS-Queue-Array
+|| ( Artistic GPL-2 )
+An XS implementation of POE::Queue::Array
+~x86 ~amd64
+base eutils multilib perl-module portability toolchain-funcs
+
+
+
+
+
+
+compile install postinst postrm preinst prerm setup test unpack
+
+
+
+
+

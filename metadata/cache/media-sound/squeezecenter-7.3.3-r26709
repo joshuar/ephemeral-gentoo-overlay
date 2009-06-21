@@ -1,0 +1,22 @@
+dev-perl/File-Which virtual/perl-Module-Build virtual/logger dev-db/mysql[perl] avahi? ( net-dns/avahi )
+dev-perl/File-Which virtual/logger virtual/mysql avahi? ( net-dns/avahi ) >=dev-lang/perl-5.8.8 dev-perl/GD dev-perl/Digest-SHA1 dev-perl/Encode-Detect dev-perl/libwww-perl dev-perl/JSON-XS dev-perl/Template-Toolkit dev-perl/POE dev-perl/XML-Simple dev-perl/Cache-Cache dev-perl/Class-Virtual dev-perl/DBIx-Class dev-perl/File-Next dev-perl/PAR perl-core/i18n-langtags dev-perl/IO-String dev-perl/Log-Log4perl perl-core/CGI dev-perl/TimeDate dev-perl/Math-VecStat dev-perl/Net-DNS dev-perl/Path-Class perl-core/version dev-perl/Readonly dev-perl/Exporter-Lite dev-perl/Tie-IxHash dev-perl/URI-Find dev-perl/Data-Dump dev-perl/Class-Data-Accessor dev-perl/Algorithm-C3 dev-perl/Class-XSAccessor-Array dev-perl/POE-XS-Queue-Array dev-perl/Data-URIEncode dev-perl/DBIx-Migration dev-perl/File-BOM dev-perl/Class-Accessor dev-perl/Net-UPnP dev-perl/Proc-Background dev-perl/Tie-Cache-LRU-Expires dev-perl/Tie-LLHash dev-perl/Tie-RegexpHash dev-perl/Text-Unidecode dev-perl/JSON-XS-VersionOneAndTwo >=virtual/perl-Module-Pluggable-3.6 lame? ( media-sound/lame ) alac? ( media-sound/alac_decoder ) wavpack? ( media-sound/wavpack ) bonjour? ( net-misc/mDNSResponder ) flac? ( media-libs/flac media-sound/sox ) musepack? ( media-sound/musepack-tools ) ogg? ( media-sound/sox ) aac? ( media-libs/faad2 )
+0
+http://www.slimdevices.com/downloads/nightly/7.3/sc/26709/squeezecenter-7.3.3-26709-noCPAN.tgz
+
+http://www.slimdevices.com/pi_features.html
+GPL-2
+Logitech SqueezeCenter music server
+~amd64 ~x86
+eutils multilib portability toolchain-funcs
+lame wavpack musepack alac ogg bonjour flac avahi aac
+
+
+
+2
+
+config install postinst preinst setup unpack
+
+
+
+
+

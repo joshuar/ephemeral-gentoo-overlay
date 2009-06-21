@@ -1,0 +1,22 @@
+
+
+0
+mirror://cpan/authors/id/K/KW/KWILLIAMS//Tie-LLHash-1.003.tar.gz
+
+http://search.cpan.org/dist/Tie-LLHash
+|| ( Artistic GPL-2 )
+Fast ordered hashes via linked lists
+~x86 ~amd64
+base eutils multilib perl-module portability toolchain-funcs
+
+
+
+
+
+
+compile install postinst postrm preinst prerm setup test unpack
+
+
+
+
+

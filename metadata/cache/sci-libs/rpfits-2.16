@@ -1,0 +1,22 @@
+=sys-devel/automake-1.10* >=sys-devel/autoconf-2.61 sys-devel/libtool
+
+0
+ftp://ftp.atnf.csiro.au/pub/software/rpfits/rpfits-2.16.tar.gz
+primaryuri
+http://www.atnf.csiro.au/computing/software/rpfits.html
+GPL-2
+RPFITS is the data-recording format used within the Australia Telescope National Facility (ATNF)
+~x86
+autotools eutils fortran libtool multilib portability toolchain-funcs
+debug
+
+
+
+
+
+compile install setup unpack
+
+
+
+
+

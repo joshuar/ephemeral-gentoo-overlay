@@ -1,0 +1,22 @@
+>=dev-perl/Test-Exception-0.27 >=dev-perl/Readonly-1.03 dev-lang/perl
+>=dev-perl/Test-Exception-0.27 >=dev-perl/Readonly-1.03 dev-lang/perl
+0
+mirror://cpan/authors/id/M/MA/MATTLAW//File-BOM-0.14.tar.gz
+
+http://search.cpan.org/dist/File-BOM
+|| ( Artistic GPL-2 )
+Utilities for handling Byte Order Marks
+~x86 ~amd64
+base eutils multilib perl-module portability toolchain-funcs
+
+
+
+
+
+
+compile install postinst postrm preinst prerm setup test unpack
+
+
+
+
+

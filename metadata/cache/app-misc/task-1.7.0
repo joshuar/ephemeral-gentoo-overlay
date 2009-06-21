@@ -1,0 +1,22 @@
+sys-libs/ncurses
+sys-libs/ncurses bash-completion? ( app-admin/eselect )
+0
+http://www.beckingham.net/task-1.7.0.tar.gz
+
+http://www.beckingham.net/task.html
+GPL
+A todo list GTD implementation, based on ideas from http://todotxt.org.
+~amd64 ~x86
+bash-completion
+bash-completion bash-completion
+
+
+
+2
+
+install postinst
+
+
+
+
+

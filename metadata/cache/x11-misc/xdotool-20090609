@@ -1,0 +1,22 @@
+x11-libs/libXtst x11-libs/libX11
+x11-libs/libXtst x11-libs/libX11
+0
+http://semicomplete.googlecode.com/files/xdotool-20090609.tar.gz
+
+http://www.semicomplete.com/projects/xdotool/
+XDOTOOL
+Programatically (or manually) simulate keyboard input and mouse activity, move and resize windows, etc.
+~x86 ~amd64
+multilib toolchain-funcs
+examples
+
+
+
+2
+
+install prepare
+
+
+
+
+

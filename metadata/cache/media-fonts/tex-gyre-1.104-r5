@@ -1,0 +1,22 @@
+virtual/latex-base >=sys-apps/texinfo-4.2-r5 X? ( x11-apps/mkfontdir media-fonts/encodings ) media-libs/fontconfig
+!dev-texlive/texlive-fontsrecommended virtual/latex-base
+0
+http://www.gust.org.pl/projects/e-foundry/tex-gyre/whole/tg-v1.104.zip
+
+http://www.gust.org.pl/projects/e-foundry/tex-gyre
+GUST-FONT-LICENSE
+Fonts extending freely available URW fonts.
+x86
+base eutils font latex-package multilib portability toolchain-funcs
+latex X
+
+
+
+
+
+compile install postinst postrm setup unpack
+
+
+
+
+

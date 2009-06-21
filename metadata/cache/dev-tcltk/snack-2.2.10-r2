@@ -1,0 +1,22 @@
+>dev-lang/tcl-8.4.3 >dev-lang/tk-8.4.3 alsa? ( media-libs/alsa-lib ) vorbis? ( media-libs/libvorbis ) python? ( virtual/python )
+>dev-lang/tcl-8.4.3 >dev-lang/tk-8.4.3 alsa? ( media-libs/alsa-lib ) vorbis? ( media-libs/libvorbis ) python? ( virtual/python )
+0
+http://www.speech.kth.se/snack/dist/snack2.2.10.tar.gz
+test
+http://www.speech.kth.se/snack/
+GPL-2
+The Snack Sound Toolkit (Tcl)
+alpha amd64 hppa ~ppc ppc64 sparc x86
+eutils multilib portability toolchain-funcs
+alsa examples python threads vorbis
+
+
+
+
+
+compile install unpack
+
+
+
+
+

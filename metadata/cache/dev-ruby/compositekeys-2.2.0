@@ -1,0 +1,22 @@
+>=dev-ruby/rails-2.2 virtual/ruby virtual/ruby || ( >=dev-ruby/rubygems-0.9.4 =dev-lang/ruby-1.9* ) !<dev-ruby/rdoc-2
+>=dev-ruby/rails-2.2 virtual/ruby virtual/ruby || ( >=dev-ruby/rubygems-0.9.4 =dev-lang/ruby-1.9* ) !<dev-ruby/rdoc-2
+0
+http://gems.rubyforge.org/gems/composite_primary_keys-2.2.0.gem
+primaryuri
+http://compositekeys.rubyforge.org/
+MIT
+Extension to ActiveRecords to support composite primary keys.
+~x86
+eutils gems multilib portability ruby toolchain-funcs
+doc
+
+
+
+
+
+compile install unpack
+
+
+
+
+

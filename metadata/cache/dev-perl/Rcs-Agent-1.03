@@ -1,0 +1,22 @@
+dev-perl/String-ShellQuote
+dev-perl/String-ShellQuote
+0
+mirror://cpan/authors/id/N/NI/NICKH/Rcs-Agent-1.03.tar.gz
+
+http://search.cpan.org/search?query=Rcs-Agent&mode=dist
+|| ( Artistic GPL-2 )
+An RCS archive manipulation method library
+~x86
+base eutils multilib perl-module portability toolchain-funcs
+
+
+
+
+
+
+compile install postinst postrm preinst prerm setup test unpack
+
+
+
+
+

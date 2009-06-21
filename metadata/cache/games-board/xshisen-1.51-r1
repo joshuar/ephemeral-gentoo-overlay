@@ -1,0 +1,22 @@
+athena? ( x11-libs/libXaw ) motif? ( x11-libs/openmotif ) x11-libs/libXpm =sys-devel/automake-1.10* >=sys-devel/autoconf-2.61 sys-devel/libtool
+athena? ( x11-libs/libXaw ) motif? ( x11-libs/openmotif ) x11-libs/libXpm
+0
+http://www.techfirm.co.jp/~masaoki/xshisen-1.51.tar.gz
+
+http://www.techfirm.co.jp/~masaoki/xshisen.html
+as-is
+Puzzle game using 144 mahjong pieces, objective is to remove all the pieces on the board.
+~x86
+autotools base eutils flag-o-matic games libtool multilib portability toolchain-funcs
+athena +motif
+
+
+
+
+
+compile install postinst preinst setup unpack
+
+
+
+
+

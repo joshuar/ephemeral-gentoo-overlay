@@ -1,0 +1,22 @@
+
+dev-db/unixODBC dev-libs/libf2c media-libs/sdl-image media-libs/sdl-ttf
+0
+ftp://ftp.eso.org/scisoft/scisoft7/linux/fedora6/tar/scisoft-7.2.tar.gz
+primaryuri
+http://www.eso.org/sci/data-processing/software/scisoft7/
+as-is
+Scisoft is a project within ESO to provide a collection of astronomical software utilities in a uniform way at all four ESO sites and to make them available to the outside world.
+~x86
+versionator
+
+
+
+
+
+
+compile install postinst unpack
+
+
+
+
+

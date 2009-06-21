@@ -1,0 +1,22 @@
+
+bash-completion? ( app-admin/eselect )
+0
+http://todotxt.googlecode.com/files/todotxt-bundle-1.0.zip
+primaryuri
+http://todotxt.com/library/todo.sh/
+GPL
+Powerful shell script that adds to, edits, sorts and searches a todo list text file from the command line.
+x86
+bash-completion eutils multilib portability toolchain-funcs
+bash-completion
+
+
+
+
+
+compile install postinst unpack
+
+
+
+
+

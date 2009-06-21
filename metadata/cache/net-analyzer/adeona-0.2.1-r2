@@ -1,0 +1,22 @@
+dev-libs/openssl net-analyzer/traceroute
+dev-libs/openssl net-analyzer/traceroute wifi? ( net-wireless/wireless-tools )
+0
+adeona-0.2.1.tar.gz
+fetch
+http://adeona.cs.washington.edu/
+adeona
+System for tracking the location of your lost or stolen laptop.
+~amd64 ~x86
+eutils multilib portability toolchain-funcs
+wifi
+
+
+
+
+
+compile config install nofetch postinst unpack
+
+
+
+
+

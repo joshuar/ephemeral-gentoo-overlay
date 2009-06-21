@@ -1,0 +1,22 @@
+
+
+0
+ftp://ftp.atnf.csiro.au/pub/software/karma/current/karma.share-v1.7.25.tar.gz ftp://ftp.atnf.csiro.au/pub/software/karma/current/i386_Linux_libc6.3-v1.7.25.tar.gz
+primaryuri
+http://www.atnf.csiro.au/computing/software/karma/
+GPL
+Toolkit for interprocess communications, authentication, encryption, graphics display, user interface and manipulating the Karma network data structure
+x86
+eutils multilib portability toolchain-funcs
+doc minimal examples
+
+
+
+
+
+compile install setup
+
+
+
+
+

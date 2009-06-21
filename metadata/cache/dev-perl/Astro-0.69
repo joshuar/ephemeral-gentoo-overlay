@@ -1,0 +1,22 @@
+
+
+0
+mirror://cpan/authors/id/C/CP/CPHIL/Astro-0.69.tar.gz
+primaryuri
+http://search.cpan.org/~cphil/Astro-0.69/
+GPL-2
+Assorted astronomical routines for Perl.
+~x86
+base eutils multilib perl-module portability toolchain-funcs
+
+
+
+
+
+
+compile install postinst postrm preinst prerm setup test unpack
+
+
+
+
+

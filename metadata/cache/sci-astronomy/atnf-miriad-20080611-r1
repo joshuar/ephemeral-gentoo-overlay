@@ -1,0 +1,22 @@
+sci-libs/rpfits sci-libs/pgplot x11-libs/libX11 x11-libs/libXaw =sys-devel/automake-1.10* >=sys-devel/autoconf-2.61 sys-devel/libtool
+sci-libs/rpfits sci-libs/pgplot x11-libs/libX11 x11-libs/libXaw
+0
+ftp://ftp.atnf.csiro.au/pub/software/miriad/miriad-code.tar.gz ftp://ftp.atnf.csiro.au/pub/software/miriad/miriad-common.tar.gz ftp://ftp.atnf.csiro.au/pub/software/miriad/updates/mirupd-20070813-5.tar.gz ftp://ftp.atnf.csiro.au/pub/software/miriad/updates/mirupd-20080201-6.tar.gz ftp://ftp.atnf.csiro.au/pub/software/miriad/updates/mirupd-20080418-6.tar.gz ftp://ftp.atnf.csiro.au/pub/software/miriad/updates/mirupd-20080422-7.tar.gz ftp://ftp.atnf.csiro.au/pub/software/miriad/updates/mirupd-20080426-7.tar.gz ftp://ftp.atnf.csiro.au/pub/software/miriad/updates/mirupd-20080427-8.tar.gz ftp://ftp.atnf.csiro.au/pub/software/miriad/updates/mirupd-20080428-8.tar.gz ftp://ftp.atnf.csiro.au/pub/software/miriad/updates/mirupd-20080520-8.tar.gz ftp://ftp.atnf.csiro.au/pub/software/miriad/updates/mirupd-20080521-8.tar.gz ftp://ftp.atnf.csiro.au/pub/software/miriad/updates/mirupd-20080529-8.tar.gz ftp://ftp.atnf.csiro.au/pub/software/miriad/updates/mirupd-20080530-8.tar.gz ftp://ftp.atnf.csiro.au/pub/software/miriad/updates/mirupd-20080611-8.tar.gz
+primaryuri
+http://www.atnf.csiro.au/computing/software/miriad/
+GPL-2
+Radio interferometry data reduction package
+~x86
+autotools eutils flag-o-matic fortran libtool multilib portability toolchain-funcs
+doc debug
+
+
+
+
+
+compile install setup unpack
+
+
+
+
+

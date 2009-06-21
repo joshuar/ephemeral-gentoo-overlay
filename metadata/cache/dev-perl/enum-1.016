@@ -1,0 +1,22 @@
+
+
+0
+mirror://cpan/authors/id/Z/ZE/ZENIN//enum-1.016.tar.gz
+
+http://search.cpan.org/dist/enum
+|| ( Artistic GPL-2 )
+Resemble enumerated types in C
+~x86 ~amd64
+base eutils multilib perl-module portability toolchain-funcs
+
+
+
+
+
+
+compile install postinst postrm preinst prerm setup test unpack
+
+
+
+
+

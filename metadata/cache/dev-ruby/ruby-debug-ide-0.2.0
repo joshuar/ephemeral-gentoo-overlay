@@ -1,0 +1,22 @@
+>=dev-ruby/ruby-debug-base-0.10.1 virtual/ruby virtual/ruby || ( >=dev-ruby/rubygems-0.9.4 =dev-lang/ruby-1.9* ) !<dev-ruby/rdoc-2
+>=dev-ruby/ruby-debug-base-0.10.1 virtual/ruby virtual/ruby || ( >=dev-ruby/rubygems-0.9.4 =dev-lang/ruby-1.9* ) !<dev-ruby/rdoc-2
+0
+mirror://rubyforge/debug-commons/ruby-debug-ide-0.2.0.gem
+primaryuri
+http://debug-commons.rubyforge.org/#ruby-debug-ide
+MIT
+Wrapper over ruby-debug-base using add-hoc XML/pure-text protocol for communication with clients (usually debugger frontend like IDE or editors).
+~x86
+eutils gems multilib portability ruby toolchain-funcs
+doc
+
+
+
+
+
+compile install unpack
+
+
+
+
+

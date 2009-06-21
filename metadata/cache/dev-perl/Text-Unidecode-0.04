@@ -1,0 +1,22 @@
+
+
+0
+mirror://cpan/authors/id/S/SB/SBURKE//Text-Unidecode-0.04.tar.gz
+
+http://search.cpan.org/dist/Text-Unidecode
+|| ( Artistic GPL-2 )
+US-ASCII transliterations of Unicode text
+~x86 ~amd64
+base eutils multilib perl-module portability toolchain-funcs
+
+
+
+
+
+
+compile install postinst postrm preinst prerm setup test unpack
+
+
+
+
+

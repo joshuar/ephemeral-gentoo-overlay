@@ -1,0 +1,22 @@
+media-libs/libmad media-libs/libtremor
+media-libs/libmad media-libs/libtremor
+0
+http://uazu.net/sbagen/sbagen-1.4.4.tgz
+primaryuri
+http://uazu.net/sbagen
+BSD
+Binaural tones generator.
+~amd64 ~x86
+eutils flag-o-matic multilib portability toolchain-funcs
+doc
+
+
+
+
+
+compile install
+
+
+
+
+
