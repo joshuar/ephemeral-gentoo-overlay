@@ -9,8 +9,11 @@ inherit eutils
 MAJOR_VER="${PV:0:3}"
 MINOR_VER="${PV:4:1}"
 
-SRC_DIR="nightly/${MAJOR_VER}/sc/${PR#r}"
-MY_P="squeezecenter-${MAJOR_VER}.${MINOR_VER}-${PR#r}-noCPAN"
+MY_PR="26751"
+
+#SRC_DIR="nightly/${MAJOR_VER}/sc/${PR#r}"
+SRC_DIR="nightly/${MAJOR_VER}/sc/${MY_PR}"
+MY_P="squeezecenter-${MAJOR_VER}.${MINOR_VER}-${MY_PR}-noCPAN"
 
 DESCRIPTION="Logitech SqueezeCenter music server"
 HOMEPAGE="http://www.slimdevices.com/pi_features.html"
@@ -133,15 +136,14 @@ src_unpack() {
 
 	# Apply patches
 	epatch "${FILESDIR}/mDNSResponder-gentoo.patch"
+	# epatch "${FILESDIR}/${P}-build-perl-modules-gentoo.patch"
+	# epatch "${FILESDIR}/${P}-aac-transcode-gentoo.patch"
+	epatch "${FILESDIR}/${P}-json-xs-gentoo.patch"
 
 	einfo "Performing miscellaneous in-line patches ..."
 	sed -i -e 's|Class::XSAccessor::Array::_generate_accessor|Class::XSAccessor::Array::_generate_method|' \
 		Slim/Utils/Accessor.pm \
 		|| die "sed Slim/Utils/Accessor.pm failed."
-	sed -i -e 's|from_json|decode_json|' \
-		Slim/Formats/XML.pm \
-		|| die "sed Slim/Formats/XML.pm failed."
-
 }
 
 src_install() {

@@ -8,18 +8,17 @@ inherit eutils
 
 MAJOR_VER="${PV:0:3}"
 MINOR_VER="${PV:4:1}"
-
-SRC_DIR="nightly/${MAJOR_VER}/sc/${PR#r}"
-MY_P="squeezecenter-${MAJOR_VER}.${MINOR_VER}-${PR#r}-noCPAN"
+SRC_DIR="SqueezeCenter_v${MAJOR_VER}.${MINOR_VER}"
+MY_P="squeezecenter-${MAJOR_VER}.${MINOR_VER}-noCPAN"
 
 DESCRIPTION="Logitech SqueezeCenter music server"
 HOMEPAGE="http://www.slimdevices.com/pi_features.html"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~x86 ~amd64"
 IUSE="lame wavpack musepack alac ogg bonjour flac avahi aac"
 
-SRC_URI="http://www.slimdevices.com/downloads/${SRC_DIR}/${MY_P}.tgz"
+SRC_URI="http://downloads.slimdevices.com/${SRC_DIR}/${MY_P}.tgz"
 
 # Note: virtual/perl-Module-Build necessary because of SC bug#5882
 # (http://bugs.slimdevices.com/show_bug.cgi?id=5882).
