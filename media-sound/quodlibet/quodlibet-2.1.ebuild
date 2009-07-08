@@ -2,11 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit distutils python subversion
+EAPI=2
+
+inherit distutils python
 
 DESCRIPTION="Quod Libet is a GTK+-based audio player written in Python."
 HOMEPAGE="http://code.google.com/p/quodlibet/"
-ESVN_REPO_URI="http://svn.sacredchao.net/svn/quodlibet/trunk/quodlibet"
+SRC_URI="http://quodlibet.googlecode.com/files/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -15,10 +17,10 @@ KEYWORDS=""
 IUSE="aac alsa dbus esd ffmpeg flac gnome gstreamer hal ipod mad \
 mmkeys musepack oss trayicon tta vorbis xine"
 
-COMMON_DEPEND=">=dev-python/pygtk-2.12"
+COMMON_DEPEND=">=dev-python/pygtk-2.10"
 
 RDEPEND="${COMMON_DEPEND}
-	>=media-libs/mutagen-1.14
+	>=media-libs/mutagen-1.10
 	gstreamer? (
 		>=media-libs/gst-plugins-good-0.10.2
 		>=dev-python/gst-python-0.10.2
@@ -52,6 +54,8 @@ DEPEND="${COMMON_DEPEND}
 
 PDEPEND="trayicon? ( media-plugins/quodlibet-trayicon )"
 
+DOCS="README HACKING NEWS PKG_INFO"
+
 pkg_setup() {
 	if ! use gstreamer && ! use xine; then
 		eerror "You must have either gstreamer or xine USE flag enabled."
@@ -64,11 +68,8 @@ pkg_setup() {
 	fi
 }
 
-src_unpack() {
-	subversion_src_unpack
-
+src_prepare() {
 	cd "${S}"
-
 	# The backend is configured as gstbe by default.
 	if use gstreamer && use xine; then
 		elog ""
@@ -99,13 +100,7 @@ src_unpack() {
 }
 
 src_install() {
-
-	${python} setup.py install --root="${D}" --no-compile --skip-build "$@" \
-		|| die "python setup.py install failed."
-
-	DDOCS="CHANGELOG KNOWN_BUGS MAINTAINERS PKG-INFO CONTRIBUTORS TODO NEWS"
-	DDOCS="${DDOCS} Change* MANIFEST* README* AUTHORS"
-
+	distutils_src_install
 	python_version
 	for ext in png svg; do
 		for prog in quodlibet exfalso; do
@@ -113,10 +108,6 @@ src_install() {
 				/usr/share/pixmaps/${prog}.${ext} \
 				|| die "copying image file ${prog}.${ext} failed."
 		done
-	done
-
-	for doc in ${DDOCS}; do
-		[ -s "$doc" ] && dodoc $doc
 	done
 }
 
