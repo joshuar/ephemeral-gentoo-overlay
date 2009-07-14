@@ -2,16 +2,18 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit python subversion
+inherit python mercurial
 
 DESCRIPTION="All official plugins for media-sound/quodlibet."
 HOMEPAGE="http://code.google.com/p/quodlibet/"
-ESVN_REPO_URI="http://svn.sacredchao.net/svn/quodlibet/trunk/plugins"
+EHG_REPO_URI="https://quodlibet.googlecode.com/hg"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 #IUSE="automask cddb musicbrainz nautilus replaygain"
+
+S=${WORKDIR}/hg/plugins
 
 RDEPEND=">=media-sound/quodlibet-2.0"
 		 # automask? ( dev-python/gnome-vfs-python )
@@ -51,7 +53,7 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
-		python_mod_cleanup "/usr/$(get_libdir)/python*/site-packages/quodlibet/plugins/"
+		python_mod_cleanup
 }
 
 # function use_plugin() {
