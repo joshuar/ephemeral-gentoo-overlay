@@ -1,0 +1,22 @@
+dev-util/mercurial
+>=media-sound/quodlibet-2.0
+0
+
+
+http://code.google.com/p/quodlibet/
+GPL-2
+All official plugins for media-sound/quodlibet.
+
+alternatives eutils mercurial multilib portability python toolchain-funcs
+
+
+
+
+
+
+install postinst postrm setup unpack
+
+
+
+
+
