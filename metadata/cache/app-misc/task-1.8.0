@@ -1,0 +1,22 @@
+sys-libs/ncurses =sys-devel/automake-1.10* >=sys-devel/autoconf-2.61 sys-devel/libtool
+sys-libs/ncurses bash-completion? ( app-admin/eselect )
+0
+http://www.taskwarrior.org/download/task-1.8.0.tar.gz
+
+http://taskwarrior.org/projects/show/taskwarrior/
+GPL
+A todo list GTD implementation, based on ideas from http://todotxt.org.
+~amd64 ~x86
+autotools bash-completion eutils libtool multilib portability toolchain-funcs
+bash-completion bash-completion
+
+
+
+2
+
+install postinst prepare
+
+
+
+
+
