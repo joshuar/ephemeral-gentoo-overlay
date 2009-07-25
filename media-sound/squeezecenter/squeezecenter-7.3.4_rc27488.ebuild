@@ -8,35 +8,30 @@ inherit eutils
 
 MAJOR_VER="${PV:0:3}"
 MINOR_VER="${PV:4:1}"
+REVISION=${PV#${MAJOR_VER}.${MINOR_VER}_rc}
 
-MY_PR="27120"
-
-#SRC_DIR="nightly/${MAJOR_VER}/sc/${PR#r}"
-SRC_DIR="nightly/${MAJOR_VER}/sc/${MY_PR}"
-MY_P="squeezecenter-${MAJOR_VER}.${MINOR_VER}-${MY_PR}-noCPAN"
+SRC_DIR="nightly/${MAJOR_VER}/sc/${REVISION}"
+MY_P="squeezecenter-${MAJOR_VER}.${MINOR_VER}-${REVISION}-noCPAN"
 
 DESCRIPTION="Logitech SqueezeCenter music server"
 HOMEPAGE="http://www.slimdevices.com/pi_features.html"
+SRC_URI="http://www.slimdevices.com/downloads/${SRC_DIR}/${MY_P}.tgz"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE="lame wavpack musepack alac ogg bonjour flac avahi aac"
 
-SRC_URI="http://www.slimdevices.com/downloads/${SRC_DIR}/${MY_P}.tgz"
-
 # Note: virtual/perl-Module-Build necessary because of SC bug#5882
 # (http://bugs.slimdevices.com/show_bug.cgi?id=5882).
-DEPEND="
-	dev-perl/File-Which
-	virtual/perl-Module-Build
-	virtual/logger
-	dev-db/mysql[perl]
-	avahi? ( net-dns/avahi )
-	"
+DEPEND="dev-perl/File-Which
+		virtual/perl-Module-Build
+		virtual/logger
+		dev-db/mysql[perl]
+		avahi? ( net-dns/avahi )"
 # Note: dev-perl/GD necessary because of SC bug#6143
 # (http://bugs.slimdevices.com/show_bug.cgi?id=6143).
-RDEPEND="
-	dev-perl/File-Which
+RDEPEND="dev-perl/File-Which
 	virtual/logger
 	virtual/mysql
 	avahi? ( net-dns/avahi )
@@ -83,7 +78,6 @@ RDEPEND="
 	dev-perl/Tie-RegexpHash
 	dev-perl/Text-Unidecode
 	dev-perl/JSON-XS-VersionOneAndTwo
-
 	>=virtual/perl-Module-Pluggable-3.6
 	lame? ( media-sound/lame )
 	alac? ( media-sound/alac_decoder )
