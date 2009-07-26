@@ -10,7 +10,7 @@ SRC_URI="http://www.techfirm.co.jp/~masaoki/${P}.tar.gz"
 LICENSE="as-is"
 
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="athena +motif"
 
 DEPEND="athena? ( x11-libs/libXaw )

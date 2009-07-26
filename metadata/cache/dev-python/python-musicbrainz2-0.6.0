@@ -1,0 +1,22 @@
+>=media-libs/libdiscid-0.1.0 >=dev-python/ctypes-0.9.0 virtual/python
+>=media-libs/libdiscid-0.1.0 >=dev-python/ctypes-0.9.0
+0
+http://ftp.musicbrainz.org/pub/musicbrainz/python-musicbrainz2/python-musicbrainz2-0.6.0.tar.gz
+
+http://musicbrainz.org
+BSD
+Python Bindings for the MusicBrainz XML Web Service
+~amd64 ~hppa ~x86
+alternatives distutils eutils multilib portability python toolchain-funcs
+examples
+
+
+
+2
+
+compile install postinst postrm prepare unpack
+
+
+
+
+
