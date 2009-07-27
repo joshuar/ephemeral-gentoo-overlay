@@ -1,7 +1,7 @@
 athena? ( x11-libs/libXaw ) motif? ( x11-libs/openmotif ) x11-libs/libXpm =sys-devel/automake-1.10* >=sys-devel/autoconf-2.61 sys-devel/libtool
 athena? ( x11-libs/libXaw ) motif? ( x11-libs/openmotif ) x11-libs/libXpm
 0
-http://www.techfirm.co.jp/~masaoki/xshisen-1.51.tar.gz
+mirror://debian/pool/main/x/xshisen/xshisen_1.51.orig.tar.gz
 
 http://www.techfirm.co.jp/~masaoki/xshisen.html
 as-is
