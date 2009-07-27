@@ -6,7 +6,7 @@ inherit autotools flag-o-matic games
 
 DESCRIPTION="Puzzle game using 144 mahjong pieces, objective is to remove all the pieces on the board."
 HOMEPAGE="http://www.techfirm.co.jp/~masaoki/xshisen.html"
-SRC_URI="http://www.techfirm.co.jp/~masaoki/${P}.tar.gz"
+SRC_URI="mirror://debian/pool/main/x/${PN}/${PN}_${PV}.orig.tar.gz"
 LICENSE="as-is"
 
 SLOT="0"

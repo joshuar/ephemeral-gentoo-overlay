@@ -6,7 +6,7 @@ http://www.techfirm.co.jp/~masaoki/xshisen-1.51.tar.gz
 http://www.techfirm.co.jp/~masaoki/xshisen.html
 as-is
 Puzzle game using 144 mahjong pieces, objective is to remove all the pieces on the board.
-~x86
+~amd64 ~x86
 autotools base eutils flag-o-matic games libtool multilib portability toolchain-funcs
 athena +motif
 
