@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/${PN}/${PN}_${MY_PV}.tar.gz"
 LICENSE="GPL-2"
 RESTRICT="primaryuri"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="X"
 
 S="${WORKDIR}/${PN}_${MY_PV}"
