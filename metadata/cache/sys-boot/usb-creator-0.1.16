@@ -7,7 +7,7 @@ https://launchpad.net/usb-creator
 BSD
 Simple utility designed to make bootable USB desktop images from CD images.
 ~amd64 ~ia64 ~ppc ~s390 ~x86
-alternatives distutils eutils multilib portability python toolchain-funcs
+distutils eutils multilib portability python toolchain-funcs
 
 
 

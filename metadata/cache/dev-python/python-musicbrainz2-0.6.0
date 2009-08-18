@@ -7,7 +7,7 @@ http://musicbrainz.org
 BSD
 Python Bindings for the MusicBrainz XML Web Service
 ~amd64 ~hppa ~x86
-alternatives distutils eutils multilib portability python toolchain-funcs
+distutils eutils multilib portability python toolchain-funcs
 examples
 
 

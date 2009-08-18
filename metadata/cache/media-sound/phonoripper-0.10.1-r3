@@ -7,14 +7,14 @@ http://klappnase.bubble.org/phonoripper/index.html
 GPL
 Easy to use, all-in-one GUI tool for creating audio CDs from analog sources like vinyl records.
 ~x86 ~amd64
-alternatives eutils multilib portability python toolchain-funcs
+eutils multilib portability python toolchain-funcs
 cdr normalize
 
 
 
 
 
-install postinst postrm
+install
 
 
 

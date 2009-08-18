@@ -7,7 +7,7 @@ http://code.google.com/p/quodlibet/
 GPL-2
 All official plugins for media-sound/quodlibet.
 
-alternatives eutils mercurial multilib portability python toolchain-funcs
+eutils mercurial multilib portability python toolchain-funcs
 
 
 

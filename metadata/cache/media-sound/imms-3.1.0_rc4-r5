@@ -7,7 +7,7 @@ http://www.luminal.org/wiki/index.php/IMMS/IMMS
 GPL-2
 An adaptive playlist framework that tracks your listening patterns and dynamically adapts to your taste.
 ~x86
-alternatives autotools eutils libtool multilib portability python toolchain-funcs versionator
+autotools eutils libtool multilib portability python toolchain-funcs versionator
 analyzer audacious bmpx quodlibet remote vorbis
 
 

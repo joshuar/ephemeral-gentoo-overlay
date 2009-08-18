@@ -35,6 +35,7 @@ RDEPEND="${DEPEND}
 pkg_setup() {
 	SAVEDIR=${GAMES_STATEDIR}/${PN}/saves
 	DATADIR=${GAMES_DATADIR}/${PN}
+	games_pkg_setup
 }
 
 src_prepare() {
@@ -103,7 +104,7 @@ src_install() {
 
 	dodir ${SAVEDIR}
 
-	dogamesbin source/crawl
+	newgamesbin source/crawl ${PN}
 	newicon source/util/crawl.ico ${PN}.ico
 	make_desktop_entry ${PN} "Dungeon Crawl Stone Soup" ${PN}.ico
 

@@ -7,7 +7,7 @@ http://code.google.com/p/quodlibet/
 GPL-2
 Quod Libet is a GTK+-based audio player written in Python.
 
-alternatives distutils eutils multilib portability python toolchain-funcs
+distutils eutils multilib portability python toolchain-funcs
 aac alsa dbus ffmpeg flac hal ipod mad mod musepack network oss rss tta vorbis wavpack
 
 

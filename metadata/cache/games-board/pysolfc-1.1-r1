@@ -7,7 +7,7 @@ http://pysolfc.sourceforge.net/
 GPL-2
 PySolFC is a collection of more than 1000 solitaire card games. It is a fork of PySol Solitaire.
 amd64 ~mips ppc ppc64 sparc x86
-alternatives base distutils eutils games multilib portability python toolchain-funcs
+base distutils eutils games multilib portability python toolchain-funcs
 extra-cardsets imaging music tile
 
 
