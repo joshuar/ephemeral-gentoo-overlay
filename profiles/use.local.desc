@@ -1,5 +1,3 @@
-app-misc/gourmet:rtf - Add support for writing RTF files with dev-python/pyrtf
-media-gfx/gimp-gap:wavplay - Add support for reading/writing wav files
 media-sound/imms:analyzer - Build the acoustic analysis component
 media-sound/imms:remote - Build the remote control component
 sci-astronomy/iraf-bin:pyraf - Build the PyRAF environment
