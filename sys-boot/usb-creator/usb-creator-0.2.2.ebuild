@@ -27,22 +27,10 @@ RDEPEND="x11-libs/gksu
 
 PYTHON_MODNAME="usb-creator"
 
-S="${WORKDIR}/trunk"
+S="${WORKDIR}/${PN}.trunk"
 
 src_prepare() {
 	sed -i -e 's:lib/syslinux:share/syslinux:' \
 		usbcreator/backend.py \
 		|| die "sed usbcreator/backend.py failed."
-}
-
-src_install() {
-	distutils_src_install
-	cd ${S}
-	insinto /usr/share/${PN}
-	doins gui/usbcreator.glade
-	exeinto /usr/share/${PN}
-	doexe scripts/install.py
-	insinto /usr/share/pixmaps
-	doins desktop/usb-creator.png
-
 }
