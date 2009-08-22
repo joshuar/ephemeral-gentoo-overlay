@@ -1,4 +1,0 @@
-KARMABASE=/usr/karma
-KARMABINPATH=/usr/bin
-KARMALIBPATH=/usr/lib
-KARMA_VERSION=1.7.25
