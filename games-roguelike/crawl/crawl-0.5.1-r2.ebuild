@@ -39,7 +39,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-
 	append-flags -DUSE_TILE -DUNIX -DCLUA_BINDINGS -fsigned-char
 
 	sed -i -e 's:^MAKEFILE ?=.*:MAKEFILE ?= makefile_tiles.unix:' \
@@ -102,9 +101,9 @@ src_install() {
 	insinto ${my_datadir}/docs
 	doins docs/*.txt
 
-	newgamesbin source/crawl ${PN}
-	newicon source/util/crawl.ico ${PN}.ico
-	make_desktop_entry ${PN} "Dungeon Crawl Stone Soup" ${PN}.ico
+	dobin source/crawl
+	doicon ${FILESDIR}/${PN}.png
+	make_desktop_entry ${PN} "Dungeon Crawl Stone Soup" ${PN}.png
 
 	dodoc README.{txt,pdf} CREDITS.txt
 	doman docs/crawl.6
@@ -113,9 +112,8 @@ src_install() {
 
 	prepgamesdirs
 
-	# naughty changes after prepgamesdirs
-	chmod g+w ${D}${my_statedir} \
-		|| die "failed to change permissions on ${my_statedir}"
-	chown root:games ${D}${my_statedir} \
-		|| die "failed to change permissions on ${my_statedir}"
+	fowners root:games ${my_statedir} \
+		|| die "failed to change ownership of ${my_statedir}."
+	fperms 770 ${my_statedir} \
+		|| die "failed to change perms of ${my_statedir}."
 }
