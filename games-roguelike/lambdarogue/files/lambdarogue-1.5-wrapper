@@ -1,0 +1,108 @@
+#!/bin/sh
+
+cd /usr/games/lambdarogue
+
+case "$1" in
+
+--help)
+		echo "Usage: lambdarogue [OPTION] [CHARACTER NAME] [FILE]";
+		echo " ";
+		echo " --del-bones        delete bone file";
+		echo " --import-bones     import file as new bone file";
+		echo " --merge-bones      merge bone file with specified file";
+		echo " --export-bones     export current bone file to specified file";
+		echo " --show-dump        shows specified character dump";
+		echo " --export-dump      exports character dump to specified file"
+		echo " --help             show this help";
+		echo " ";
+		echo "Executing without parameter starts the game.";
+		echo " ";
+		echo "Examples:";
+		echo " ";
+		echo "  lambdarogue                                starts LambdaRogue";
+		echo "  lambdarogue --del-bones                    delete current bone file";
+		echo "  lambdarogue --import-bones anne.txt        use anne.txt as current bone file";
+		echo "  lambdarogue --merge-bones peter.txt        merge current bone file with peter.txt";
+		echo "  lambdarogue --export-bones ~               export current bone file to homedir";
+		echo "  lambdarogue --export-bones anne.txt        export current bone file to anne.txt";
+		echo "  lambdarogue --show-dump Tharyn             outputs character dump of Tharyn";
+		echo "  lambdarogue --export-dump Odin peter.txt   export chardump of Odin to peter.txt"
+		echo " ";
+		echo "New versions, patches and bug fixes: http://donick.net/lambdarogue.html";
+		;;
+
+
+--del-bones)
+		if [ -f data/bones/bones.txt ]; then
+			rm data/bones/bones.txt;
+			echo "Bone file deleted.";
+		else
+			echo "Error: No bone file available.";
+		fi;
+		;;
+
+
+--export-bones)
+		if [ -f data/bones/bones.txt ]; then
+			cp data/bones/bones.txt $2;
+			echo "Bone file exported to $2.";
+		else
+			echo "Error: No bone file available.";
+		fi;
+		;;
+
+
+--merge-bones)
+		if [ -f $2 ]; then
+			if [ -f data/bones/bones.txt ]; then
+				cat data/bones/bones.txt $2 > /tmp/bones.tmp;
+				rm data/bones/bones.txt;
+				mv /tmp/bones.tmp data/bones/bones.txt;
+				echo "Bone file merged with $2.";
+			fi;
+		else
+			echo "Error: Could not merge bone file. $2 not found.";
+		fi;
+		;;
+
+
+--import-bones)
+		if [ -f $2 ]; then
+			if [ -f data/bones/bones.txt ]; then
+				echo "Error: Bone file already exists (try lambdarogue --merge instead).";
+			else
+				cp $2 data/bones/bones.txt;
+				echo "Bone file $2 imported.";
+			fi;
+		else
+			echo "Error: Could not create bone file. $2 not found.";
+		fi;
+		;;
+
+
+--show-dump)
+		if [ -f "saves/$2-dump.txt" ]; then
+			more "saves/$2-dump.txt";
+		else
+			echo "Error: No dump for a character named $2 available.";
+		fi;
+		;;
+
+
+--export-dump)
+		if [ -f "saves/$2-dump.txt" ]; then
+			cp "saves/$2-dump.txt" $3;
+			echo "Character dump of $2 exported to $3.";
+		else
+			echo "Error: No dump for a character named $2 available.";
+		fi;
+		;;
+
+
+*)
+		echo "Starting the game (try lambdarogue --help for options)";
+		cd /usr/games/lambdarogue
+		exec /usr/games/lambdarogue/lambdarogue
+		;;
+esac
+

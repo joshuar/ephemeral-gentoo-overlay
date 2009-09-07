@@ -1,2 +1,2 @@
 games-roguelike/lostlabyrinth
-
+games-roguelike/lambdarogue
