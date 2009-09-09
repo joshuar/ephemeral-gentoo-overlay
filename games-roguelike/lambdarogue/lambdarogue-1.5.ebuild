@@ -17,9 +17,9 @@ SRC_URI="http://lambdarogue.googlecode.com/files/${MY_P}-src.zip
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="sound music"
+IUSE="sound"
 
-RDEPEND="media-sound/mpg123"
+RDEPEND="sound? ( media-sound/mpg123 )"
 DEPEND="${RDEPEND}
 		dev-lang/fpc
 		media-libs/sdl-image[png,jpeg]
@@ -29,7 +29,7 @@ S="${WORKDIR}/${MY_P}-src_without-music"
 
 src_prepare() {
 	cp ${FILESDIR}/lambdarogue-${PV}.cfg ${S}/lambdarogue.cfg
-	if use music; then
+	if use sound; then
 		rm -fr ${S}/music \
 			|| die "prep music failed."
 		mv -f ${WORKDIR}/${MY_PN}-*-music/music ${S} \
@@ -37,16 +37,13 @@ src_prepare() {
 		sed -i -e 's|@@MUSIC@@|True|' \
 			${S}/lambdarogue.cfg \
 			|| die "prep music failed."
-	else
-		sed -i -e 's|@@MUSIC@@|False|' \
-			${S}/lambdarogue.cfg \
-			|| die "prep no music failed."
-	fi
-	if use sound; then
 		sed -i -e 's|@@SOUND@@|True|' \
 			${S}/lambdarogue.cfg \
 			|| die "prep sound failed."
 	else
+		sed -i -e 's|@@MUSIC@@|False|' \
+			${S}/lambdarogue.cfg \
+			|| die "prep no music failed."
 		sed -i -e 's|@@SOUND@@|False|' \
 			${S}/lambdarogue.cfg \
 			|| die "prep no sound failed."
@@ -58,9 +55,6 @@ src_prepare() {
 
 	find ${S} \( -name Thumbs.db -or -name delete.me \) -delete \
 		|| die "remove cruft failed."
-
-
-
 }
 
 src_install() {
@@ -69,22 +63,28 @@ src_install() {
 	local statedir=${GAMES_STATEDIR}/${PN}
 
 	exeinto ${gamedir}
-	insinto ${gamedir}
-
 	doexe lambdarogue
+
+	insinto ${gamedir}
 	doins -r graphics
-	doins -r data
+
+	insinto ${gamedir}/data
+	doins data/*.txt
+	doins -r data/story
+	insinto ${gamedir}/data/levels
+	doins data/levels/*.txt
+
 	if use sound; then
 		insinto ${gamedir}/sound
 		doins sound/*.mp3
 		dodoc sound/*.txt
-	fi
-	if use music; then
 		insinto ${gamedir}/music
 		doins music/*.mp3
 		dodoc music/*.txt
 	fi
 
+	dodir ${statedir}/data/levels/random
+	dosym ${statedir}/data/levels/random ${gamedir}/data/levels/random
 	dodir ${statedir}/saves
 	dosym ${statedir}/saves ${gamedir}/saves
 	dodir ${statedir}/bones
@@ -99,4 +99,7 @@ src_install() {
 	dodoc docs/{readme,ChangeLog,"image credits"}.txt
 
 	prepgamesdirs
+
+	chmod -R 770 "${D}${statedir}/"* \
+		|| die "failed to change perms of ${my_statedir}."
 }
