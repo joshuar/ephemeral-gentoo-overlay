@@ -6,23 +6,32 @@ inherit gnome2-utils
 
 BASE_URI="http://art.gnome.org/download/themes/icon/"
 
-DESCRIPTION="Collection of icon themes from art.gnome.org with CCPL-Attribution-ShareAlike licenses."
+DESCRIPTION="Collection of icon themes from art.gnome.org with GPL licenses."
 HOMEPAGE="http://art.gnome.org/themes/icon/"
-SRC_URI="${BASE_URI}/1138/ICON-JiniIconTheme.tar.gz
-${BASE_URI}/1297/ICON-Gorilla.tar.bz2
-${BASE_URI}/1281/ICON-GFlatSVG.tar.gz
-${BASE_URI}/1269/ICON-OpenWorld.tar.bz2
-${BASE_URI}/1261/ICON-TangoMateria.tar.gz
-${BASE_URI}/1111/ICON-StillLife.tar.bz2
-${BASE_URI}/1049/ICON-DroplineEtiquette.tar.bz2
-${BASE_URI}/1051/ICON-Iris.tar.bz2"
+SRC_URI="
+${BASE_URI}/1002/ICON-BlankOn.tar.gz
+${BASE_URI}/1100/ICON-DroplineNeu.tar.bz2
+${BASE_URI}/1112/ICON-DroplineNuovo.tar.bz2
+${BASE_URI}/1096/ICON-EXperience.tar.gz
+${BASE_URI}/1001/ICON-Gartoon.tar.gz
+${BASE_URI}/1340/ICON-Gion.tar.bz2
+${BASE_URI}/1352/ICON-Gnome218IconTheme.tar.bz2
+${BASE_URI}/1376/ICON-GNOMEAlternatives.tar.gz
+${BASE_URI}/1136/ICON-Humility.tar.gz
+${BASE_URI}/1127/ICON-KearonesIcons.tar.gz
+${BASE_URI}/1339/ICON-Lila.tar.bz2
+${BASE_URI}/1006/ICON-SmoothGNOME.tar.gz
+${BASE_URI}/1053/ICON-Suede2.tar.bz2
+${BASE_URI}/1168/ICON-Yasis.tar.bz2
+${BASE_URI}/1128/ICON-YattaBlues.tar.gz
+"
 
-LICENSE="CCPL-Attribution-ShareAlike-3.0"
+LICENSE="GPL"
 SLOT="0"
-KEYWORDS="~x86 ~ppc ~sparc ~alpha ~mips ~hppa ~amd64 ~ia64"
+KEYWORDS="~x86 ~amd64"
 IUSE=""
 
-RESTRICT="binchecks strip primaryuri"
+RESTRICT="binchecks strip"
 
 RDEPEND="x11-themes/hicolor-icon-theme"
 
