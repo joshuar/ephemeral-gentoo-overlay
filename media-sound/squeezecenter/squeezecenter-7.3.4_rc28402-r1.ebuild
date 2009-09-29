@@ -82,7 +82,7 @@ RDEPEND="dev-perl/File-Which
 	dev-perl/File-ReadBackwards
 	>=virtual/perl-Module-Pluggable-3.6
 	dev-perl/Audio-WMA
-	dev-perl/Audio-WAV
+	dev-perl/Audio-Wav
 	dev-perl/MP3-Info
 	dev-perl/MP4-Info
 	dev-perl/MPEG-Audio-Frame
