@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=2
+
 inherit gnome2-utils
 
 BASE_URI="http://art.gnome.org/download/themes/icon/"
@@ -36,25 +38,27 @@ RESTRICT="binchecks strip"
 RDEPEND="x11-themes/hicolor-icon-theme"
 
 src_install() {
-	cd ${WORKDIR}
 	# remove temp files
 	einfo "Removing temporary files from extracted archives..."
 	find . -name '*~' -exec rm -f "{}" \;
 	for icondir in *; do
-		einfo "Installing ${icondir} icon theme..."
-		# find and install documentation
-		docfiles=$(find "${icondir}" -type f -and \( -iname readme -or -iname authors -or -iname donate -or -iname todo -or -iname changelog \))
-		for d in ${docfiles}; do
-			file=$(basename ${d})
-			newdoc "${d}" "${icondir}-${file}"
-			rm -f "${d}"
-		done
-		# find and remove non-icon theme files
-		find "${icondir}" -type f -and -not \( -name '*.png' -or -name '*.svg' -or -name '*.icon' -or -name '*.theme' \) -exec rm -f "{}" \;
-		# now install
-		instdir=/usr/share/icons/"${icondir}"
-		dodir "${instdir}"
-		cp -pPR "${icondir}"/* "${D}/${instdir}"
+		if test -d ${icondir}; then
+			local IFS=$'\n'
+			einfo "Installing ${icondir} icon theme..."
+			# find and install documentation
+			docfiles=$(find "${icondir}" -type f -and \( -iname readme -or -iname authors -or -iname donate -or -iname todo -or -iname changelog \))
+			for d in ${docfiles}; do
+				file=$(basename ${d})
+				newdoc "${d}" "${icondir}-${file}"
+				rm -f "${d}"
+			done
+			# find and remove non-icon theme files
+			find "${icondir}" -type f -and -not \( -name '*.png' -or -name '*.svg' -or -name '*.icon' -or -name '*.theme' \) -exec rm -f "{}" \;
+			# now install
+			instdir=/usr/share/icons/"${icondir}"
+			insinto "${instdir}"
+			doins -r "${icondir}"/*
+		fi
 	done
 }
 

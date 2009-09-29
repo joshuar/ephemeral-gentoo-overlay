@@ -80,23 +80,24 @@ RESTRICT="binchecks strip"
 RDEPEND="x11-libs/gtk+:2"
 
 src_install() {
-	cd ${WORKDIR}
 	# remove temp files
 	einfo "Removing temporary files from extracted archives..."
 	find . -name '*~' -delete
 	for themedir in *; do
-		local IFS=$'\n'
-		einfo "Installing ${themedir} icon theme..."
-		# find and install documentation
-		docfiles=$(find "${themedir}" -type f -and \( -iname readme -or -iname authors -or -iname donate -or -iname todo -or -iname changelog \))
-		for d in ${docfiles}; do
-			file=$(basename ${d})
-			newdoc "${d}" "${themedir}-${file}"
-			rm -f "${d}"
-		done
-		# now install
-		instdir=/usr/share/themes/"${themedir}"
-		insinto ${instdir}
-		doins -r "${themedir}"/*
+		if test -d ${themedir}; then
+			local IFS=$'\n'
+			einfo "Installing ${themedir} icon theme..."
+			# find and install documentation
+			docfiles=$(find "${themedir}" -type f -and \( -iname readme -or -iname authors -or -iname donate -or -iname todo -or -iname changelog \))
+			for d in ${docfiles}; do
+				file=$(basename ${d})
+				newdoc "${d}" "${themedir}-${file}"
+				rm -f "${d}"
+			done
+			# now install
+			instdir=/usr/share/themes/"${themedir}"
+			insinto ${instdir}
+			doins -r "${themedir}"/*
+		fi
 	done
 }
