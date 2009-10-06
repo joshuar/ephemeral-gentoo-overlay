@@ -94,6 +94,7 @@ dev-perl/libwww-perl
 dev-perl/libxml-perl
 dev-perl/Locale-gettext
 dev-perl/Log-Agent
+dev-perl/log-dispatch
 dev-perl/Log-Log4perl
 dev-perl/math-pari
 dev-perl/Math-VecStat
@@ -187,11 +188,16 @@ src_install() {
 	insinto "/usr/share/${PN}"
 	doins -r Firmware Graphics HTML IR SQL strings.txt revision.txt
 
-	# Squeezebox Server devs have their own customised version of DBIx-Migration
-	# that does a few things different than the years old latest version on CPAN.
-	# Assume the Squeezebox Server devs know what they are doing.
+	# Squeezebox Server devs have their own customised version of a few Perl
+	# modules that does a few things different than the versions found on
+	# CPAN. Assume the Squeezebox Server devs know what they are doing.
 	insinto "/usr/lib/${PN}"
 	doins -r lib/DBIx
+	insinto "/usr/lib/${PN}/AnyEvent"
+	doins -r lib/AnyEvent/Impl
+	# Notes:
+	# - Dirs containing outdated bundled modules:
+	#   Audio Cache CGI Class MP3 Template
 
 	# Documentation
 	dodoc ${DOCS} "${FILESDIR}/Gentoo-plugins-README.txt"
@@ -410,16 +416,3 @@ pkg_config() {
 	einfo ""
 	sc_starting_instr
 }
-
-# pkg_preinst() {
-# 	# Warn the user if there are old plugins that they may need to migrate
-# 	if [ -d "${OLDPLUGINSDIR}" ]; then
-# 		if [ ! -z "$(ls ${OLDPLUGINSDIR})" ]; then
-# 			ewarn "Note: It appears that plugins are installed in the old location of:"
-# 			ewarn "${OLDPLUGINSDIR}"
-# 			ewarn "If these are to be used then they must be migrated to the new location:"
-# 			ewarn "${NEWPLUGINSDIR}"
-# 			ewarn ""
-# 		fi
-# 	fi
-# }
