@@ -23,6 +23,13 @@ start() {
 	if [[ ${SC_NICENESS} ]]; then 
 	    export SSD_NICELEVEL=${SC_NICENESS}
 	fi
+	if [[ ${SC_MUSIC_DIR} ]]; then
+	    SC_OPTS="--audiodir=${SC_MUSIC_DIR} ${SC_OPTS}"
+	fi
+	if [[ ${SC_PLAYLISTS_DIR} ]]; then
+	    SC_OPTS="--playlistdir=${SC_PLAYLISTS_DIR} ${SC_OPTS}"
+	fi
+
 	cd /
 	start-stop-daemon \
 		--start --exec /usr/bin/perl /usr/sbin/${scname} \
@@ -36,11 +43,7 @@ start() {
 		--prefsfile=${prefsfile} \
 		--prefsdir=${prefsdir} \
 		--logdir=${logdir} \
-		--audiodir=${SC_MUSIC_DIR} \
-		--playlistdir=${SC_PLAYLISTS_DIR} \
 		${SC_OPTS}
-
-
 	eend $? "Failed to start SqueezeCenter"
 }
 

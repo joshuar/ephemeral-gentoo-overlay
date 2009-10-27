@@ -6,15 +6,16 @@ EAPI=2
 
 inherit eutils
 
-MAJOR_VER="${PV:0:3}"
-MINOR_VER="${PV:4:1}"
-REVISION=${PV#${MAJOR_VER}.${MINOR_VER}_rc}
-
-MY_P="${PN}-${MAJOR_VER}.${MINOR_VER}-${REVISION}-noCPAN"
+# MAJOR_VER="${PV:0:3}"
+# MINOR_VER="${PV:4:1}"
+# REVISION=${PV#${MAJOR_VER}.${MINOR_VER}_rc}
+# MY_P="${PN}-${MAJOR_VER}.${MINOR_VER}-${REVISION}-noCPAN"
+MY_P="${PN}-${PV}-noCPAN"
+MY_REV=28947
 
 DESCRIPTION="Logitech SqueezeboxServer music server"
 HOMEPAGE="http://www.logitechsqueezebox.com/support/download-squeezebox-server.html"
-SRC_URI="http://downloads.slimdevices.com/SqueezeboxServer_v7.4.0/${MY_P}.tgz"
+SRC_URI="http://downloads.slimdevices.com/SqueezeboxServer_v7.4.1/${MY_P}.tgz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -68,6 +69,7 @@ dev-perl/Digest-HMAC
 dev-perl/digest-md2
 dev-perl/Digest-SHA1
 dev-perl/Encode-Detect
+dev-perl/EV
 dev-perl/Exporter-Lite
 dev-perl/File-BOM
 dev-perl/File-Find-Rule
@@ -139,7 +141,6 @@ dev-perl/URI
 dev-perl/URI-Find
 dev-perl/XML-DOM
 dev-perl/XML-LibXML
-dev-perl/XML-LibXML-Common
 dev-perl/XML-NamespaceSupport
 dev-perl/XML-Parser
 dev-perl/XML-RegExp
@@ -159,7 +160,7 @@ SBS_USER="squeezeboxserver"
 SBS_GROUP="squeezeboxserver"
 DBUSER=${PN}
 
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${PN}-${PV}-${MY_REV}-noCPAN"
 
 pkg_setup() {
 	# Create the user and group if not already present
