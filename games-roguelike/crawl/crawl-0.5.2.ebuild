@@ -14,7 +14,7 @@ SRC_URI="mirror://sourceforge/crawl-ref/${MY_P}.tbz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="x86 amd64"
+KEYWORDS="~x86 ~amd64"
 IUSE="pcre sound"
 
 S="${WORKDIR}/${MY_P}"
