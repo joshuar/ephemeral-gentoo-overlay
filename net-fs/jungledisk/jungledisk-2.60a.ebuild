@@ -13,7 +13,7 @@ SRC_URI="x86? ( http://cdn.cloudfiles.mosso.com/c15791/${PN}${MY_PV}.tar.gz )
 
 LICENSE="jungledisk"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="sys-fs/fuse"
