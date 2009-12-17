@@ -16,7 +16,7 @@ SRC_URI="x86? ( ${SRC_URI_BASE}/${PN}${MY_PV}.tar.gz )
 
 LICENSE="jungledisk-tos"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 RDEPEND="sys-fs/fuse"
