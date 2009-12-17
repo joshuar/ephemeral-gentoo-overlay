@@ -21,36 +21,35 @@ IUSE=""
 
 RDEPEND="sys-fs/fuse"
 
-RESTRICT="binchecks strip fetch"
+RESTRICT="binchecks strip"
 
 S="${WORKDIR}/${PN}"
 
-pkg_nofetch() {
-	einfo "You need to sign up for a JungleDisk account before"
-	einfo "using this software. Sign up here:"
-	einfo
-	einfo "  https://www.jungledisk.com"
-	einfo
-	einfo "Once you have an account, log in to your Jungledisk"
-	einfo "account and download:"
-	if use x86; then
-		einfo "${SRC_URI_BASE}/${PN}${MY_PV}.tar.gz"
-	fi
-	if use amd64; then
-		einfo "${SRC_URI_BASE}/${PN}64-${MY_PV}.tar.gz"
-	fi
-	einfo "and place the file in ${DISTDIR}"
-}
-
+# pkg_nofetch() {
+# 	einfo "You need to sign up for a JungleDisk account before"
+# 	einfo "using this software. Sign up here:"
+# 	einfo
+# 	einfo "  https://www.jungledisk.com"
+# 	einfo
+# 	einfo "Once you have an account, log in to your Jungledisk"
+# 	einfo "account and download:"
+# 	if use x86; then
+# 		einfo "${SRC_URI_BASE}/${PN}${MY_PV}.tar.gz"
+# 	fi
+# 	if use amd64; then
+# 		einfo "${SRC_URI_BASE}/${PN}64-${MY_PV}.tar.gz"
+# 	fi
+# 	einfo "and place the file in ${DISTDIR}"
+# }
 
 src_install() {
-	exeinto /opt/jungledisk
-	doexe junglediskdesktop
-	dosym /opt/jungledisk/jungledisk /usr/bin/junglediskdesktop
+	exeinto /opt/${PN}
+	doexe ${PN}
+	dosym /opt/${PN}/${PN} /usr/bin/${PN}
 	insinto /usr/share/pixmaps
-	doins junglediskdesktop.png
-	make_desktop_entry /usr/bin/junglediskdesktop "Jungle Disk Desktop" \
-		/usr/share/pixmaps/junglediskdesktop.png "Application;System;"
+	doins ${PN}.png
+	make_desktop_entry /usr/bin/${PN} "Jungle Disk Desktop" \
+		/usr/share/pixmaps/${PN}.png "Application;System;"
 }
 
 pkg_postinst() {
