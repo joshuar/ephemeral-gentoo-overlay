@@ -10,18 +10,23 @@ EHG_REPO_URI="https://quodlibet.googlecode.com/hg"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
-IUSE="automask cddb musicbrainz nautilus replaygain"
+KEYWORDS="~x86 ~amd64"
+IUSE="automask burn cddb gajim lastfmsubmitd musicbrainz nautilus replaygain"
 
 S=${WORKDIR}/hg/plugins
 PLUGIN_TYPES="editing events playorder songsmenu"
 
 RDEPEND=">=media-sound/quodlibet-2.0
 		 automask? ( dev-python/gnome-vfs-python )
-		 nautilus? ( dev-python/nautilus-python )
+		 burn? ( || ( app-cdr/k3b )
+					( app-cdr/brasero ) )
 		 cddb? ( dev-python/cddb-py )
-		 replaygain? ( media-libs/gst-plugins-bad )
-		 musicbrainz? ( dev-python/python-musicbrainz )"
+		 gajim? ( net-im/gajim )
+		 lastfmsubmitd? ( media-sound/lastfmsubmitd )
+		 musicbrainz? ( dev-python/python-musicbrainz )
+		 nautilus? ( dev-python/nautilus-python
+					 dev-python/libbonobo-python )
+		 replaygain? ( media-libs/gst-plugins-bad )"
 
 pkg_setup() {
 		python_version
@@ -33,8 +38,12 @@ src_install() {
 	# external packages and not requested
 	# through USE flags
 	use_plugin automask events/automask.py
+	use_plugin burn songsmenu/k3b.py
 	use_plugin cddb songsmenu/cddb.py
+	use_plugin gajim events/gajim_status.py
+	use_plugin lastfmsubmitd events/lastfmsubmit.py
 	use_plugin musicbrainz songsmenu/brainz.py
+	use_plugin nautilus songsmenu/nautilus.py
 	use_plugin replaygain songsmenu/replaygain.py
 
 	for dir in ${PLUGIN_TYPES}; do
