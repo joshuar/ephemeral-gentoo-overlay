@@ -1,3 +1,0 @@
-dbusername: squeezecenter
-dbpassword: TBA
-dbsource: dbi:mysql:database=squeezecenter;mysql_socket=/var/run/mysqld/mysqld.sock
