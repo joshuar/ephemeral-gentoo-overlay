@@ -26,6 +26,7 @@ src_prepare() {
 		-e "s/ar /$(tc-getAR) /" \
 		-e "s/ranlib /$(tc-getRANLIB) /" \
 		-e "s/\$(LDFLAGS)/\$(LDFLAGS) ${LDFLAGS}/" \
+		-e '/strip $(OEXE)/d' \
 		{belgolib,makelist,netmap}/Makefile \
 		|| die "sed Makefiles failed."
 }
