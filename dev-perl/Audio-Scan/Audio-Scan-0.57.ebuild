@@ -5,7 +5,7 @@
 inherit perl-module
 
 DESCRIPTION="XS parser for MP3, MP4, Ogg Vorbis, FLAC, ASF, WAV, AIFF, Musepack, Monkey's Audio."
-HOMEPAGE="http://search.cpan.org/~agrundma"
+HOMEPAGE="http://search.cpan.org/~agrundma/Audio-Scan-0.57/"
 SRC_URI="mirror://cpan/authors/id/A/AG/AGRUNDMA/${P}.tar.gz"
 
 SLOT="0"

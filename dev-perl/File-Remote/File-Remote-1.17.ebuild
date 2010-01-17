@@ -4,6 +4,7 @@
 
 MODULE_AUTHOR=NWIGER
 DESCRIPTION="Read/write/edit remote files transparently"
+HOMEPAGE="http://search.cpan.org/~nwiger/File-Remote-1.17/"
 
 LICENSE="|| ( GPL-2 Artistic )"
 SLOT="0"
