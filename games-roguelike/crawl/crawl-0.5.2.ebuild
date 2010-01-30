@@ -40,13 +40,14 @@ pkg_setup() {
 
 src_prepare() {
 	append-flags -DUSE_TILE -DUNIX -DCLUA_BINDINGS -fsigned-char
+	local pkgconfig_pkgs="freetype2 libpng lua SDL_image sdl sqlite3"
+
+	epatch ${FILESDIR}/${PN}-${PV}-fix-path-problems.patch
 
 	sed -i -e 's:^MAKEFILE ?=.*:MAKEFILE ?= makefile_tiles.unix:' \
 		-e 's:$(OTHER) ::' \
 		source/makefile \
 		|| die "sed main makefile failed."
-
-	local pkgconfig_pkgs="freetype2 lua libpng sdl sqlite3"
 
 	if use pcre; then
 		append-flags "-DREGEX_PCRE"
@@ -62,12 +63,13 @@ src_prepare() {
 	local pkg_libs=$(pkg-config --libs ${pkgconfig_pkgs})
 	local pkg_cflags=$(pkg-config --cflags ${pkgconfig_pkgs})
 
+
 	sed -i -e "s:^CXX =.*:CXX = $(tc-getCXX):" \
 		-e 's:${CXX}:$(CXX):' \
 		-e 's:$(CFLAGS):$(CFLAGS) $(INCLUDES):' \
 		-e 's:${CFLAGS}:$(CFLAGS) $(INCLUDES):' \
-		-e 's|^CFOTHERS +=.*||g' \
 		-e "s|^CFOTHERS :=.*|CFOTHERS := '-DSAVE_DIR_PATH=\"${my_statedir}\"' '-DDATA_DIR_PATH=\"${my_datadir}/\"'|" \
+		-e 's|^CFOTHERS +=.*||g' \
 		-e "s|^CFLAGS.*|CFLAGS := ${CFLAGS} \$(CFOTHERS)|" \
 		-e "s:^LDFLAGS =.*:LDFLAGS = ${LDFLAGS}:" \
 		-e "s|^INCLUDES :=.*|INCLUDES := -Iutil -I. -Irltiles ${pkg_cflags}|" \

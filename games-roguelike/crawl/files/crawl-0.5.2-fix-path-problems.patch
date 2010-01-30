@@ -1,0 +1,78 @@
+--- source/files.cc.old	2010-01-30 16:26:49.741408297 +1100
++++ source/files.cc	2010-01-30 16:27:41.818972221 +1100
+@@ -455,16 +455,16 @@
+                            path.c_str());
+ #endif
+ 
+-#ifdef DATA_DIR_PATH
+-    if (is_absolute_path(path))
+-        throw make_stringf("\"%s\" is an absolute path.", path.c_str());
+-
+-    if (path.find("..") != std::string::npos)
+-    {
+-        throw make_stringf("\"%s\" contains \"..\" sequences.",
+-                           path.c_str());
+-    }
+-#endif
++// #ifdef DATA_DIR_PATH
++//     if (is_absolute_path(path))
++//         throw make_stringf("\"%s\" is an absolute path.", path.c_str());
++
++//     if (path.find("..") != std::string::npos)
++//     {
++//         throw make_stringf("\"%s\" contains \"..\" sequences.",
++//                            path.c_str());
++//     }
++// #endif
+ 
+     // Path is okay.
+ }
+@@ -531,28 +531,29 @@
+         "",
+     };
+ 
+-    std::vector<std::string> bases;
+-    for (unsigned i = 0; i < sizeof(rawbases) / sizeof(*rawbases); ++i)
+-    {
+-        std::string base = rawbases[i];
+-        if (base.empty())
+-            continue;
+-
+-        if (base[base.length() - 1] != FILE_SEPARATOR)
+-            base += FILE_SEPARATOR;
+-        bases.push_back(base);
+-    }
+-
+-#ifndef DATA_DIR_PATH
+-    if (!SysEnv.crawl_base.empty())
+-        bases.push_back(SysEnv.crawl_base);
+-    bases.push_back("");
+-#endif
++//     std::vector<std::string> bases;
++//     for (unsigned i = 0; i < sizeof(rawbases) / sizeof(*rawbases); ++i)
++//     {
++//         std::string base = rawbases[i];
++//         if (base.empty())
++//             continue;
++
++//         if (base[base.length() - 1] != FILE_SEPARATOR)
++//             base += FILE_SEPARATOR;
++//         bases.push_back(base);
++//     }
++
++// #ifndef DATA_DIR_PATH
++//     if (!SysEnv.crawl_base.empty())
++//         bases.push_back(SysEnv.crawl_base);
++//     bases.push_back("");
++// #endif
+ 
+-    for (unsigned b = 0, size = bases.size(); b < size; ++b)
++    // for (unsigned b = 0, size = bases.size(); b < size; ++b)
+         for (unsigned p = 0; p < sizeof(prefixes) / sizeof(*prefixes); ++p)
+         {
+-            std::string name = bases[b] + prefixes[p] + basename;
++            // std::string name = bases[b] + prefixes[p] + basename;
++	    std::string name = prefixes[p] + basename;
+             if (file_exists(name))
+                 return (name);
+         }
