@@ -1,0 +1,35 @@
+--- schema-path-patch.el.old	2010-02-04 20:38:11.766177952 +1100
++++ schema-path-patch.el	2010-02-04 20:41:34.695746235 +1100
+@@ -64,32 +64,5 @@
+       (error "Can't find schema-dir=%s" schema-dir))
+     schema-dir))
+ 
+-;; Use xhtml-loader.rnc (an idea from Bryan Waite):
+-(defun rncpp-patch-xhtml-loader ()
+-  "Patch xhtml-loader.rnc so genshi and mjt rnc files works."
+-  ;;(interactive)
+-  (let* ((default-directory rncpp-this-dir)
+-         (loader-path (expand-file-name "xhtml-loader.rnc"))
+-         (loader-buf (find-buffer-visiting loader-path))
+-         (schema-dir (rncpp-get-nxml-schema-dir))
+-         (schema-relative-dir (file-relative-name schema-dir))
+-         (loader-string (concat "include \""
+-                                schema-relative-dir
+-                                "xhtml.rnc\"\n")))
+-    (when loader-buf (kill-buffer loader-buf))
+-    (setq loader-buf (find-file-noselect loader-path))
+-    (with-current-buffer loader-buf
+-      (unless (file-exists-p loader-path)
+-        (insert loader-string))
+-      ;; Test if correct
+-      (if (string= (buffer-substring-no-properties (point-min) (point-max))
+-                       loader-string)
+-          (message "xhtml-loader.rnc was ok")
+-        (message "Patching xhtml-loader.rnc")
+-        (delete-region (point-min) (point-max))
+-        (insert loader-string))
+-      (basic-save-buffer)
+-      (kill-buffer (current-buffer)))))
+-
+ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ ;;; schema-path-patch.el ends here
