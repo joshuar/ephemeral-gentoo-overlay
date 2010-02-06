@@ -68,3 +68,11 @@ src_install() {
 	doins -r nxhtml/doc/*
 }
 
+pkg_postinst() {
+	elisp-site-regen
+	echo
+	elog "To use ${PN} add:"
+	elog '  (load "nxhtml/autostart.elc")'
+	elog "to your .emacs file."
+	echo
+}
