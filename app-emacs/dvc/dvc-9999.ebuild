@@ -20,9 +20,12 @@ src_prepare() {
 	eautoreconf
 }
 
-src_compile() {
+src_configure() {
 	econf
-	emake || die "emake failed"
+}
+
+src_compile() {
+	emake || die "emake failed."
 }
 
 src_install() {
