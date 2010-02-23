@@ -12,7 +12,7 @@ SRC_URI="http://www.taskwarrior.org/download/${P}.tar.gz"
 
 LICENSE="GPL"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="bash-completion"
 
 DEPEND="sys-libs/ncurses"

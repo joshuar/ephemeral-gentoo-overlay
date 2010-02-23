@@ -6,17 +6,23 @@ EAPI="2"
 
 inherit autotools bash-completion
 
-DESCRIPTION="A todo list GTD implementation, based on ideas from http://todotxt.org."
+MY_PN="task"
+MY_P=${MY_PN}-${PV}
+
+DESCRIPTION="A command-line to do list manager."
 HOMEPAGE="http://taskwarrior.org/projects/show/taskwarrior/"
-SRC_URI="http://www.taskwarrior.org/download/${P}.tar.gz"
+SRC_URI="http://www.taskwarrior.org/download/${MY_P}.tar.gz"
 
 LICENSE="GPL"
 SLOT="0"
-KEYWORDS=""
-IUSE="bash-completion"
+KEYWORDS="~amd64 ~x86"
+IUSE="bash-completion vim zsh-completion"
 
 DEPEND="sys-libs/ncurses"
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+		 zsh-completion? ( app-shells/zsh )"
+
+S=${WORKDIR}/${MY_P}
 
 DOCS="AUTHORS ChangeLog NEWS README"
 
@@ -30,5 +36,9 @@ src_prepare() {
 src_install() {
 	emake DESTDIR="${D}" install || die "install failed"
 	dobashcompletion "${S}/scripts/bash/task_completion.sh"
+	if use zsh-completion; then
+		insinto /usr/share/zsh/site-functions
+		doins "${S}/scripts/zsh/_task"
+	fi
 	dodoc ${DOCS}
 }
