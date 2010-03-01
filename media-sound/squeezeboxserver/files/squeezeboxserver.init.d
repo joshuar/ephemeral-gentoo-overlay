@@ -43,18 +43,19 @@ start() {
 		--prefsfile=${prefsfile} \
 		--prefsdir=${prefsdir} \
 		--logdir=${logdir} \
-		${SC_OPTS}
-	eend $? "Failed to start SqueezeCenter"
+		${SC_OPTS} \
+	    || eerror "Failed to start SqueezeCenter"
+	
 }
 
 stop() {
 	ebegin "Stopping SqueezeCenter"
-	start-stop-daemon -o --stop --pidfile ${pidfile}
-	eend $? "Failed to stop SqueezeCenter"
+	start-stop-daemon -o --stop --pidfile ${pidfile} \
+	    || eerror "Failed to stop SqueezeCenter"
 }
 
 restart() {
     stop
-    sleep 3
+    sleep 5
     start
 }
