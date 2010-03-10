@@ -1,6 +1,0 @@
-media-sound/imms:analyzer - Build the acoustic analysis component
-media-sound/imms:remote - Build the remote control component
-sci-astronomy/iraf-bin:pyraf - Build the PyRAF environment
-sci-astronomy/iraf-bin:stsdas - Include the STSDAS/TABLES external packages
-sci-astronomy/karma-bin:examples - Install example control scripts
-sci-astronomy/karma-bin:minimal - Install client programs/scripts and docs only

@@ -1,2 +1,3 @@
 games-roguelike/lostlabyrinth
 games-roguelike/lambdarogue
+=net-fs/junglediskdesktop-3.05
