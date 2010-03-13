@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <herd>no-herd</herd>
+  <maintainer>
+    <email>joshua.rich@gmail.com</email>
+  </maintainer>
+  <longdescription>
+    Quod Libet is a GTK+-based audio player written in Python. It's 
+    designed around the idea that you know better than we do how to 
+    organize your music. It lets you make playlists based on regular 
+    expressions (don't worry, regular searches work too). It lets you 
+    display and edit any tags you want in the file. And it lets you do 
+    this for all the file formats it supports -- Ogg Vorbis, FLAC, MP3, 
+    Musepack, and MOD.
+  </longdescription>
+  <use>
+    <flag name="network">Enable playing of internet streams (uses <pkg>media-plugins/gst-plugins-gnomevfs</pkg>)</flag>
+    <flag name="rss">Enable support for podcasts (uses <pkg>dev-python/feedparser</pkg>)</flag>
+    <flag name="trayicon">Enable support for trayicon</flag>
+    <flag name="tta">Enable TTA (True-Audio Loseless) support</flag>
+    <flag name="wma">Enable support for Windows Media Audio</flag>
+  </use>
+</pkgmetadata>

@@ -11,7 +11,7 @@ EHG_REPO_URI="https://quodlibet.googlecode.com/hg"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE="automask burn cddb gajim iriver lastfmsubmitd musicbrainz nautilus replaygain"
+IUSE="automask burn cddb gajim iriver lastfmsubmitd nautilus replaygain"
 
 S=${WORKDIR}/hg/plugins
 PLUGIN_TYPES="editing events playorder songsmenu"
@@ -28,8 +28,7 @@ RDEPEND=">=media-sound/quodlibet-2.0
 		 replaygain? ( media-libs/gst-plugins-bad )"
 
 pkg_setup() {
-		python_version
-		export PLUGIN_BASEDIR="/usr/$(get_libdir)/python${PYVER}/site-packages/quodlibet/plugins"
+		export PLUGIN_BASEDIR="$(python_get_libdir)/site-packages/quodlibet/plugins"
 }
 
 src_install() {

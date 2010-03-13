@@ -10,7 +10,7 @@ SRC_URI="${P}.tar.gz"
 
 LICENSE="adeona"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="wifi"
 
 DEPEND="dev-libs/openssl

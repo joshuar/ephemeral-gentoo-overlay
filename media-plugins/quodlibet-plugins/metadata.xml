@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<herd>no-herd</herd>
+<maintainer>
+  <email>joshua.rich@gmail.com</email>
+</maintainer>
+<use>
+  <flag name='automask'>Install automask plugin (requires <pkg>dev-python/gnome-vfs-python</pkg>)</flag>
+  <flag name='burn'>Install burn CD plugin</flag>
+  <flag name='cddb'>Install cddb plugin (requires <pkg>dev-python/cddb-py</pkg>)</flag>
+  <flag name='gajim'>Install gajim status plugin</flag>
+  <flag name='iriver'>Install iriver player support plugin</flag>
+  <flag name='lastfmsubmitd'>Install audioscobbler support plugin using <pkg>media-sound/lastfmsubmitd</pkg></flag>
+  <flag name='nautilus'>Install <pkg>gnome-base/nautilus</pkg> support plugin</flag>
+  <flag name='replaygain'>Install replaygain plugin (requires <pkg>media-libs/gst-plugins-bad</pkg>)</flag>
+</use>
+</pkgmetadata>

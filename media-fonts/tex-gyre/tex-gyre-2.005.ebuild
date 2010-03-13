@@ -4,7 +4,7 @@
 
 inherit latex-package font
 
-MY_P=tg-v${PV}
+MY_P=tg-${PV}bas
 
 DESCRIPTION="Fonts extending freely available URW fonts."
 HOMEPAGE="http://www.gust.org.pl/projects/e-foundry/tex-gyre"
@@ -12,12 +12,13 @@ SRC_URI="${HOMEPAGE}/whole/${MY_P}.zip"
 LICENSE="GUST-FONT-LICENSE"
 
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~x86 ~amd64"
 IUSE="latex"
 
-RDEPEND="!dev-texlive/texlive-fontsrecommended"
+RDEPEND="${RDEPEND}
+		 latex? ( !dev-texlive/texlive-fontsrecommended )"
 
-S=${WORKDIR}/${MY_P}
+S=${WORKDIR}
 SUPPLIER="public"
 FONT_S=${S}/fonts/opentype/${SUPPLIER}/${PN}
 FONT_SUFFIX="otf"

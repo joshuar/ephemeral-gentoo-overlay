@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-MY_PV="0.3.0rc1"
+MY_PV="0.3.0rc3"
 MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="Perl script to convert FLAC files to MP3 format."
@@ -19,8 +19,6 @@ RDEPEND="dev-perl/Audio-FLAC-Header
 		 dev-perl/MP3-Tag
 		 dev-perl/Number-Compare
 		 dev-perl/File-Find-Rule"
-
-RESTRICT="nomirror"
 
 S="${WORKDIR}/${MY_P}"
 

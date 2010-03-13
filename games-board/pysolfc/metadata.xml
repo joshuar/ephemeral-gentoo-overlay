@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<herd>no-herd</herd>
+<maintainer>
+  <email>joshua.rich@gmail.com</email>
+</maintainer>
+<use>
+  <flag name='extra-cardsets'>Install additional card-sets and backgrounds</flag>
+  <flag name='imaging'>Make use of <pkg>dev-python/imaging</pkg> to support more image formats</flag>
+  <flag name='music'>Enable music support and install music files</flag>
+  <flag name='tile'>Use <pkg>dev-tcltk/tktable</pkg> for various GUI elements</flag>
+</use>
+</pkgmetadata>

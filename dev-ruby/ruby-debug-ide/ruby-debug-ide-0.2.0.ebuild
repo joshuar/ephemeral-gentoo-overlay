@@ -9,9 +9,7 @@ HOMEPAGE="http://debug-commons.rubyforge.org/#ruby-debug-ide"
 SRC_URI="mirror://rubyforge/debug-commons/${P}.gem"
 
 LICENSE="MIT"
-KEYWORDS="~x86"
+KEYWORDS=""
 
-RESTRICT="primaryuri"
-
-DEPEND=">=dev-ruby/ruby-debug-base-0.10.1"
-
+DEPEND="${DEPEND}
+		>=dev-ruby/ruby-debug-base-0.10.1"

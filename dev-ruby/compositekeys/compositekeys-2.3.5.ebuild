@@ -13,11 +13,9 @@ SRC_URI="http://gems.rubyforge.org/gems/${MY_P}.gem"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS=""
 IUSE=""
 
-DEPEND=">=dev-ruby/rails-2.2"
-
-RESTRICT="primaryuri"
-
-
+DEPEND="${DEPEND}
+		>=dev-ruby/activerecord-2.3.5
+		>=dev-ruby/rails-2.2"

@@ -13,7 +13,7 @@ LICENSE="GPL-2"
 RESTRICT="primaryuri"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="X"
+IUSE=""
 
 S="${WORKDIR}/${PN}_${MY_PV}"
 

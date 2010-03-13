@@ -18,8 +18,6 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="+analyzer +remote vorbis xscreensaver"
 
-RESTRICT="primaryuri"
-
 DEPEND=">=dev-db/sqlite-3
 		>=dev-libs/glib-2
 		>=dev-libs/libpcre-4.3
