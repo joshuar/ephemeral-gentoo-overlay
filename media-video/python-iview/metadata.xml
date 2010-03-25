@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<herd>no-herd</herd>
+<maintainer>
+  <email>joshua.rich@gmail.com</email>
+</maintainer>
+<longdescription>A Python-based frontend to ABC iView, which is catchup service for the Australian TV channel ABC, that lets you watch most ABC programs from the last month in your browser.</longdescription>
+</pkgmetadata>
+
