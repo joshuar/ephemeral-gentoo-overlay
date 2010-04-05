@@ -28,20 +28,19 @@ S="${WORKDIR}/${PN}"
 src_install() {
 	exeinto /opt/${PN}
 	doexe jungledisk junglediskdesktop
-	dosym /opt/${PN}/jungledisk /usr/bin/jungledisk
-	dosym /opt/${PN}/junglediskdesktop /usr/bin/junglediskdesktop
+	dosym /opt/${PN}/jungledisk /opt/bin/jungledisk
+	dosym /opt/${PN}/junglediskdesktop /opt/bin/junglediskdesktop
 	insinto /usr/share/pixmaps
 	doins junglediskdesktop.png
 	dodoc INSTALL
 	make_desktop_entry /usr/bin/${PN} "Jungle Disk Desktop" \
-		/usr/share/pixmaps/${PN}.png "Application;System;"
+		/usr/share/pixmaps/${PN}.png "Application;Network;"
 }
 
 pkg_postinst() {
 	echo
-	elog "- You can view the release notes by logging into your"
-	elog "Jungledisk account and navigating to:"
-	elog "  https://www.jungledisk.com/downloads/personal/desktop/releasenotes.aspx"
+	elog "- You can view the release notes at:"
+	elog "  http://www.jungledisk.com/downloads/personal/desktop/releasenotes.aspx"
 	elog "- Jungle Disk attempts to locate your web browser"
 	elog "automatically when clicking links in the software."
 	elog "If it does not find your preferred web browser, simply"

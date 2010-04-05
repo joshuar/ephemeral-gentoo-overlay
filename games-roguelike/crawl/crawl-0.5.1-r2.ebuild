@@ -7,7 +7,7 @@ EAPI=2
 inherit eutils flag-o-matic games toolchain-funcs
 
 DESCRIPTION="Explore dungeons filled with dangerous monsters in a quest for the Orb of Zot."
-HOMEPAGE="http://crawl-ref.sourceforge.net/"
+HOMEPAGE="http://crawl.develz.org/wordpress/"
 MY_PN="stone_soup"
 MY_P=${MY_PN}-${PV}-src
 SRC_URI="mirror://sourceforge/crawl-ref/${MY_P}.tbz2"
