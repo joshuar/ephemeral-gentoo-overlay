@@ -50,9 +50,3 @@ stop() {
     start-stop-daemon --stop --pidfile ${pidfile}
     eend $? "Failed to stop Squeezebox Server"
 }
-
-restart() {
-    stop
-    sleep 5
-    start
-}
