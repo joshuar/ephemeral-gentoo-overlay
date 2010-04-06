@@ -20,19 +20,18 @@ SRC_URI="http://downloads.slimdevices.com/SqueezeboxServer_v7.4.2/${MY_P}.tgz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="+lame wavpack logrotate musepack alac ogg bonjour flac avahi aac"
+IUSE="+lame wavpack logrotate musepack alac ogg flac aac"
 
 ## TODO: Sort through this dependancy list and work and what pulls in what
 DEPEND="
 virtual/logger
 virtual/mysql
-avahi? ( net-dns/avahi )
 media-libs/gd[jpeg,png]
 dev-perl/Algorithm-C3
-dev-perl/AnyEvent
+>=dev-perl/AnyEvent-5.2.3
 dev-perl/Archive-Zip
 dev-perl/Audio-FLAC-Header
-dev-perl/Audio-Scan[flac=]
+>=dev-perl/Audio-Scan-0.58
 dev-perl/Audio-Wav
 dev-perl/Audio-WMA
 dev-perl/Cache-Cache
@@ -60,8 +59,7 @@ dev-perl/Data-Page
 dev-perl/Data-URIEncode
 dev-perl/DateManip
 dev-perl/DateTime-Locale
-dev-perl/DBD-mysql
-dev-perl/DBD-SQLite
+>=dev-perl/DBD-mysql-4.00.5
 dev-perl/DBI
 dev-perl/DBIx-Class
 !dev-perl/DBIx-Migration
@@ -85,6 +83,7 @@ dev-perl/GDTextUtil
 dev-perl/HTML-Parser
 dev-perl/HTML-Tagset
 dev-perl/HTML-Tree
+perl-core/i18n-langtags
 dev-perl/IO-Socket-SSL
 dev-perl/IO-String
 dev-perl/IO-Tty
@@ -116,7 +115,7 @@ dev-perl/PAR-Dist
 dev-perl/Path-Class
 dev-perl/Proc-Background
 dev-perl/Scope-Guard
-dev-perl/SQL-Abstract
+>=dev-perl/SQL-Abstract-1.60
 dev-perl/SQL-Abstract-Limit
 dev-perl/Sub-Name
 dev-perl/Template-DBI
@@ -251,12 +250,6 @@ src_install() {
 		insinto /etc/logrotate.d
 		newins "${FILESDIR}/${PN}.logrotate.d" ${PN}
 	fi
-
-	# Install Avahi support (if USE flag is set)
-	if use avahi; then
-		insinto /etc/avahi/services
-		newins "${FILESDIR}/avahi-${PN}.service" ${PN}.service
-	fi
 }
 
 
@@ -304,14 +297,6 @@ pkg_postinst() {
 	elog "must be configured prior to use.  This can be done by running the"
 	elog "following command:"
 	elog "\temerge --config =${CATEGORY}/${PF}"
-
-	# Remind user to configure Avahi if necessary
-	if use avahi; then
-		elog ""
-		elog "Avahi support installed.  Remember to edit the folowing file if"
-		elog "you run the Squeezebox Server's web interface on a port other than 9000:"
-		elog "\t/etc/avahi/services/${PN}.service"
-	fi
 
 	elog ""
 	sc_starting_instr
