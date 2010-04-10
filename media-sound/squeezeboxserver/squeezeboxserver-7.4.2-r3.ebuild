@@ -8,32 +8,33 @@ inherit eutils
 
 MAJOR_VER="${PV:0:3}"
 MINOR_VER="${PV:4:1}"
-REVISION=${PV#${MAJOR_VER}.${MINOR_VER}_rc}
-
-MY_P="${PN}-${MAJOR_VER}.${MINOR_VER}-${REVISION}-noCPAN"
+# REVISION=${PV#${MAJOR_VER}.${MINOR_VER}_rc}
+# MY_P="${PN}-${MAJOR_VER}.${MINOR_VER}-${REVISION}-noCPAN"
+MY_P="${PN}-${PV}-noCPAN"
+MY_REV=30215
 
 DESCRIPTION="Logitech SqueezeboxServer music server"
 HOMEPAGE="http://www.logitechsqueezebox.com/support/download-squeezebox-server.html"
-SRC_URI="http://downloads.slimdevices.com/SqueezeboxServer_v7.4.0/${MY_P}.tgz"
+SRC_URI="http://downloads.slimdevices.com/SqueezeboxServer_v7.4.2/${MY_P}.tgz"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="+lame wavpack logrotate musepack alac ogg bonjour flac avahi aac"
+IUSE="+lame wavpack logrotate musepack alac ogg flac aac"
 
 ## TODO: Sort through this dependancy list and work and what pulls in what
 DEPEND="
 virtual/logger
 virtual/mysql
-avahi? ( net-dns/avahi )
 media-libs/gd[jpeg,png]
 dev-perl/Algorithm-C3
-dev-perl/AnyEvent
+>=dev-perl/AnyEvent-5.2.3
 dev-perl/Archive-Zip
 dev-perl/Audio-FLAC-Header
-dev-perl/Audio-Scan[flac=]
+>=dev-perl/Audio-Scan-0.58
 dev-perl/Audio-Wav
 dev-perl/Audio-WMA
+dev-perl/B-C
 dev-perl/Cache-Cache
 dev-perl/Carp-Assert
 dev-perl/Carp-Clan
@@ -59,8 +60,7 @@ dev-perl/Data-Page
 dev-perl/Data-URIEncode
 dev-perl/DateManip
 dev-perl/DateTime-Locale
-dev-perl/DBD-mysql
-dev-perl/DBD-SQLite
+>=dev-perl/DBD-mysql-4.00.5
 dev-perl/DBI
 dev-perl/DBIx-Class
 !dev-perl/DBIx-Migration
@@ -84,6 +84,7 @@ dev-perl/GDTextUtil
 dev-perl/HTML-Parser
 dev-perl/HTML-Tagset
 dev-perl/HTML-Tree
+perl-core/i18n-langtags
 dev-perl/IO-Socket-SSL
 dev-perl/IO-String
 dev-perl/IO-Tty
@@ -115,7 +116,7 @@ dev-perl/PAR-Dist
 dev-perl/Path-Class
 dev-perl/Proc-Background
 dev-perl/Scope-Guard
-dev-perl/SQL-Abstract
+>=dev-perl/SQL-Abstract-1.60
 dev-perl/SQL-Abstract-Limit
 dev-perl/Sub-Name
 dev-perl/Template-DBI
@@ -159,7 +160,7 @@ SBS_USER="squeezeboxserver"
 SBS_GROUP="squeezeboxserver"
 DBUSER=${PN}
 
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${PN}-${PV}-${MY_REV}-noCPAN"
 
 pkg_setup() {
 	# Create the user and group if not already present
@@ -182,7 +183,7 @@ src_install() {
 	doins -r Slim
 	# The custom OS module for Gentoo - provides OS-specific path details
 	insinto "/usr/lib/${package}/vendor_perl/${version}/Slim/Utils/OS"
-	newins "${FILESDIR}/gentoo-filepaths.pm" Custom.pm
+	newins "${FILESDIR}/gentoo-filepaths-${MAJOR_VER}.pm" Custom.pm
 
 	# Various directories of architecture-independent static files
 	insinto "/usr/share/${PN}"
@@ -250,12 +251,6 @@ src_install() {
 		insinto /etc/logrotate.d
 		newins "${FILESDIR}/${PN}.logrotate.d" ${PN}
 	fi
-
-	# Install Avahi support (if USE flag is set)
-	if use avahi; then
-		insinto /etc/avahi/services
-		newins "${FILESDIR}/avahi-${PN}.service" ${PN}.service
-	fi
 }
 
 
@@ -303,14 +298,6 @@ pkg_postinst() {
 	elog "must be configured prior to use.  This can be done by running the"
 	elog "following command:"
 	elog "\temerge --config =${CATEGORY}/${PF}"
-
-	# Remind user to configure Avahi if necessary
-	if use avahi; then
-		elog ""
-		elog "Avahi support installed.  Remember to edit the folowing file if"
-		elog "you run the Squeezebox Server's web interface on a port other than 9000:"
-		elog "\t/etc/avahi/services/${PN}.service"
-	fi
 
 	elog ""
 	sc_starting_instr

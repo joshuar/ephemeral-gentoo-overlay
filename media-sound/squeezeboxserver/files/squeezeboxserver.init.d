@@ -10,6 +10,7 @@ prefsdir=${varlibdir}/prefs
 cachedir=${varlibdir}/cache
 prefsfile=${prefsdir}/squeezeboxserver.prefs
 scuser=squeezeboxserver
+scgroup=squeezeboxserver
 scname=squeezeboxserver-server
 
 depend() {
@@ -34,6 +35,7 @@ start() {
 	--pidfile ${pidfile} \
 	--startas /usr/sbin/${scname} \
 	--chuid ${scuser} \
+	--group ${scgroup} \
 	-- \
 	--quiet --daemon \
 	--pidfile=${pidfile} \
@@ -41,6 +43,7 @@ start() {
 		--prefsfile=${prefsfile} \
 	--prefsdir=${prefsdir} \
 	--logdir=${logdir} \
+	--charset utf8 \
 	${SC_OPTS}
     eend $? "Failed to start Squeezebox Server"
 }
