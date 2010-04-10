@@ -19,14 +19,14 @@ depend() {
 
 start() {
     ebegin "Starting Squeezebox Server"
-    if [[ ${SC_NICENESS} ]]; then 
-	export SSD_NICELEVEL=${SC_NICENESS}
+    if [[ ${SBS_NICENESS} ]]; then 
+	export SSD_NICELEVEL=${SBS_NICENESS}
     fi
-    if [[ ${SC_MUSIC_DIR} ]]; then
-	SC_OPTS="--audiodir=${SC_MUSIC_DIR} ${SC_OPTS}"
+    if [[ ${SBS_MUSIC_DIR} ]]; then
+	SBS_OPTS="--audiodir=${SBS_MUSIC_DIR} ${SBS_OPTS}"
     fi
-    if [[ ${SC_PLAYLISTS_DIR} ]]; then
-	SC_OPTS="--playlistdir=${SC_PLAYLISTS_DIR} ${SC_OPTS}"
+    if [[ ${SBS_PLAYLISTS_DIR} ]]; then
+	SBS_OPTS="--playlistdir=${SBS_PLAYLISTS_DIR} ${SBS_OPTS}"
     fi
     
     cd /var/empty
@@ -44,7 +44,7 @@ start() {
 	--prefsdir=${prefsdir} \
 	--logdir=${logdir} \
 	--charset utf8 \
-	${SC_OPTS}
+	${SBS_OPTS}
     eend $? "Failed to start Squeezebox Server"
 }
 

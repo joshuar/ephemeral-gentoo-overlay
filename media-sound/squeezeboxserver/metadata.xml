@@ -15,6 +15,6 @@
   </longdescription>
 <use>
   <flag name='alac'>Enable support for alac</flag>
-  <flag name='bonjour'>Enable support for bonjour</flag>
+  <flag name='logrotate'>Use app-admin/logrotate for rotating logs</flag>
 </use>
 </pkgmetadata>

@@ -2,6 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+# Lots of thanks to Stuart Hickinbottom and his work in getting Squeezebox ebuilds
+# into the official Gentoo tree, some of which has been stolen for these ebuilds ;)
+
 EAPI=2
 
 inherit eutils
@@ -20,7 +23,7 @@ SRC_URI="http://downloads.slimdevices.com/SqueezeboxServer_v7.4.2/${MY_P}.tgz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="+lame wavpack logrotate musepack alac ogg flac aac"
+IUSE="+lame wavpack logrotate alac ogg flac aac"
 
 ## TODO: Sort through this dependancy list and work and what pulls in what
 DEPEND="
@@ -151,6 +154,15 @@ dev-perl/XML-XPath
 dev-perl/XML-XQL
 dev-perl/yaml
 dev-perl/YAML-Syck
+lame? ( media-sound/lame )
+alac? ( media-sound/alac_decoder )
+wavpack? ( media-sound/wavpack )
+flac? (
+	media-libs/flac
+	media-sound/sox[flac]
+)
+ogg? ( media-sound/sox[ogg] )
+aac? ( media-libs/faad2 )
 "
 
 DOCS="Changelog*.html License.txt"
