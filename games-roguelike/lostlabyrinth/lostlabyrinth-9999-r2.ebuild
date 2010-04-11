@@ -1,5 +1,8 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+EAPI=2
 
 inherit eutils games subversion flag-o-matic
 
@@ -25,7 +28,7 @@ pkg_setup() {
 	gamedir="${GAMES_PREFIX}/${PN}"
 }
 
-src_compile() {
+src_prepare() {
 	# -O2 optimisation level leads to excessive memory
 	# usage when compiling main program, assuming -O3
 	# does worse
@@ -33,7 +36,7 @@ src_compile() {
 	# which I need to work out
 	replace-flags -O3 -O2
 	filter-ldflags -Wl,--as-needed
-	cd elice
+
 	# five substitutions:
 	# - add CFLAGS, CXXFLAGS and LDFLAGS to Makefile
 	# - use CXXFLAGS when compiling with g++
@@ -45,13 +48,18 @@ src_compile() {
 		-e 's:elice $(CFLAGS):elice $(CXXFLAGS) $(LDFLAGS):' \
 		-e 's:-I/usr/include/SDL -lSDL:`pkg-config --cflags --libs sdl`:' \
 		-e 's:-lSDL_gfx:-lSDL_gfx $(LDFLAGS):' \
-		Makefile || die "sed failed."
-	# build failed on a machine dual-core machine with -j3
-	# so use -j1 for builds to be safe.
+		elice/Makefile || die "sed failed."
+
+	subversion_src_prepare
+}
+
+
+src_compile() {
+	cd elice
 	# firstly, build elice
-	emake -j1 || die "emake elice failed."
+	emake || die "emake elice failed."
 	# now build lostlabyrinth
-	emake -j1 laby-svn || die "emake laby-svn failed."
+	emake laby-svn || die "emake laby-svn failed."
 }
 
 src_install() {
