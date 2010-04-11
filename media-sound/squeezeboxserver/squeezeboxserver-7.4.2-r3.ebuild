@@ -227,7 +227,7 @@ src_install() {
 	# Install init scripts
 	newconfd "${FILESDIR}/${PN}.conf.d" ${PN} \
 		or die "Failed to install conf.d file."
-	newinitd "${FILESDIR}/${PN}.init.d" ${PN} \
+	newinitd "${FILESDIR}/${PN}.init.d-${MAJOR_VER}" ${PN} \
 		or die "Failed to install init.d script."
 
 	# Install the SQL configuration scripts

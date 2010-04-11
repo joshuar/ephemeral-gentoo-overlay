@@ -210,7 +210,7 @@ src_install() {
 	# Install init scripts
 	newconfd "${FILESDIR}/${PN}.conf.d" ${PN} \
 		or die "Failed to install conf.d file."
-	newinitd "${FILESDIR}/${PN}.init.d" ${PN} \
+	newinitd "${FILESDIR}/${PN}.init.d-${MAJOR_VER}" ${PN} \
 		or die "Failed to install init.d script."
 
 	# Initialize run directory (where the PID file lives)
@@ -219,9 +219,12 @@ src_install() {
 	fperms 770 /var/run/${PN}
 
 	# Initialize server cache directory
-	dodir /var/cache/${PN}
-	fowners ${SBS_USER}:${SBS_GROUP} /var/cache/${PN}
-	fperms 770 /var/cache/${PN}
+	# dodir /var/cache/${PN}
+	# fowners ${SBS_USER}:${SBS_GROUP} /var/cache/${PN}
+	# fperms 770 /var/cache/${PN}
+	dodir /var/lib/${PN}/cache
+	fowners ${SBS_USER}:${SBS_GROUP} /var/lib/${PN}/cache
+	fperms 770 /var/lib/${PN}/cache
 
 	# Initialize the log directory
 	dodir /var/log/${PN}

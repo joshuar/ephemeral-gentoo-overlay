@@ -83,7 +83,7 @@ sub dirsFor {
 
 	} elsif ($dir eq 'cache') {
 
-		push @dirs, $::cachedir || "/var/cache/squeezeboxserver";
+		push @dirs, $::cachedir || "/var/lib/squeezeboxserver/cache";
 
 	} elsif ($dir =~ /^(?:music|playlists)$/) {
 
