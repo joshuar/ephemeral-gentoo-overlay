@@ -12,3 +12,6 @@ SLOT="0"
 LICENSE="|| ( Artistic GPL-2 )"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
+
+DEPEND="${DEPEND}
+		>=dev-perl/MP3-Info-1.20"
