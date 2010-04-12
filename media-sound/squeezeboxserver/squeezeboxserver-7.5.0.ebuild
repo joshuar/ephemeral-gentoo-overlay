@@ -110,6 +110,7 @@ DEPEND=">=dev-perl/AnyEvent-5.2.3
 >=virtual/perl-Test-Simple-0.62
 >=dev-perl/Text-Glob-0.06
 >=dev-perl/Text-Unidecode-0.04
+>=dev-perl/Tie-Cache-LRU-Expires-0.54
 >=dev-perl/Tie-IxHash-1.21
 >=dev-perl/perl-tk-804.028
 >=dev-perl/URI-Find-20090319

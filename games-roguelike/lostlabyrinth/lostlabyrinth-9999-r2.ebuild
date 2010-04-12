@@ -15,6 +15,7 @@ SLOT="0"
 KEYWORDS=""
 
 DEPEND="dev-ruby/racc
+		!dev-lang/ruby:1.9
 		>=media-libs/sdl-ttf-2.0
 		>=media-libs/sdl-mixer-1.2
 		>=media-libs/sdl-image-1.2

@@ -24,3 +24,8 @@ PYTHON_DEPEND="2:2.6"
 
 DOCS="README"
 
+src_prepare() {
+	bzr_src_prepare
+	echo 'Icon=web-browser' >> iview-gtk.desktop \
+		|| die "add icon to .desktop file failed."
+}
