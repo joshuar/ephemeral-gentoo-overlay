@@ -70,7 +70,7 @@ DEPEND=">=dev-perl/AnyEvent-5.2.3
 >=dev-perl/Class-Member-1.6
 >=dev-perl/Class-Singleton-1.3
 >=dev-perl/Class-Virtual-0.05
->=dev-perl/Class-XSAccessor-Array-1.04
+>=dev-perl/Class-XSAccessor-1.05
 >=dev-perl/common-sense-2.01
 >=virtual/perl-Compress-Raw-Zlib-2.017
 >=dev-perl/Data-Dump-1.06
