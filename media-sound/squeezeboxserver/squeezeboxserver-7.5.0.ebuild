@@ -23,7 +23,7 @@ SRC_URI="http://downloads.slimdevices.com/SqueezeboxServer_v7.5.0/${MY_P}.tgz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+lame wavpack logrotate alac ogg flac aac"
+IUSE="+lame wavpack logrotate alac ogg +flac aac"
 
 DEPEND=">=dev-perl/AnyEvent-5.2.3
 >=dev-perl/Audio-Scan-0.62
@@ -301,9 +301,6 @@ pkg_postinst() {
 	elog ""
 	sc_starting_instr
 
-	elog ""
-	elog "Apologies, there is no migration support from Squeezecenter versions 7.3.x yet."
-	elog "Patches to this ebuild to make it happen are welcome..."
 }
 
 sc_remove_db_prefs() {
