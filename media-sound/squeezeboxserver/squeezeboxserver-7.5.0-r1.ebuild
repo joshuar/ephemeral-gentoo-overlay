@@ -14,146 +14,120 @@ MINOR_VER="${PV:4:1}"
 # REVISION=${PV#${MAJOR_VER}.${MINOR_VER}_rc}
 # MY_P="${PN}-${MAJOR_VER}.${MINOR_VER}-${REVISION}-noCPAN"
 MY_P="${PN}-${PV}-noCPAN"
-MY_REV=30215
+MY_REV=30464
 
 DESCRIPTION="Logitech SqueezeboxServer music server"
 HOMEPAGE="http://www.logitechsqueezebox.com/support/download-squeezebox-server.html"
-SRC_URI="http://downloads.slimdevices.com/SqueezeboxServer_v7.4.2/${MY_P}.tgz"
+SRC_URI="http://downloads.slimdevices.com/SqueezeboxServer_v7.5.0/${MY_P}.tgz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
-IUSE="+lame wavpack logrotate alac ogg flac aac"
+KEYWORDS="~amd64 ~x86"
+IUSE="+lame wavpack logrotate alac ogg +flac aac"
 
-## TODO: Sort through this dependancy list and work and what pulls in what
-DEPEND="
-virtual/logger
-virtual/mysql
-media-libs/gd[jpeg,png]
-dev-perl/Algorithm-C3
->=dev-perl/AnyEvent-5.2.3
-dev-perl/Archive-Zip
-dev-perl/Audio-FLAC-Header
->=dev-perl/Audio-Scan-0.58
-dev-perl/Audio-Wav
-dev-perl/Audio-WMA
-dev-perl/B-C
-dev-perl/Cache-Cache
-dev-perl/Carp-Assert
-dev-perl/Carp-Clan
-dev-perl/Class-Accessor
-dev-perl/Class-Accessor-Chained
-dev-perl/Class-Accessor-Grouped
-dev-perl/Class-C3
-dev-perl/Class-C3-Componentised
-dev-perl/Class-Data-Accessor
-dev-perl/Class-Data-Inheritable
-dev-perl/Class-ErrorHandler
-dev-perl/Class-Inspector
-dev-perl/class-loader
-dev-perl/Class-MethodMaker
-dev-perl/Class-Singleton
-dev-perl/Class-Virtual
-dev-perl/Class-XSAccessor-Array
-dev-perl/common-sense
-dev-perl/Crypt-SSLeay
-dev-perl/data-buffer
-dev-perl/Data-Dump
-dev-perl/Data-Page
-dev-perl/Data-URIEncode
-dev-perl/DateManip
-dev-perl/DateTime-Locale
->=dev-perl/DBD-mysql-4.00.5
-dev-perl/DBI
-dev-perl/DBIx-Class
+DEPEND=">=dev-perl/AnyEvent-5.2.3
+>=dev-perl/Audio-Scan-0.62
+>=dev-perl/Cache-Cache-1.04
+>=virtual/perl-CGI-3.48
+>=dev-perl/Class-Data-Inheritable-0.04
+>=dev-perl/Class-Inspector-1.16
+>=dev-perl/Data-URIEncode-0.11
+>=dev-perl/DBD-mysql-3.002
+~dev-perl/DBIx-Class-0.08120
+>=dev-perl/EV-3.8
+>=dev-perl/File-BOM-0.13
+>=dev-perl/File-Next-1.02
+>=virtual/perl-File-Temp-0.17
+>=dev-perl/File-Which-0.05
+>=dev-perl/GD-2.41[jpeg,png]
+>=dev-perl/HTML-Parser-3.60
+>=perl-core/i18n-langtags-0.35
+>=dev-perl/IO-String-1.07
+>=dev-perl/JSON-XS-2.2.3
+>=dev-perl/JSON-XS-VersionOneAndTwo-0.31
+>=dev-perl/Log-Log4perl-1.23
+>=dev-perl/Math-VecStat-0.08
+>=dev-perl/Path-Class-0.16
+>=dev-perl/Proc-Background-1.08
+>=dev-perl/SQL-Abstract-1.56
+>=dev-perl/Sub-Name-0.04
+>=dev-perl/Text-Unidecode-0.04
+>=dev-perl/Tie-Cache-LRU-20081023.2116
+>=dev-perl/Tie-LLHash-1.003
+>=dev-perl/Tie-RegexpHash-0.13
+>=dev-perl/TimeDate-1.20
+>=dev-perl/URI-1.35
+>=dev-perl/XML-Parser-2.36
+>=dev-perl/XML-Simple-2.15
+>=dev-perl/YAML-Syck-1.05
+>=dev-perl/Algorithm-C3-0.07
+>=dev-perl/Archive-Zip-1.29
+>=dev-perl/Carp-Assert-0.18
+>=dev-perl/Carp-Clan-5.3
+>=dev-perl/Class-Accessor-0.31
+>=dev-perl/Class-C3-0.21
+>=dev-perl/Class-ISA-0.33
+>=dev-perl/Class-Member-1.6
+>=dev-perl/Class-Singleton-1.3
+>=dev-perl/Class-Virtual-0.05
+>=dev-perl/Class-XSAccessor-1.05
+>=dev-perl/common-sense-2.01
+>=virtual/perl-Compress-Raw-Zlib-2.017
+>=dev-perl/Data-Dump-1.06
+>=dev-perl/Data-Page-2.00
+>=dev-perl/DBI-Shell-11.93
+>=dev-perl/DBI-1.609
+>=dev-perl/Devel-Leak-Object-0.92
+>=virtual/perl-digest-base-1.00
+>=virtual/perl-Digest-SHA-2.11
+>=dev-perl/Data-UUID-1.202
+>=dev-perl/Encode-Detect-1.00
+>=dev-perl/enum-1.016
+>=dev-perl/Error-0.15.008
+>=dev-perl/Exporter-Lite-0.01
+>=dev-perl/File-Copy-Recursive-0.38
+>=dev-perl/File-ReadBackwards-1.04
+>=dev-perl/File-Slurp-9999.09
+>=virtual/perl-File-Spec-3.12
+>=dev-perl/File-Which-0.05
+>=dev-perl/HTML-Format-2.04
+>=dev-perl/HTML-Tree-3.23
+>=dev-perl/Imager-0.67
+>=virtual/perl-IO-Compress-2.015
+>=dev-perl/Module-Find-0.06
+>=dev-perl/MRO-Compat-0.10
+>=dev-perl/Net-UPnP-1.2.1
+>=dev-perl/PAR-Dist-0.21
+>=dev-perl/PAR-0.970
+>=dev-perl/Path-Class-0.16
+>=dev-perl/Readonly-1.03
+>=dev-perl/Scope-Guard-0.03
+>=dev-perl/SQL-Abstract-Limit-0.14.1
+>=dev-perl/Template-Toolkit-2.21
+>=dev-perl/Template-DBI-2.63
+>=dev-perl/Template-GD-2.66
+>=dev-perl/Template-XML-2.17
+>=virtual/perl-Test-Simple-0.62
+>=dev-perl/Text-Glob-0.06
+>=dev-perl/Text-Unidecode-0.04
+>=dev-perl/Tie-Cache-LRU-Expires-0.54
+>=dev-perl/Tie-IxHash-1.21
+>=dev-perl/perl-tk-804.028
+>=dev-perl/URI-Find-20090319
+>=dev-perl/UUID-Tiny-1.01
+>=virtual/perl-version-0.74
+>=dev-perl/XML-NamespaceSupport-1.08
+>=dev-perl/XML-SAX-0.12
+>=dev-perl/XML-Writer-0.600
+>=dev-perl/XML-XSPF-0.5
+>=dev-perl/yaml-0.68
+>=dev-perl/Audio-Musepack-0.7
+>=dev-perl/Class-Accessor-Grouped-0.08004
+>=dev-perl/log-dispatch-2.22
+>=dev-perl/MP3-Info-1.24
+>=dev-perl/MPEG-Audio-Frame-0.09
+>=dev-perl/Class-C3-XS-0.13
 !dev-perl/DBIx-Migration
-dev-perl/Digest-HMAC
-dev-perl/digest-md2
-dev-perl/Digest-SHA1
-dev-perl/Encode-Detect
-dev-perl/EV
-dev-perl/Exporter-Lite
-dev-perl/File-BOM
-dev-perl/File-Find-Rule
-dev-perl/File-HomeDir
-dev-perl/File-Next
-dev-perl/File-ReadBackwards
-dev-perl/File-Slurp
-dev-perl/File-Which
-dev-perl/GD
-dev-perl/GDGraph
-dev-perl/GD-Graph3d
-dev-perl/GDTextUtil
-dev-perl/HTML-Parser
-dev-perl/HTML-Tagset
-dev-perl/HTML-Tree
-perl-core/i18n-langtags
-dev-perl/IO-Socket-SSL
-dev-perl/IO-String
-dev-perl/IO-Tty
-dev-perl/JSON
-dev-perl/JSON-Any
-dev-perl/JSON-XS
-dev-perl/JSON-XS-VersionOneAndTwo
-dev-perl/libwww-perl
-dev-perl/libxml-perl
-dev-perl/Locale-gettext
-dev-perl/Log-Agent
-dev-perl/log-dispatch
-dev-perl/Log-Log4perl
-dev-perl/math-pari
-dev-perl/Math-VecStat
-dev-perl/Module-Find
-dev-perl/Module-Signature
-dev-perl/MP3-Tag
-dev-perl/MPEG-Audio-Frame
-dev-perl/MRO-Compat
-dev-perl/Net-Daemon
-dev-perl/Net-DNS
-dev-perl/Net-IP
-dev-perl/Net-SMTP-SSL
-dev-perl/Net-SSLeay
-dev-perl/Net-UPnP
-dev-perl/PAR
-dev-perl/PAR-Dist
-dev-perl/Path-Class
-dev-perl/Proc-Background
-dev-perl/Scope-Guard
->=dev-perl/SQL-Abstract-1.60
-dev-perl/SQL-Abstract-Limit
-dev-perl/Sub-Name
-dev-perl/Template-DBI
-dev-perl/Template-GD
-dev-perl/Template-Toolkit
-dev-perl/Template-XML
-dev-perl/Test-Deep
-dev-perl/text-autoformat
-dev-perl/Text-CharWidth
-dev-perl/Text-Glob
-dev-perl/text-reform
-dev-perl/Text-Unidecode
-dev-perl/Text-WrapI18N
-dev-perl/Tie-Cache-LRU
-dev-perl/Tie-Cache-LRU-Expires
-dev-perl/tie-encryptedhash
-dev-perl/Tie-IxHash
-dev-perl/Tie-LLHash
-dev-perl/Tie-RegexpHash
-dev-perl/TimeDate
-dev-perl/URI
-dev-perl/URI-Find
-dev-perl/XML-DOM
-dev-perl/XML-LibXML
-dev-perl/XML-NamespaceSupport
-dev-perl/XML-Parser
-dev-perl/XML-RegExp
-dev-perl/XML-RSS
-dev-perl/XML-SAX
-dev-perl/XML-Simple
-dev-perl/XML-XPath
-dev-perl/XML-XQL
-dev-perl/yaml
-dev-perl/YAML-Syck
 lame? ( media-sound/lame )
 alac? ( media-sound/alac_decoder )
 wavpack? ( media-sound/wavpack )
@@ -164,8 +138,9 @@ flac? (
 ogg? ( media-sound/sox[ogg] )
 aac? ( media-libs/faad2 )
 "
+RDEPEND="${DEPEND}"
 
-DOCS="Changelog*.html License.txt"
+DOCS="Changelog*.html License.txt ${FILESDIR}/Gentoo-plugins-README.txt"
 PREFS=/var/lib/${PN}/prefs/${PN}.prefs
 LIVE_PREFS=/var/lib/${PN}/prefs/server.prefs
 SBS_USER="squeezeboxserver"
@@ -180,10 +155,20 @@ pkg_setup() {
 	enewuser ${SBS_USER} -1 -1 "/dev/null" ${SBS_USER}
 }
 
+src_unpack() {
+	unpack ${A}
+	cd "${S}"
+
+	# Apply patches
+	epatch "${FILESDIR}/${P}-uuid-gentoo.patch"
+	epatch "${FILESDIR}/${P}-squeezeslave.patch"
+}
+
 
 src_install() {
 	# The main Perl executables
 	newsbin slimserver.pl ${PN}-server
+	newsbin slimservice.pl ${PN}-service
 	newsbin scanner.pl ${PN}-scanner
 	newsbin cleanup.pl ${PN}-cleanup
 
@@ -191,29 +176,29 @@ src_install() {
 	eval `perl '-V:package'`
 	eval `perl '-V:version'`
 	# The server Perl modules
-	insinto "/usr/lib/${package}/vendor_perl/${version}"
+	insinto /usr/lib/${package}/vendor_perl/${version}
 	doins -r Slim
 	# The custom OS module for Gentoo - provides OS-specific path details
-	insinto "/usr/lib/${package}/vendor_perl/${version}/Slim/Utils/OS"
+	insinto /usr/lib/${package}/vendor_perl/${version}/Slim/Utils/OS
 	newins "${FILESDIR}/gentoo-filepaths-${MAJOR_VER}.pm" Custom.pm
 
 	# Various directories of architecture-independent static files
-	insinto "/usr/share/${PN}"
-	doins -r Firmware Graphics HTML IR SQL strings.txt revision.txt
+	insinto /usr/share/${PN}
+	doins -r Firmware Graphics HTML IR SQL strings.txt revision.txt slimservice-strings.txt
+	# Install the SQL configuration scripts as well
+	insinto /usr/share/${PN}/SQL/mysql
+	doins "${FILESDIR}/dbdrop-gentoo.sql" "${FILESDIR}/dbcreate-gentoo.sql"
 
 	# Squeezebox Server devs have their own customised version of a few Perl
 	# modules that does a few things different than the versions found on
-	# CPAN. Assume the Squeezebox Server devs know what they are doing.
-	insinto "/usr/lib/${PN}"
-	doins -r lib/DBIx
-	insinto "/usr/lib/${PN}/AnyEvent"
-	doins -r lib/AnyEvent/Impl
+	# CPAN. The standard versions of the modules cause the Squeezebox Server
+	# trouble. So assume the Squeezebox Server devs know what they are doing.
+	#
 	# Notes:
 	# - Dirs containing outdated bundled modules:
 	#   Audio Cache CGI Class MP3 Template
-
-	# Documentation
-	dodoc ${DOCS} "${FILESDIR}/Gentoo-plugins-README.txt"
+	insinto "/usr/lib/${PN}"
+	doins -r lib/DBIx
 
 	# Configuration and Preferences files
 	insinto /etc/${PN}
@@ -230,16 +215,15 @@ src_install() {
 	newinitd "${FILESDIR}/${PN}.init.d-${MAJOR_VER}" ${PN} \
 		or die "Failed to install init.d script."
 
-	# Install the SQL configuration scripts
-	insinto /usr/share/${PN}/SQL/mysql
-	doins "${FILESDIR}/dbdrop-gentoo.sql" "${FILESDIR}/dbcreate-gentoo.sql"
-
 	# Initialize run directory (where the PID file lives)
 	dodir /var/run/${PN}
 	fowners ${SBS_USER}:${SBS_GROUP} /var/run/${PN}
 	fperms 770 /var/run/${PN}
 
 	# Initialize server cache directory
+	# dodir /var/cache/${PN}
+	# fowners ${SBS_USER}:${SBS_GROUP} /var/cache/${PN}
+	# fperms 770 /var/cache/${PN}
 	dodir /var/lib/${PN}/cache
 	fowners ${SBS_USER}:${SBS_GROUP} /var/lib/${PN}/cache
 	fperms 770 /var/lib/${PN}/cache
@@ -256,7 +240,11 @@ src_install() {
 	fowners ${SBS_USER}:${SBS_GROUP} /var/log/${PN}/perfmon.log
 
 	# Initialise the user-installed plugins directory
-	dodir "${NEWPLUGINSDIR}"
+	dodir /var/lib/${PN}/Plugins
+	fowners ${SBS_USER}:${SBS_GROUP} /var/lib/${PN}/Plugins
+
+	# Documentation
+	dodoc ${DOCS}
 
 	# Install logrotate support
 	if use logrotate; then
@@ -314,9 +302,6 @@ pkg_postinst() {
 	elog ""
 	sc_starting_instr
 
-	elog ""
-	elog "Apologies, there is no migration support from Squeezecenter versions 7.3.x yet."
-	elog "Patches to this ebuild to make it happen are welcome..."
 }
 
 sc_remove_db_prefs() {
