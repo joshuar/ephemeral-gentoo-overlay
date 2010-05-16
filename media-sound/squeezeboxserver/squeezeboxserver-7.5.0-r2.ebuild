@@ -33,7 +33,7 @@ DEPEND=">=dev-perl/AnyEvent-5.2.3
 >=dev-perl/Class-Inspector-1.16
 >=dev-perl/Data-URIEncode-0.11
 >=dev-perl/DBD-mysql-3.002
->=dev-perl/DBIx-Class-0.08109
+=dev-perl/DBIx-Class-0.08120
 >=dev-perl/EV-3.8
 >=dev-perl/File-BOM-0.13
 >=dev-perl/File-Next-1.02
@@ -126,6 +126,7 @@ DEPEND=">=dev-perl/AnyEvent-5.2.3
 >=dev-perl/log-dispatch-2.22
 >=dev-perl/MP3-Info-1.24
 >=dev-perl/MPEG-Audio-Frame-0.09
+>=dev-perl/Class-C3-XS-0.13
 !dev-perl/DBIx-Migration
 lame? ( media-sound/lame )
 alac? ( media-sound/alac_decoder )
@@ -197,7 +198,7 @@ src_install() {
 	# - Dirs containing outdated bundled modules:
 	#   Audio Cache CGI Class MP3 Template
 	insinto "/usr/lib/${PN}"
-	doins -r lib/{DBIx,AnyEvent}
+	doins -r lib/DBIx
 
 	# Configuration and Preferences files
 	insinto /etc/${PN}
