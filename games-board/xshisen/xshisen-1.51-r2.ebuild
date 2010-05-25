@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=2
+
 inherit autotools flag-o-matic games
 
 DESCRIPTION="Puzzle game using 144 mahjong pieces, objective is to remove all the pieces on the board."
@@ -13,40 +15,39 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="athena +motif"
 
-DEPEND="athena? ( x11-libs/libXaw )
-		motif? ( x11-libs/openmotif )
-		x11-libs/libXpm"
+DEPEND="x11-libs/libXaw
+		x11-libs/libXmu
+		x11-libs/libXpm
+		x11-libs/openmotif"
 
 pkg_setup() {
 	LANGS="ja ja_JP ja_JP.JIS7 ja_JP.PCK ja_JP.SJIS ja_JP.eucJP ja_JP.ujis pl"
 }
 
 
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
-	sed -i \
-		-e "s:CPPFLAGS:CXXFLAGS:g" \
-		-e "s:-I${x_includes}::" \
-		-e "s:-L${x_libraries}::" \
-		-e 's:LIBS=.*:LIBS="`pkg-config --libs xaw7 xpm` ${LIBS}":' \
-		configure.in \
-		|| die "sed configure.in failed"
+src_prepare() {
+	epatch ${FILESDIR}/${P}-debian-10_oldfixes.patch
+	epatch ${FILESDIR}/${P}-debian-11_manpage_fixes.patch
+	# epatch ${FILESDIR}/${P}-debian-20_autotools_update.patch
+	sed -i -e 's|CPPFLAGS="${CPPFLAGS} -I${x_includes}"|CPPFLAGS="${CPPFLAGS}"|' \
+		-e 's:LIBS=.*:LIBS="-lXm -lUil -lMrm `pkg-config --libs xaw7 xpm` ${LIBS}":' \
+		configure.in || die "sed configure.in failed."
+	sed -i -e 's:$(CXX) $(LDFLAGS).*:$(CXX) -o $(exec_name)  $(OBJS) $(LDFLAGS) $(LIBS):' \
+		Makefile.in || die "sed Makefile.in failed."
 	eautoreconf
 }
 
-
-src_compile() {
+src_configure() {
 	egamesconf \
-		$(use_with motif ) \
+		--enable-dupscore \
+		--with-x \
+		--with-motif \
+		--with-motif-include=/usr/include/Xm \
+		--with-motif-lib=/usr/$(get_libdir) \
 		|| die "egamesconf failed"
-	emake \
-		CXX=$(tc-getCXX) \
-		|| die "emake failed"
 }
 
 src_install() {
-
 	dogamesbin ${PN} || die "dogamesbin failed"
 
 	insinto "${GAMES_STATEDIR}"/${PN}
