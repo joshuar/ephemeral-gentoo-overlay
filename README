@@ -24,7 +24,10 @@ gtk+/xcursor/icon themes and a few random X11 apps.
 == REQUIREMENTS
 
 - This overlay requires a version of portage that is EAPI 2 compatible.
-- Some ebuilds from this overlay  require the Gnome overlay.
+- You will also need to enable to following overlays to use ebuilds from this
+  overlay:
+    * gnome
+    * sunrise
 
 == INSTALL
 
