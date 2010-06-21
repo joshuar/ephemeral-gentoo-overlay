@@ -1,19 +1,21 @@
-<?xml version="1.0" ?>
-<layman>
-  <overlay
-     type = "git"
-     src  = "git://github.com/joshuar/ephemeral-gentoo-overlay.git"
-     name = "ephemeral"
-     status = "unofficial"
-     contact = "joshua.rich@gmail.com">
-
-    <link>
-      http://github.com/joshuar/ephemeral-gentoo-overlay/tree/master
-    </link>
-
+<repositories version="1.0">
+  <repo quality="experimental" status="unofficial">
+    <name>ephemeral</name>
     <description>
-      A Gentoo overlay with a few multimedia, games, ruby,
-      astronomical applications and a few live ebuilds.
+      An EAPI 2 Gentoo overlay with a live quodlibet ebuild (plus plugins), some roguelikes, misc perl modules, icon/cursor/gtk themes and other misc. apps.
     </description>
-  </overlay>
-</layman>
+    <homepage>
+      http://github.com/joshuar/ephemeral-gentoo-overlay/tree/master
+    </homepage>
+    <owner type="person">
+      <email>joshua.rich@gmail.com</email>
+      <name>Joshua Rich</name>
+    </owner>
+    <source type="git">
+      git://github.com/joshuar/ephemeral-gentoo-overlay.git
+    </source>
+    <feed>
+      http://github.com/joshuar/ephemeral-gentoo-overlay/commits/master.atom
+    </feed>
+  </repo>
+</repositories>
