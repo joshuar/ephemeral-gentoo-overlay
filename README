@@ -34,7 +34,7 @@ You can use this overlay with layman (app-portage/layman). To add the
 overlay, edit the file /etc/layman/layman.cfg and add the following
 url:
 
-http://github.com/joshuar/ephemeral-gentoo-overlay/tree/master%2Foverlay.xml?raw=true
+http://github.com/joshuar/ephemeral-gentoo-overlay/raw/master/overlay.xml
 
 ..to the “overlays:” section. Then re-sync all overlays (layman -S)
 and add this overlay (layman -a ephemeral). Hopefully that worked ok.
