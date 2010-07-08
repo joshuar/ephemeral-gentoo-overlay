@@ -3,8 +3,8 @@
 # $Header: $
 
 DESCRIPTION="Gtk-based reading system console messages like xconsole."
-HOMEPAGE="http://gxconsole.sourceforge.net/"
-SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
+HOMEPAGE="http:/gxconsole.sourceforge.net/"
+SRC_URI="mirror:/sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL"
 SLOT="0"
@@ -30,13 +30,13 @@ src_install() {
 
 pkg_postinst() {
 	echo
-	elog "/dev/console needs to exist for gconsole to work."
+	elog "/dev/xconsole needs to exist for gconsole to work."
 	elog ""
 	elog "You can create it with the following commands:"
 	elog ""
-	elog "    mkfifo /dev/console"
-	elog "    chmod 640 /dev/console"
+	elog "    mkfifo /dev/xconsole"
+	elog "    chmod 640 /dev/xconsole"
 	elog ""
-	elog "Also configure your logger to log to /dev/console."
+	elog "Also configure your logger to log to /dev/xconsole."
 	echo
 }
