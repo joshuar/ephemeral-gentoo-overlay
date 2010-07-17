@@ -42,7 +42,7 @@ src_install() {
 	insinto /usr/share/pixmaps
 	doins junglediskdesktop.png
 	dodoc INSTALL
-	make_desktop_entry /usr/bin/${PN} "Jungle Disk Desktop" \
+	make_desktop_entry /opt/bin/${PN} "Jungle Disk Desktop" \
 		/usr/share/pixmaps/${PN}.png "Application;Network;"
 }
 
