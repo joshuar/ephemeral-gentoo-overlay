@@ -6,7 +6,7 @@
 
 inherit subversion
 
-ESVN_REPO_URI="https://materm.svn.sourceforge.net/svnroot/materm/mrxvt05b"
+ESVN_REPO_URI="http://mrxvt.googlecode.com/svn/trunk/"
 
 DESCRIPTION="Multi-tabbed rxvt clone with XFT, transparent background and CJK support"
 HOMEPAGE="http://materm.sourceforge.net/"
