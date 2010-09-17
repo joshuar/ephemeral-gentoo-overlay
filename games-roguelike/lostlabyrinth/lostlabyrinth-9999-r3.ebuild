@@ -16,11 +16,12 @@ KEYWORDS=""
 
 DEPEND="dev-ruby/racc
 		!dev-lang/ruby:1.9
+		dev-lang/elice
 		>=media-libs/sdl-ttf-2.0
 		>=media-libs/sdl-mixer-1.2
 		>=media-libs/sdl-image-1.2
 		>=media-libs/sdl-gfx-1.2
-		dev-libs/DirectFB"
+		>=media-libs/sdl-net-1.2"
 RDEPEND="${DEPEND}"
 
 
@@ -30,55 +31,28 @@ pkg_setup() {
 }
 
 src_prepare() {
-	# -O2 optimisation level leads to excessive memory
-	# usage when compiling main program, assuming -O3
-	# does worse
-	# --as-needed linker flag causes problems
-	# which I need to work out
-	replace-flags -O3 -O2
-	filter-ldflags -Wl,--as-needed
-
-	# five substitutions:
-	# - add CFLAGS, CXXFLAGS and LDFLAGS to Makefile
-	# - use CXXFLAGS when compiling with g++
-	# - use pkg-config for finding SDL lib flags
-	# - add LDFLAGS to link command line
-	# - don't assume compiler is called g++
-	sed -i  \
-		-e "s:CFLAGS=.*:CFLAGS=${CFLAGS}\nCXXFLAGS=${CXXFLAGS}\nLDFLAGS=${LDFLAGS}:" \
-		-e 's:elice $(CFLAGS):elice $(CXXFLAGS) $(LDFLAGS):' \
-		-e 's:-I/usr/include/SDL -lSDL:`pkg-config --cflags --libs sdl`:' \
-		-e 's:-lSDL_gfx:-lSDL_gfx $(LDFLAGS):' \
-		elice/Makefile || die "sed failed."
-
 	subversion_src_prepare
 }
 
-
 src_compile() {
-	cd elice
-	# firstly, build elice
-	emake || die "emake elice failed."
-	# now build lostlabyrinth
-	emake laby-svn || die "emake laby-svn failed."
+	cd pb
+	elice ${CXXFLAGS} laby.pb
 }
 
 src_install() {
-	cd "${S}/elice/labysvn"
+	cd pb
 
 	exeinto "${gamedir}"
 	insinto "${gamedir}"
 
 	# install binary and support files
-	doexe laby || die "failed installing binary."
+	doexe laby
 	doins {graphics,sounds}.pak \
 		|| die "failed installing support files."
 
 	# install docs
 	dodoc readme.txt readme_spells.txt FAQ_eng.txt \
 		|| die "failed installing documentation."
-
-	cd "${S}/pb"
 
 	# install sounds and images
 	doins laby.xpm ballada.mod archonsoflight.xm \
@@ -96,7 +70,7 @@ src_install() {
 	# install icon, make desktop entry, link binary into bindir
 	newicon laby.xpm ${PN}.xpm
 	games_make_wrapper ${PN} "${gamedir}/laby" "${gamedir}"
-	make_desktop_entry "/usr/games/bin/${PN}" "Lost Labyrinth" ${PN}.xpm "Application;Game;AdventureGame;Roleplaying"
+	make_desktop_entry "/usr/games/bin/${PN}" "Lost Labyrinth" ${PN} "Application;Game;AdventureGame;Roleplaying"
 
 	# check and correct permissions
 	prepgamesdirs
