@@ -18,6 +18,9 @@ KEYWORDS="~*"
 
 IUSE=""
 
+DEPEND="dev-ruby/racc
+	${DEPEND}"
+
 src_unpack() {
 	bzr_src_unpack
 	ruby-ng_src_unpack
