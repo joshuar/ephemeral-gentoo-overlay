@@ -6,20 +6,25 @@ EAPI="2"
 
 inherit font
 
-MY_PV="27"
-MY_PN="imfellplain"
-MY_P="${MY_PN}${MY_PV}"
+MY_P="IMFellTypesClass"
 
 DESCRIPTION="A unique collection of old fonts."
-HOMEPAGE="http://iginomarini.com/fell/"
-SRC_URI="http://iginomarini.com/fell/wp-content/uploads/${MY_P}.zip"
+HOMEPAGE="http://iginomarini.com/fell/the-revival-fonts/"
+SRC_URI="http://iginomarini.com/fell/wp-content/uploads/IMFellTypesClass.zip"
 
 LICENSE="fell-types"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 
-FONT_SUFFIX="ttf"
+FONT_SUFFIX="otf"
+
+
+src_unpack() {
+	mkdir ${S}
+	cd ${S}
+	unpack ${A}
+}
 
 pkg_postinst() {
 	font_pkg_postinst
