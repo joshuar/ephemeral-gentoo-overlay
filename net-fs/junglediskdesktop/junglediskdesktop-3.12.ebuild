@@ -6,7 +6,7 @@ EAPI=2
 
 inherit eutils versionator
 
-MY_PV="$(delete_all_version_separators)00"
+MY_PV="$(delete_all_version_separators)0"
 
 DESCRIPTION="Networked storage/backup using Amazon's S3 service."
 HOMEPAGE="http://www.jungledisk.com"
@@ -43,7 +43,7 @@ src_install() {
 	doins junglediskdesktop.png
 	dodoc INSTALL
 	make_desktop_entry /opt/bin/${PN} "Jungle Disk Desktop" \
-		/usr/share/pixmaps/${PN}.png "Application;System;Network;"
+		/usr/share/pixmaps/${PN}.png "Application;Network;"
 }
 
 pkg_postinst() {
