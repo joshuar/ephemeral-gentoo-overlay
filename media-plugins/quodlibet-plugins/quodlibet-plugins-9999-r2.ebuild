@@ -6,16 +6,29 @@ inherit python mercurial
 
 DESCRIPTION="All official plugins for media-sound/quodlibet."
 HOMEPAGE="http://code.google.com/p/quodlibet/"
-EHG_REPO_URI="https://quodlibet.googlecode.com/hg"
+EHG_REPO_URI="http://quodlibet.googlecode.com/hg"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="automask burn cddb gajim iriver lastfmsubmitd nautilus replaygain"
 
-S=${WORKDIR}/hg/plugins
 PLUGIN_TYPES="editing events playorder songsmenu"
 
+DEPEND="!media-plugins/quodlibet-titlecase
+		!media-plugins/quodlibet-html
+		!media-plugins/quodlibet-cddb
+		!media-plugins/quodlibet-clock
+		!media-plugins/quodlibet-notify
+		!media-plugins/quodlibet-resub
+		!media-plugins/quodlibet-albumart
+		!media-plugins/quodlibet-jep118
+		!media-plugins/quodlibet-reset
+		!media-plugins/quodlibet-importexport
+		!media-plugins/quodlibet-autorating
+		!media-plugins/quodlibet-trayicon
+		!media-plugins/quodlibet-wikipedia
+		!media-plugins/quodlibet-browsefolders"
 RDEPEND=">=media-sound/quodlibet-2.0
 		 automask? ( dev-python/gnome-vfs-python )
 		 burn? ( || ( app-cdr/k3b )
@@ -32,6 +45,7 @@ pkg_setup() {
 }
 
 src_install() {
+	cd ${WORKDIR}/${PN}-${PV}/plugins
 	# remove broken/deprecated plugins
 	test -e ${S}/songsmenu/brainz.py && rm -f ${S}/songsmenu/brainz.py
 
@@ -55,7 +69,7 @@ src_install() {
 
 pkg_postinst() {
 	for dir in ${PLUGIN_TYPES}; do
-		python_mod_compile ${PLUGIN_BASEDIR}/${dir}/*.py
+		python_mod_optimize ${PLUGIN_BASEDIR}/${dir}/*.py
 	done
 }
 
