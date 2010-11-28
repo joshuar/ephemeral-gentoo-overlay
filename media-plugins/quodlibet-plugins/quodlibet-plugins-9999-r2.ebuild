@@ -6,7 +6,7 @@ inherit python mercurial
 
 DESCRIPTION="All official plugins for media-sound/quodlibet."
 HOMEPAGE="http://code.google.com/p/quodlibet/"
-EHG_REPO_URI="https://quodlibet.googlecode.com/hg"
+EHG_REPO_URI="http://quodlibet.googlecode.com/hg"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -45,6 +45,7 @@ pkg_setup() {
 }
 
 src_install() {
+	cd ${WORKDIR}/${PN}-${PV}/plugins
 	# remove broken/deprecated plugins
 	test -e plugins/songsmenu/brainz.py && rm -f plugins/songsmenu/brainz.py
 
