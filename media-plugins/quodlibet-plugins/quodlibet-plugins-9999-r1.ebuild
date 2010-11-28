@@ -13,7 +13,6 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="automask burn cddb gajim iriver lastfmsubmitd nautilus replaygain"
 
-S=${WORKDIR}/hg/plugins
 PLUGIN_TYPES="editing events playorder songsmenu"
 
 DEPEND="!media-plugins/quodlibet-titlecase
@@ -47,7 +46,7 @@ pkg_setup() {
 
 src_install() {
 	# remove broken/deprecated plugins
-	test -e ${S}/songsmenu/brainz.py && rm -f ${S}/songsmenu/brainz.py
+	test -e plugins/songsmenu/brainz.py && rm -f plugins/songsmenu/brainz.py
 
 	# check and remove any plugins that require
 	# external packages and not requested
@@ -63,7 +62,7 @@ src_install() {
 
 	for dir in ${PLUGIN_TYPES}; do
 		insinto ${PLUGIN_BASEDIR}/${dir}
-		doins ${dir}/* || die "failed to install ${dir} plugins."
+		doins plugins/${dir}/* || die "failed to install ${dir} plugins."
 	done
 }
 
