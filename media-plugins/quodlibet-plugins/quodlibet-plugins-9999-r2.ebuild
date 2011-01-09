@@ -45,7 +45,6 @@ pkg_setup() {
 }
 
 src_install() {
-	cd ${WORKDIR}/${PN}-${PV}/plugins
 	# remove broken/deprecated plugins
 	test -e plugins/songsmenu/brainz.py && rm -f plugins/songsmenu/brainz.py
 

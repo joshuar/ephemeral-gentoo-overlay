@@ -36,7 +36,8 @@ src_prepare() {
 
 src_compile() {
 	cd pb
-	elice ${CXXFLAGS} laby.pb
+	elice ${CXXFLAGS} laby.pb \
+		|| die "elice laby failed"
 }
 
 src_install() {
