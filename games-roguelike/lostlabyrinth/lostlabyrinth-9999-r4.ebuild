@@ -4,17 +4,17 @@
 
 EAPI=2
 
-inherit eutils games subversion flag-o-matic
+inherit games mercurial
 
 DESCRIPTION="A roguelike roleplaying game with zelda-like graphics and very high replayability."
 HOMEPAGE="http://www.lostlabyrinth.com"
-ESVN_REPO_URI="http://lostlaby.svn.sourceforge.net/svnroot/lostlaby/"
+EHG_REPO_URI="https://bitbucket.org/wizkoder/lostlabyrinth"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 
-DEPEND="dev-lang/elice
+DEPEND="!dev-lang/elice
 		>=media-libs/sdl-ttf-2.0
 		>=media-libs/sdl-mixer-1.2
 		>=media-libs/sdl-image-1.2
@@ -28,18 +28,16 @@ pkg_setup() {
 	gamedir="${GAMES_PREFIX}/${PN}"
 }
 
-src_prepare() {
-	subversion_src_prepare
-}
-
 src_compile() {
-	cd pb
-	elice ${CXXFLAGS} laby.pb \
+	cd ${S}/elice
+	emake || die "emake elice failed"
+	cd ${S}/pb
+	../elice/elice ${CXXFLAGS} laby.pb \
 		|| die "elice laby failed"
 }
 
 src_install() {
-	cd pb
+	cd ${S}/pb
 
 	exeinto "${gamedir}"
 	insinto "${gamedir}"
