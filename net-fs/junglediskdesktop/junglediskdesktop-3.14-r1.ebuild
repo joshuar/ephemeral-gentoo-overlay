@@ -25,10 +25,10 @@ RDEPEND="sys-fs/fuse
 		 x11-libs/gtk+
 		 dev-libs/atk
 		 dev-libs/glib
-		 x11-libs/pango
 		 x11-libs/cairo
 		 sys-apps/attr
-		 sys-apps/acl"
+		 sys-apps/acl
+		 <=x11-libs/libnotify-0.5.2"
 
 RESTRICT="binchecks strip"
 
