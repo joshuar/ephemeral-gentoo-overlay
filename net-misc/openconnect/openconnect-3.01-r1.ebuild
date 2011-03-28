@@ -19,8 +19,8 @@ DEPEND=">=dev-libs/openssl-0.9.8m
 	dev-libs/libxml2
 	gnome-base/gconf"
 
-RDEPEND="${DEPEND}"
-#	resolvconf? ( net-dns/openresolv )
+RDEPEND="${DEPEND}
+		 sys-apps/iproute2"
 
 src_prepare() {
 	sed -i -e "s|^SSL_CFLAGS.*|SSL_CFLAGS += \$(shell pkg-config --cflags libssl)|" \
@@ -38,6 +38,11 @@ src_install() {
 	doman openconnect.8
 	dodoc AUTHORS README.* TODO
 	dohtml ${PN}.html
+	diropts -m0700
+	dodir "/etc/openconnect"
+	insopts -m0600
+	insinto "/etc/openconnect"
+	doins "${FILESDIR}/openconnect.sh"
 }
 
 pkg_postinst() {
