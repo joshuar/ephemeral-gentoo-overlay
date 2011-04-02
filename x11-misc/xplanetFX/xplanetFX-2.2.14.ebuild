@@ -6,7 +6,7 @@ EAPI="3"
 
 DESCRIPTION="User-friendly interface to configure, run or daemonize xplanet with HQ capabilities"
 HOMEPAGE="http://mein-neues-blog.de/xplanetFX/"
-SRC_URI="http://repository.mein-neues-blog.de:9000/archive/xplanetFX-2.0.20_all.tar.gz"
+SRC_URI="http://repository.mein-neues-blog.de:9000/archive/${P}_all.tar.gz"
 LICENSE="as-is"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
@@ -28,5 +28,5 @@ src_install() {
 	doins share/pixmaps/*
 	insinto /usr/share/${PN}
 	doins -r share/xplanetFX/*
-	fperms 0755 /usr/share/${PN}/{autostart,xplanetFX_gtk,clouds/download_clouds.pl}
+	fperms 0755 /usr/share/${PN}/{autostart,flipview.py,stars/catalog.py,xplanetFX_gtk,clouds/download_clouds.pl}
 }
