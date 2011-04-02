@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=2
+EAPI="3"
 
 DESCRIPTION="User-friendly interface to configure, run or daemonize xplanet with HQ capabilities"
 HOMEPAGE="http://mein-neues-blog.de/xplanetFX/"
