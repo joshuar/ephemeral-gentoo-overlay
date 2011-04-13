@@ -2,13 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI=3
 
 inherit autotools
 
 DESCRIPTION="Free client for Cisco AnyConnect SSL VPN software"
 HOMEPAGE="http://www.infradead.org/openconnect.html"
-SRC_URI="ftp://ftp.infradead.org/pub/${PN}/${P}.tar.gz"
+SRC_URI="ftp://ftp.infradead.org/pub/${PN}/${P}.tar.gz
+		 http://git.infradead.org/users/dwmw2/vpnc-scripts.git/blob_plain/HEAD:/vpnc-script -> openconnect-script"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
@@ -39,12 +40,16 @@ src_install() {
 	dodoc AUTHORS README.* TODO
 	dohtml ${PN}.html
 	diropts -m0700
-	dodir "/etc/openconnect"
-	insopts -m0600
-	insinto "/etc/openconnect"
-	doins "${FILESDIR}/openconnect.sh"
+	dodir /etc/openconnect
+	insopts -m0700
+	insinto /etc/openconnect
+	doins ${DISTDIR}/openconnect-script
 }
 
 pkg_postinst() {
 	elog "Don't forget to turn on TUN support in the kernel."
+	elog ""
+	elog "Please read the Getting Started section on the"
+	elog "openconnect website for using this software:"
+	elog "  ${HOMEPAGE}"
 }
