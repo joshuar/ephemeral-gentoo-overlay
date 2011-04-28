@@ -2,38 +2,35 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header$
 
-EAPI="2"
+EAPI=3
 
-PYTHON_DEPEND="2:2.6"
+SUPPORT_PYTHON_ABIS="1"
+RESTRICT_PYTHON_ABIS="3.*"
 
-inherit distutils eutils mercurial python
+inherit distutils eutils mercurial
 
-DESCRIPTION="Quod Libet is a GTK+-based audio player written in Python."
+DESCRIPTION="Ex Falso / Quod Libet - A Music Library/Editor/Player"
 HOMEPAGE="http://code.google.com/p/quodlibet/"
 EHG_REPO_URI="http://quodlibet.googlecode.com/hg/"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE="dbus gstreamer ipod network rss"
 
-COMMON_DEPEND=">=dev-python/pygtk-2.14"
+COMMON_DEPEND=">=dev-python/pygtk-2"
 RDEPEND="${COMMON_DEPEND}
-	>=media-libs/mutagen-1.19
+	media-libs/mutagen
 	gstreamer? ( dev-python/gst-python:0.10
 		media-libs/gst-plugins-good:0.10
 		media-plugins/gst-plugins-meta:0.10 )
 	!gstreamer? ( media-libs/xine-lib )
 	network? ( media-plugins/gst-plugins-gnomevfs )
 	rss? ( dev-python/feedparser )
-	dbus? ( >=dev-python/dbus-python-0.71 )
-	ipod? ( >=media-libs/libgpod-0.5.2[python] )"
+	dbus? ( dev-python/dbus-python )
+	ipod? ( media-libs/libgpod[python] )"
  DEPEND="${COMMON_DEPEND}
 	dev-util/intltool"
-
-pkg_setup() {
-	python_set_active_version 2
-}
 
 src_prepare() {
 	if ! use gstreamer; then
@@ -44,6 +41,7 @@ src_prepare() {
 	sed -i \
 		-e 's/"gst_pipeline": ""/"gst_pipeline": "alsasink"/' \
 		${PN}/${PN}/config.py || die
+	distutils_src_prepare
 }
 
 src_compile() {
