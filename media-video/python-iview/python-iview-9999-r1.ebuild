@@ -2,7 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=2
+EAPI=3
+
+SUPPORT_PYTHON_ABIS="1"
+RESTRICT_PYTHON_ABIS="3.*"
 
 inherit bzr distutils eutils
 
@@ -12,15 +15,12 @@ EBZR_REPO_URI="http://jeremy.visser.name/bzr/python-iview/"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
-
+KEYWORDS="~amd64"
 IUSE=""
 
 RDEPEND="${DEPEND}
 		 dev-python/beautifulsoup
 		 media-video/rtmpdump"
-
-PYTHON_DEPEND="2:2.6"
 
 DOCS="README"
 
