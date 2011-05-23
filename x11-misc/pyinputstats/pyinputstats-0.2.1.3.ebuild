@@ -10,7 +10,7 @@ inherit distutils
 
 DESCRIPTION="Keyboard and mouse statistics tool"
 HOMEPAGE="http://pypi.python.org/pypi/pyInputStats/"
-SRC_URI="mirror://pypi/p/pyInputStats/${P}.tar.gz"
+SRC_URI="mirror://pypi/p/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
