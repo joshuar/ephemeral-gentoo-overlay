@@ -28,7 +28,7 @@ RDEPEND="sys-fs/fuse
 		 x11-libs/cairo
 		 sys-apps/attr
 		 sys-apps/acl
-		 <=x11-libs/libnotify-0.5.2"
+		 x11-libs/libnotify"
 
 RESTRICT="binchecks strip"
 
