@@ -40,7 +40,7 @@ src_install() {
 		|| die "failed installing support files."
 
 	# install docs
-	dodoc readme.txt FAQ_eng.txt licenses/statement.txt \
+	dodoc readme.txt FAQ_eng.txt licences/statement.txt \
 		|| die "failed installing documentation."
 
 	# install score and settings files
