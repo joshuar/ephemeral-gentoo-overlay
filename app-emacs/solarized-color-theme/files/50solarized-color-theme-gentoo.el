@@ -1,0 +1,5 @@
+(add-to-list 'load-path "@SITELISP@")
+(color-theme-initialize)
+(require 'color-theme-solarized)
+(defalias 'solarized-light 'color-theme-solarized-light)
+(defalias 'solarized-dark 'color-theme-solarized-dark)
