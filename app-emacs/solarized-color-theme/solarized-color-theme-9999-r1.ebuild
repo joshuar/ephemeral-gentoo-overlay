@@ -2,7 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit elisp git
+EAPI=4
+
+inherit elisp git-2
 
 DESCRIPTION="Solarized color theme for Emacs"
 HOMEPAGE="http://github.com/sellout/emacs-color-theme-solarized"
