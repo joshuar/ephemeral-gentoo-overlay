@@ -31,4 +31,5 @@ src_install() {
 	dodoc AUTHORS ChangeLog NEWS README
 	insinto /usr/share/applications
 	doins ${PN}.desktop
+	doicon gnome-logo-icon-transparent.png
 }
