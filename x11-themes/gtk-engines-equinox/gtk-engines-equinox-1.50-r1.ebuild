@@ -10,7 +10,7 @@ SRC_URI="http://gnome-look.org/CONTENT/content-files/121881-equinox-${PV}.tar.gz
 		 http://gnome-look.org/CONTENT/content-files/140449-equinox-themes-${PV}.tar.gz"
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="2"
 KEYWORDS="~amd64"
 IUSE=""
 
