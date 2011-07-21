@@ -34,13 +34,14 @@ G2CONF="$(use_enable nls) \
 		$(use_with gtk3 gtk 3)"
 
 pkg_postinst() {
+	elog "If you are upgrading from a version of nautilus-actions"
+	elog "less than 3.1.0:"
 	if ! use gconf; then
-		elog "If you are upgrading from a version of nautilus-actions"
-		elog "less than 3.1.0, you should re-emerge this package with"
+		elog "Then you should re-emerge this package with"
 		elog "the 'gconf' USE flag enabled to install the migration script"
 		elog "for converting the old configuration files to a new format."
 	else
-		elog "You will need to run a migration script to convert some"
+		elog "Then you will need to run a migration script to convert some"
 		elog "system-wide settings to a new format."
 		elog ""
 		elog "The typical invocation is:"
