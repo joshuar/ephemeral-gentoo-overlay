@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="3"
+EAPI=4
 
 DESCRIPTION="User-friendly interface to configure, run or daemonize xplanet with HQ capabilities"
 HOMEPAGE="http://mein-neues-blog.de/xplanetFX/"
@@ -21,12 +21,10 @@ RDEPEND="${DEPEND}
 S="${WORKDIR}/usr"
 
 src_install() {
-	dobin bin/${PN}
-	insinto /usr/share/applications
-	doins share/applications/${PN}.desktop
-	insinto /usr/share/pixmaps
-	doins share/pixmaps/*
-	insinto /usr/share/${PN}
-	doins -r share/xplanetFX/*
-	fperms 0755 /usr/share/${PN}/{autostart,flipview.py,stars/catalog.py,xplanetFX_gtk,clouds/download_clouds.pl}
+	insinto /usr
+	doins -r *
+	fperms 0755 /usr/bin/xplanetFX \
+		/usr/share/xplanetFX/{autostart,xplanetFX_gtk} \
+		/usr/share/xplanetFX/stars/catalog.py \
+		/usr/share/xplanetFX/clouds/download_clouds.pl
 }
