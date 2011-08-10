@@ -4,7 +4,7 @@
 
 EAPI=4
 
-inherit autotools git-2
+inherit autotools bash-completion git-2
 
 DESCRIPTION="Clipboard management system"
 HOMEPAGE="https://github.com/Keruspe/GPaste"
@@ -42,4 +42,13 @@ src_configure() {
 			$(use_enable nls) \
 			$(use_enable applet)"
 	econf ${myconf}
+}
+
+src_install() {
+	emake DESTDIR="${D}" install
+	dodoc AUTHORS NEWS TODO
+	insinto /usr/share/bash-completion
+	doins completions/*
+	test -e ${D}/usr/share/glib-2.0/schemas/gschemas.compiled && \
+		rm ${D}/usr/share/glib-2.0/schemas/gschemas.compiled
 }
