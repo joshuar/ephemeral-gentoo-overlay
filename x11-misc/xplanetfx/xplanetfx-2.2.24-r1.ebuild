@@ -16,6 +16,7 @@ IUSE=""
 RDEPEND="${DEPEND}
 		 x11-misc/xplanet
 		 media-gfx/imagemagick[perl]
+		 sys-devel/bc
 		 dev-python/pygtk"
 
 S="${WORKDIR}/usr"
