@@ -1,0 +1,13 @@
+--- immscore/fetcher.cc.orig	2011-06-13 13:05:58.424121361 +1000
++++ immscore/fetcher.cc	2011-06-13 13:07:18.457120812 +1000
+@@ -68,7 +68,9 @@
+     at.commit();
+ 
+     if (!data.isok()) {
+-        LOG(DEBUG) << "Fetch failed: " << data.get_path() << endl;
++#ifdef DEBUG
++        cerr << "Fetch failed: " << data.get_path() << endl;
++#endif
+         return false;
+     }
+ 

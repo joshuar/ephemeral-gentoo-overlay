@@ -2,37 +2,37 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=2
+EAPI=4
 
-inherit autotools eutils python versionator
+inherit autotools eutils
 
-MY_PV=$(replace_version_separator _ -)
-MY_P="${PN}-${MY_PV}"
-
+MY_PV=${PV/_/-}
 DESCRIPTION="Adaptive playlist framework for dynamically adapting to your listening patterns."
 HOMEPAGE="http://imms.luminal.org/"
-SRC_URI="http://imms.googlecode.com/files/${MY_P}.tar.bz2"
+SRC_URI="http://imms.googlecode.com/files/${PN}-${MY_PV}.tar.bz2"
 LICENSE="GPL-2"
-
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
-IUSE="+analyzer +remote vorbis xscreensaver"
+KEYWORDS="~amd64"
+IUSE="+analyzer remote vorbis +xscreensaver"
 
-DEPEND=">=dev-db/sqlite-3
-		>=dev-libs/glib-2
+DEPEND="dev-db/sqlite:3
+		dev-libs/glib:2
 		>=dev-libs/libpcre-4.3
-		dev-libs/glib
-		|| ( >=media-libs/id3lib-3.8.0 >=media-libs/taglib-1.0 )
+		>=dev-util/pkgconfig-0.9.0
 		analyzer? ( >=sci-libs/fftw-3.0 >=sci-libs/torch-3 >=media-sound/sox-14.0 )
 		remote? ( >=gnome-base/libglade-2.0 >=x11-libs/gtk+-2 )
+		|| ( >=media-libs/taglib-1.0 >=media-libs/id3lib-3.8.0 )
 		vorbis? ( media-libs/libvorbis )
-		xscreensaver? ( x11-misc/xscreensaver )"
+		xscreensaver? ( x11-libs/libXext
+						x11-libs/libXScrnSaver
+						x11-libs/libX11 )"
 
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${PN}-${MY_PV}"
 
 src_prepare() {
-	sed -i -e "s|^LDFLAGS=.*|LDFLAGS=${LDFLAGS} -L. @LIBS@|" \
-		vars.mk.in || die "sed vars.mk.in failed"
+	epatch ${FILESDIR}/${P}-fetcher-debuglog.patch
+	epatch ${FILESDIR}/${P}-configure.ac.patch
+	sed -i -e "s:^LDFLAGS=:LDFLAGS=${LDFLAGS} :" vars.mk.in || die "sed failed"
 	eautoreconf
 }
 

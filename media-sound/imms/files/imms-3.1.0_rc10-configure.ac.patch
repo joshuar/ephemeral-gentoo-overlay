@@ -1,0 +1,47 @@
+--- configure.ac.orig	2011-06-13 13:17:52.863189643 +1000
++++ configure.ac	2011-06-13 13:24:01.086586217 +1000
+@@ -78,11 +78,11 @@
+ 
+ AC_MSG_CHECKING([for --enable-debug])
+ 
+-XCPPFLAGS="-ggdb -O0 -DDEBUG"
++XCPPFLAGS=""
+ if test "$enable_debug" != "yes"; then
+-    XCPPFLAGS="-O3"
+     AC_MSG_RESULT([no])
+ else
++    XCPPFLAGS="-ggdb -O0 -DDEBUG"
+     AC_MSG_RESULT([yes])
+ fi
+ 
+@@ -165,10 +165,10 @@
+ dnl extract target and architecture if objdump was found
+ if test "x$OBJDUMP" = "x"; then :; else
+     AC_MSG_CHECKING(for object target)
+-    octarget=`$OBJDUMP --info | sed -ne '2p'` # extract first target
++    octarget=`$OBJDUMP --info 2> /dev/null | sed -ne '2p'` # extract first target
+     AC_MSG_RESULT($octarget)
+     AC_MSG_CHECKING(for object architecture)
+-    ocarch=`$OBJDUMP --info | sed -ne '4p'` # extract corresponding arch
++    ocarch=`$OBJDUMP --info 2> /dev/null | sed -ne '4p'` # extract corresponding arch
+     AC_MSG_RESULT($ocarch)
+ fi
+ AC_SUBST(OBJCOPYTARGET, $octarget)
+@@ -262,7 +262,7 @@
+ fi
+ 
+ if test "$with_screensaver" != "no"; then
+-    LDFLAGS="-L/usr/X11R6/lib"
++    LDFLAGS="-lX11 -lXext -lXss"
+     AC_CHECK_LIB(X11, XFlush,, [with_screensaver=no])
+     AC_CHECK_LIB(Xext, XextFindDisplay,, [with_screensaver=no])
+     AC_CHECK_LIB(Xss, XScreenSaverQueryInfo,, [with_screensaver=no])
+@@ -273,7 +273,7 @@
+     AC_MSG_WARN([XScreenSaver is missing.])
+ else
+     AC_DEFINE(WITH_XSCREENSAVER,, [XScreenSaver extension])
+-    AC_APPEND(LIBS, -L/usr/X11R6/lib)
++    AC_APPEND(LIBS, -lX11 -lXext -lXss)
+ fi
+ 
+ if test "$enable_immsremote" != "no"; then
