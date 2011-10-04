@@ -46,5 +46,5 @@ src_configure() {
 src_install() {
 	emake DESTDIR="${D}" install
 	dodoc AUTHORS NEWS TODO
-	dobashcomp completions/* || die
+	dobashcomp data/completions/* || die
 }
