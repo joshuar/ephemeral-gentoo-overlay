@@ -6,7 +6,7 @@ EAPI=3
 
 PYTHON_DEPEND="2:2.5"
 
-inherit cmake-utils python
+inherit cmake-utils multilib python systemd
 
 DESCRIPTION="Daemon that controls how the Linux kernel will spend it's resources on the running processes"
 HOMEPAGE="https://github.com/poelzi/ulatencyd/"
@@ -30,6 +30,12 @@ src_prepare() {
 	sed -i -e 's:${CMAKE_INSTALL_PREFIX}/man:${CMAKE_INSTALL_PREFIX}/share/man:g' \
 		docs/CMakeLists.txt \
 		|| die "sed fix man page installation failed"
+	sed -i -e "s:DESTINATION lib/ulatencyd:DESTINATION $(get_libdir)/ulatencyd:" \
+		src/CMakeLists.txt \
+		|| die "sed multilib fix failed"
+	sed -i -e "s:DESTINATION lib/ulatencyd:DESTINATION $(get_libdir)/ulatencyd:" \
+		modules/CMakeLists.txt \
+		|| die "sed multilib fix failed"
 	if ! use doc; then
 		sed -i -e '11,93 s:^:#:' \
 			docs/CMakeLists.txt \
