@@ -14,7 +14,7 @@ SRC_URI="mirror://sourceforge/crawl-ref/${MY_P}-nodeps.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+debug lua sound +tiles"
+IUSE="debug lua sound +tiles"
 
 S="${WORKDIR}/${MY_P}"
 
