@@ -4,15 +4,15 @@
 
 EAPI=4
 
-inherit autotools bash-completion-r1 git-2
+inherit autotools bash-completion-r1
 
 DESCRIPTION="Clipboard management system"
 HOMEPAGE="https://github.com/Keruspe/GPaste"
-EGIT_REPO_URI="https://github.com/Keruspe/GPaste.git"
+SRC_URI="https://github.com/downloads/Keruspe/GPaste/${P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 
 IUSE="debug gnome-shell nls applet"
 
@@ -22,12 +22,6 @@ DEPEND=">=dev-lang/vala-0.13.4
 		x11-libs/gtk+
 		nls? ( virtual/libintl )"
 RDEPEND="${DEPEND}"
-
-src_prepare() {
-	mkdir m4
-	eautoreconf
-	intltoolize --force --copy --automake
-}
 
 src_configure() {
 	local myconf
