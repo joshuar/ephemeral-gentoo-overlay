@@ -14,7 +14,7 @@ SRC_URI="mirror://sourceforge/crawl-ref/${MY_P}-nodeps.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="debug lua sound +tiles"
+IUSE="debug sound +tiles wizard"
 
 S="${WORKDIR}/${MY_P}"
 
@@ -22,7 +22,7 @@ DEPEND="sys-libs/ncurses[unicode]
 		sys-devel/bison
 		sys-devel/flex
 		dev-libs/libpcre[cxx]
-		lua? ( dev-lang/lua )
+		dev-lang/lua
 		dev-db/sqlite:3
 		tiles? ( dev-util/pkgconfig
 				 media-libs/libpng
@@ -59,17 +59,36 @@ src_prepare() {
 
 src_compile() {
 	cd ${S}*/source
-	emake || die "make failed."
+	if use wizard; then
+		emake wizard || die "make wizard failed."
+	else
+		emake || die "make failed."
+	fi
 }
 
 src_install() {
 	cd ${S}*
 	dodoc README.* CREDITS.txt docs/*.{txt,pdf,html}
 	doman docs/crawl.6
-	doicon ${FILESDIR}/${PN}.png
-	make_desktop_entry ${PN} "Dungeon Crawl Stone Soup" ${PN}
+	if use tiles; then
+		doicon ${FILESDIR}/${PN}.png
+		make_desktop_entry ${PN} "Dungeon Crawl Stone Soup" ${PN}
+	fi
 	cd ${S}*/source
-	emake DESTDIR=${D} install \
-		|| die "make install failed."
+	if use wizard; then
+		emake DESTDIR=${D} wizard install \
+			|| die "make wizard install failed."
+	else
+		emake DESTDIR=${D} install \
+			|| die "make install failed."
+	fi
 	prepgamesdirs
+}
+
+pkg_postinst() {
+	if ! use tiles; then
+		echo
+		elog "You need a UTF-8 locale to play crawl."
+		echo
+	fi
 }
