@@ -9,7 +9,7 @@ inherit gnome2
 DESCRIPTION="Support for making Gmail the default mail application for the GNOME desktop."
 HOMEPAGE="http://gnome-gmail.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/Version_${PV}/${P}.tar.gz"
-LICENSE=""
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 IUSE="nls"
@@ -17,8 +17,8 @@ IUSE="nls"
 DEPEND="${RDEPEND}
 		>=dev-util/intltool-0.23
 		>=dev-lang/perl-5.8.1
-		dev-python/gnome-keyring-python"
-
+		dev-python/gnome-keyring-python
+		dev-python/gconf-python"
 
 pkg_setup() {
 		G2CONF="${G2CONF}
