@@ -1,7 +1,7 @@
 <repositories xmlns="" version="1.0">
   <repo quality="experimental" status="unofficial">
     <name><![CDATA[ephemeral]></name>
-    <description lang="en"><![CDATA[An EAPI 2 Gentoo overlay with a live quodlibet ebuild (plus plugins), some roguelikes, misc perl modules, icon/cursor/gtk themes and other misc. apps.]]></description>
+    <description lang="en"><![CDATA[Some roguelikes, perl modules, themes, multimedia and other utilities]]></description>
     <homepage>http://github.com/joshuar/ephemeral-gentoo-overlay/tree/master</homepage>
     <owner type="person">
       <email>joshua.rich@gmail.com</email>
