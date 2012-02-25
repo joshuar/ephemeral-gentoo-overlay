@@ -25,19 +25,12 @@ gtk+/xcursor/icon themes and a few random X11 apps.
 - This overlay requires a version of portage that is EAPI 2 compatible.
 - You will also need to enable to following overlays to use ebuilds from this
   overlay:
-    * gnome
     * sunrise
 
 == INSTALL
 
-You can use this overlay with layman (app-portage/layman). To add the
-overlay, edit the file /etc/layman/layman.cfg and add the following
-url:
-
-http://github.com/joshuar/ephemeral-gentoo-overlay/raw/master/overlay.xml
-
-..to the “overlays:” section. Then re-sync all overlays (layman -S)
-and add this overlay (layman -a ephemeral). Hopefully that worked ok.
+You can use this overlay with layman (app-portage/layman). Re-sync all
+overlays (layman -S) and add this overlay (layman -a ephemeral).
 
 == FEEDBACK
 
