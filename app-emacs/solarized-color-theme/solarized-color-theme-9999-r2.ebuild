@@ -4,6 +4,8 @@
 
 EAPI=4
 
+NEED_EMACS="24"
+
 inherit elisp git-2
 
 DESCRIPTION="Solarized color theme for Emacs"
@@ -14,9 +16,6 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
-
-DEPEND="app-emacs/color-theme"
-RDEPEND="${DEPEND}"
 
 SITEFILE="50${PN}-gentoo.el"
 
