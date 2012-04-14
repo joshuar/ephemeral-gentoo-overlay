@@ -4,6 +4,7 @@
 
 EAPI="3"
 
+PYTHON_DEPEND="2"
 PYTHON_USE_WITH="sqlite"
 
 inherit distutils
@@ -18,6 +19,10 @@ KEYWORDS="~amd64"
 IUSE=""
 
 RDEPEND="${DEPEND}
-		 dev-python/python-xlib
-		 dev-python/pysqlite:2
-		 dev-python/pygtk:2"
+	dev-python/python-xlib
+	dev-python/pysqlite:2
+	dev-python/pygtk:2"
+
+pkg_setup() {
+    python_set_active_version 2
+}
