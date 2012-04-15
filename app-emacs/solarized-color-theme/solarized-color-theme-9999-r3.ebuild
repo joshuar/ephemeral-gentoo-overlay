@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI="4"
 
-NEED_EMACS="24"
+NEED_EMACS="23"
 
 inherit elisp git-2
 
@@ -16,6 +16,9 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
+
+RDEPEND="app-emacs/color-theme
+		 ${DEPEND}"
 
 SITEFILE="50${PN}-gentoo.el"
 
