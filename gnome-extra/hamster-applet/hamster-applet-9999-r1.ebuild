@@ -2,10 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI="4"
 
-PYTHON_USE_WITH="tk"
 PYTHON_DEPEND="2:2.4"
+PYTHON_USE_WITH="tk"
 
 inherit git-2 python waf-utils
 
@@ -31,6 +31,10 @@ src_unpack() {
 	git-2_src_unpack
 }
 
+src_prepare() {
+	python_convert_shebangs -r 2 .
+}
+
 pkg_postinst() {
 	python_mod_optimize hamster
 }
@@ -38,4 +42,3 @@ pkg_postinst() {
 pkg_postrm() {
 	python_mod_cleanup hamster
 }
-
