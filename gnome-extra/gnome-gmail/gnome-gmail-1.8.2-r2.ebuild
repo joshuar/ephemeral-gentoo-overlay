@@ -4,7 +4,9 @@
 
 EAPI=4
 
-inherit gnome2
+PYTHON_DEPEND="2:2.4"
+
+inherit gnome2 python
 
 DESCRIPTION="Support for making Gmail the default mail application for the GNOME desktop."
 HOMEPAGE="http://gnome-gmail.sourceforge.net/"
@@ -21,7 +23,12 @@ DEPEND="${RDEPEND}
 		dev-python/gconf-python"
 
 pkg_setup() {
-		G2CONF="${G2CONF}
-				$(use_enable nls)"
-		DOCS="AUTHORS ChangeLog NEWS README"
+	python_set_active_version 2
+	python_pkg_setup
+	G2CONF="${G2CONF} $(use_enable nls)"
+	DOCS="AUTHORS ChangeLog NEWS README"
+}
+
+src_prepare() {
+	python_convert_shebangs -r 2 .
 }
