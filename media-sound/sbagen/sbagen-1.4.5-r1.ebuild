@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=2
+EAPI=4
 
 inherit flag-o-matic
 
@@ -10,15 +10,14 @@ DESCRIPTION="Binaural tones generator."
 HOMEPAGE="http://uazu.net/sbagen"
 SRC_URI="http://uazu.net/${PN}/${P}.tgz
 		 http://uazu.net/sbagen/sbagen-river-1.4.1.tgz"
-
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc"
+IUSE=""
 
 DEPEND="${DEPEND}
 		media-libs/libmad
-		media-libs/libvorbisidec"
+		media-libs/tremor"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
@@ -26,9 +25,8 @@ src_prepare() {
 }
 
 src_compile() {
-	append-flags "-DMP3_DECODE -DOGG_DECODE -DT_LINUX"$(pkg-config --cflags --libs mad)
-	$(tc-getCC) ${CFLAGS} sbagen.c ${LDFLAGS} \
-		-lvorbisidec -lpthread -o sbagen \
+	append-flags "-DMP3_DECODE -DOGG_DECODE -DT_LINUX"$(pkg-config --cflags --libs mad vorbisidec)
+	$(tc-getCC) ${CFLAGS} sbagen.c ${LDFLAGS} -lpthread -o sbagen \
 		|| die "compile sbagen failed."
 }
 
