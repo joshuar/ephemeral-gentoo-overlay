@@ -6,14 +6,13 @@ EAPI=4
 
 inherit eutils
 
-DESCRIPTION="This is a sample skeleton ebuild file"
-HOMEPAGE="http://foo.bar.com/"
+DESCRIPTION="GUI for verifying and repairing PAR and PAR2 recovery sets"
+HOMEPAGE="http://sourceforge.net/projects/parchive/"
 SRC_URI="mirror://sourceforge/project/parchive/${PN}/${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
-
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="app-arch/libpar2
