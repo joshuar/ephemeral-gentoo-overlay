@@ -4,6 +4,7 @@
 
 EAPI=4
 
+EGIT_COMMIT='b7d3594cef'
 inherit git-2 waf-utils
 
 DESCRIPTION="Shell extension for hamster applet"
