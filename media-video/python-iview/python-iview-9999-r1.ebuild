@@ -15,7 +15,7 @@ EBZR_REPO_URI="http://jeremy.visser.name/bzr/python-iview/"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="${DEPEND}

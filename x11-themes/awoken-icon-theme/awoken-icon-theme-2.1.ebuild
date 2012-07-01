@@ -13,7 +13,7 @@ SRC_URI="http://www.deviantart.com/download/163570862/${MY_PN}_by_alecive-d2pdw3
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="minimal"
 
 RDEPEND="!minimal? ( x11-themes/gnome-icon-theme )

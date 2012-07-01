@@ -9,7 +9,7 @@ HOMEPAGE="http://mein-neues-blog.de/xplanetFX/"
 SRC_URI="http://repository.mein-neues-blog.de:9000/archive/${P}_all.tar.gz"
 LICENSE="as-is"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 IUSE=""
 
