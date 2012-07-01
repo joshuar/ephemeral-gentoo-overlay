@@ -1,0 +1,6 @@
+CPP             = $(CXX) $(CXXFLAGS)
+RCC             = rcc
+UIC             = uic
+MOC             = moc
+CFLAGS          += -DCOMPILE_ALSA -DCOMPILE_JACK -DNDEBUG
+BITS		  = 64
