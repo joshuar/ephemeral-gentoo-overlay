@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 PYTHON_DEPEND="2:2.5"
 
@@ -26,6 +26,11 @@ DEPEND="dev-libs/dbus-glib
 "
 RDEPEND="${DEPEND}"
 
+pkg_setup() {
+	python_set_active_version 2
+	python_pkg_setup
+}
+
 src_prepare() {
 	sed -i -e 's:${CMAKE_INSTALL_PREFIX}/man:${CMAKE_INSTALL_PREFIX}/share/man:g' \
 		docs/CMakeLists.txt \
@@ -41,6 +46,7 @@ src_prepare() {
 			docs/CMakeLists.txt \
 			|| die "sed remove doc installation failed"
 	fi
+	python_convert_shebangs -r 2 .
 }
 
 src_install() {
