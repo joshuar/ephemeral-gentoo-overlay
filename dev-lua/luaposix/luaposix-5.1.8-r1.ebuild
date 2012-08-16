@@ -4,7 +4,7 @@
 
 EAPI=4
 
-inherit toolchain-funcs flag-o-matic
+inherit toolchain-funcs flag-o-matic multilib
 
 DESCRIPTION="POSIX bindings for Lua"
 HOMEPAGE="http://git.alpinelinux.org/cgit/luaposix.git"
@@ -18,6 +18,10 @@ IUSE=""
 RDEPEND=">=dev-lang/lua-5.1"
 DEPEND="${RDEPEND}"
 
+src_prepare() {
+	sed -i -e "s|^LUALIB=.*|LUALIB=\$(PREFIX)/$(get_libdir)/lua/\$(LUAVERSION)|" \
+		Makefile || die
+}
 
 src_compile() {
 	append-flags -fPIC
@@ -30,5 +34,8 @@ src_compile() {
 }
 
 src_install() {
-	emake DESTDIR=${D} PREFIX=/usr install || die
+	emake \
+		DESTDIR=${D} \
+		PREFIX=/usr \
+		install || die
 }
