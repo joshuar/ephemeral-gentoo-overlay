@@ -1,5 +1,0 @@
-#!/bin/sh
-
-DATA_DIR_PATH=/usr/share/games/crawl
-cd ${DATA_DIR_PATH}
-exec /usr/games/bin/crawl
