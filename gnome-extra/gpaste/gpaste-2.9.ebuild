@@ -4,7 +4,9 @@
 
 EAPI=4
 
-inherit autotools bash-completion-r1 vala
+VALA_MIN_API_VERSION=0.14
+
+inherit autotools bash-completion-r1 eutils vala
 
 DESCRIPTION="Clipboard management system"
 HOMEPAGE="https://github.com/Keruspe/GPaste"
@@ -12,7 +14,7 @@ SRC_URI="https://github.com/downloads/Keruspe/GPaste/${P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 
 IUSE="debug gnome-shell nls applet"
 
@@ -22,8 +24,6 @@ DEPEND=">=dev-lang/vala-0.14
 		x11-libs/gtk+:3
 		nls? ( >=dev-util/intltool-0.40 )"
 RDEPEND="${DEPEND}"
-
-VALA_MIN_API_VERSION=0.14
 
 src_configure() {
 	local myconf
