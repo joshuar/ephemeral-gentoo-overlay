@@ -25,6 +25,13 @@ DEPEND=">=dev-lang/vala-0.14
 		nls? ( >=dev-util/intltool-0.40 )"
 RDEPEND="${DEPEND}"
 
+src_prepare() {
+	sed -i -e '/--warn-error/d' bindings/gi.mk \
+		|| die "sed failed"
+	vala_src_prepare
+	eautoreconf
+}
+
 src_configure() {
 	local myconf
 	if ! use debug; then
@@ -36,7 +43,7 @@ src_configure() {
 			$(use_enable gnome-shell gnome-shell-extension) \
 			$(use_enable nls) \
 			$(use_enable applet)"
-	econf ${myconf}
+	econf ${myconf} --disable-silent-rules
 }
 
 src_install() {
