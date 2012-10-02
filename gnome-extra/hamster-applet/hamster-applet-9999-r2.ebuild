@@ -11,7 +11,7 @@ inherit git-2 python waf-utils
 
 DESCRIPTION="Time tracking for the masses"
 HOMEPAGE="http://projecthamster.wordpress.com/"
-EGIT_REPO_URI="git://git.gnome.org/hamster-applet"
+EGIT_REPO_URI="https://github.com/projecthamster/hamster"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
