@@ -6,15 +6,14 @@ EAPI=4
 
 VALA_MIN_API_VERSION=0.14
 
-inherit autotools bash-completion-r1 eutils vala
+inherit autotools bash-completion-r1 eutils gnome2 vala
 
 DESCRIPTION="Clipboard management system"
 HOMEPAGE="https://github.com/Keruspe/GPaste"
 SRC_URI="https://github.com/downloads/Keruspe/GPaste/${P}.tar.xz"
-
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 IUSE="debug gnome-shell nls applet"
 
@@ -30,24 +29,25 @@ src_prepare() {
 		|| die "sed failed"
 	vala_src_prepare
 	eautoreconf
+	gnome2_src_prepare
 }
 
 src_configure() {
-	local myconf
 	if ! use debug; then
-		myconf="--enable-silent-rules"
+		G2CONF="--enable-silent-rules"
 	else
-		mconf="--disable-silent-rules"
+		G2CONF="--disable-silent-rules"
 	fi
-	myconf="${myconf} \
+	G2CONF="${myconf} \
 			$(use_enable gnome-shell gnome-shell-extension) \
 			$(use_enable nls) \
 			$(use_enable applet)"
-	econf ${myconf} --disable-silent-rules
+	export G2CONF
+	gnome2_src_configure
 }
 
 src_install() {
-	emake DESTDIR="${D}" install
+	gnome2_src_install
 	dodoc AUTHORS NEWS TODO
 	dobashcomp data/completions/* || die
 }
