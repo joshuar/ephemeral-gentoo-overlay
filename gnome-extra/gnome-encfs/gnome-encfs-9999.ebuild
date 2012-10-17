@@ -4,18 +4,24 @@
 
 EAPI=4
 
-inherit mercurial
+PYTHON_DEPEND="2"
 
-DESCRIPTION="This is a sample skeleton ebuild file"
-HOMEPAGE="http://foo.example.org/"
+inherit mercurial python
+
+DESCRIPTION="Integrates EncFS folders into the GNOME desktop by storing their passwords in the keyring and optionally mounting them at login"
+HOMEPAGE="https://bitbucket.org/obensonne/gnome-encfs/"
 EHG_REPO_URI="http://bitbucket.org/obensonne/gnome-encfs"
-LICENSE=""
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 RDEPEND="dev-python/pygtk
 		 dev-python/gnome-keyring-python
 		 sys-fs/encfs"
+
+src_prepare() {
+	python_convert_shebangs -r 2 .
+}
 
 src_install() {
 	dobin gnome-encfs
