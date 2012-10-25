@@ -36,6 +36,6 @@ DEPEND="dev-perl/Crypt-SSLeay
 
 RDEPEND="${DEPEND}
 		 app-cdr/cdrkit
-		 app-emulation/qemu-kvm"
+		 app-emulation/qemu"
 
 S="${WORKDIR}/${MY_P}"
