@@ -21,7 +21,8 @@ RDEPEND="dev-perl/Audio-FLAC-Header
 		 dev-perl/MP3-Tag
 		 dev-perl/Number-Compare
 		 dev-perl/File-Find-Rule
-		 dev-perl/Proc-ParallelLoop"
+		 dev-perl/Proc-ParallelLoop
+		 dev-perl/File-Which"
 
 S="${WORKDIR}/${MY_P}"
 
